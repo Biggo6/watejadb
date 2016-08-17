@@ -11,6 +11,6 @@ class AppController extends BaseController{
 		}
 	}
 	public function dashboard(){
-		
+		return View::make('dashboard');
 	}
 }
