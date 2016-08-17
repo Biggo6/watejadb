@@ -13,5 +13,12 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('login');
+});
+
+Route::post('/doLogin', ['as'=>'app.doLogin', 'uses'=>'AppController@doLogin']);	
+
+Route::group(['before'=>'auth'], function(){
+	// All auth routes goes here
+ 	Route::get('dashboard', ['as'=>'app.dashboard', 'uses'=>'AppController@dashboard']);	
 });
