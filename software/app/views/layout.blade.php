@@ -40,7 +40,7 @@
                     <!--- Profile -->
                     <div class="profile-info">
                         <div class="col-xs-4">
-                            <a href="profile.html" class="rounded-image profile-image"><img src="images/users/user-100.jpg"></a>
+                            <a href="profile.html" class="rounded-image profile-image"><img src="{{url('images/user.png')}}"></a>
                         </div>
                         <div class="col-xs-8">
                             <div class="profile-text">Login as <b>{{Auth::user()->username}}</b></div>

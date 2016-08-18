@@ -121,7 +121,7 @@
                             </li>
                             <li class="dropdown iconify hide-phone"><a href="#" onclick="javascript:toggle_fullscreen()"><i class="icon-resize-full-2"></i></a></li>
                             <li class="dropdown topbar-profile">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="{{url('images/user.png')}}"></span> Jane <strong>Doe</strong> <i class="fa fa-caret-down"></i></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="{{url('images/user.png')}}"></span> <strong>{{Auth::user()->username}}</strong> <i class="fa fa-caret-down"></i></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">My Profile</a></li>
                                     <li><a href="#">Change Password</a></li>
