@@ -99,69 +99,6 @@
 </div>
 <!-- End of info box -->
 
-<div class="row">
-    <div class="col-lg-12 portlets">
-        <div id="website-statistics1" class="widget">
-            <div class="widget-header transparent">
-                <h2><i class="icon-chart-line"></i> <strong>Website</strong> Statistics</h2>
-                <div class="additional-btn">
-                    <a href="#" class="hidden reload"><i class="icon-ccw-1"></i></a>
-                    <a class="hidden" id="dropdownMenu1" data-toggle="dropdown">
-                        <i class="fa fa-cogs"></i>
-                    </a>
-                    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                    <a href="#" class="widget-popout hidden tt" title="Pop Out/In"><i class="icon-publish"></i></a>
-                    <a href="#" class="widget-maximize hidden"><i class="icon-resize-full-1"></i></a>
-                    <a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
-                    <a href="#" class="widget-close"><i class="icon-cancel-3"></i></a>
-                </div>
-            </div>
-            <div class="widget-content">
-                <div id="website-statistic" class="statistic-chart">    
-                    <div class="row stacked">
-                        <div class="col-sm-12">
-                            <div class="toolbar">
-                                <div class="pull-left">
-                                    <div class="btn-group">
-                                        <a href="#" class="btn btn-default btn-xs">Daily</a>
-                                        <a href="#" class="btn btn-default btn-xs active">Monthly</a>
-                                        <a href="#" class="btn btn-default btn-xs">Yearly</a>
-                                    </div>
-                                </div>
-                                <div class="pull-right">
-                                    <div class="btn-group">
-                                        <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                            Export <i class="icon-down-open-2"></i>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right" role="menu">
-                                            <li><a href="#">Export as PDF</a></li>
-                                            <li><a href="#">Export as CSV</a></li>
-                                            <li><a href="#">Export as PNG</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Separated link</a></li>
-                                        </ul>
-                                    </div>
-                                    <a href="#" class="btn btn-primary btn-xs"><i class="icon-cog-2"></i></a>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div id="morris-home" class="morris-chart" style="height: 270px;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-</div>
 
 
 @stop

@@ -43,7 +43,7 @@
                             <a href="profile.html" class="rounded-image profile-image"><img src="images/users/user-100.jpg"></a>
                         </div>
                         <div class="col-xs-8">
-                            <div class="profile-text">Welcome <b>Jane</b></div>
+                            <div class="profile-text">Login as <b>{{Auth::user()->username}}</b></div>
                             <div class="profile-buttons">
                                 <a href="javascript:;"><i class="fa fa-envelope-o pulse"></i></a>
                                 <a href="#connect" class="open-right"><i class="fa fa-comments"></i></a>
