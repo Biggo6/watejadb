@@ -19,4 +19,7 @@ Route::group(['before' => 'auth'], function() {
     Route::get('dashboard', ['as' => 'app.dashboard', 'uses' => 'AppController@dashboard']);
     //Logout
     Route::get('logout', ['as' => 'app.logout', 'uses' => 'AppController@logout']);
+    //Company codes
+    Route::get('company/add',['as'=>'company.add', 'uses'=>'CompanyController@add']);
+    Route::get('company/manage',['as'=>'company.manage', 'uses'=>'CompanyController@manage']);
 });

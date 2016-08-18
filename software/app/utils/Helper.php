@@ -9,6 +9,7 @@
 class Helper {
 
     public static function activeRoute($route) {
+        
         if (Route::currentRouteName() == $route) {
             return "active";
         } else {

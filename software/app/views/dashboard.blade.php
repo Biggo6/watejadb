@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('breadcrumb')
+<li><a href="#">Home</a></li><li class="active">Dashboard</li>
+@stop
+
 @section('content')
 
 <div class="row top-summary">
@@ -100,5 +104,26 @@
 <!-- End of info box -->
 
 
+
+@stop
+
+@section('specific_js_libs')
+
+<script src="{{url('assets/libs/d3/d3.v3.js')}}"></script>
+<script src="{{url('assets/libs/rickshaw/rickshaw.min.js')}}"></script>
+<script src="{{url('assets/libs/raphael/raphael-min.js')}}"></script>
+<script src="{{url('assets/libs/morrischart/morris.min.js')}}"></script>
+<script src="{{url('assets/libs/jquery-knob/jquery.knob.js')}}"></script>
+<script src="{{url('assets/libs/jquery-jvectormap/js/jquery-jvectormap-1.2.2.min.js')}}"></script>
+<script src="{{url('assets/libs/jquery-jvectormap/js/jquery-jvectormap-world-mill-en.js')}}"></script>
+<script src="{{url('assets/libs/jquery-clock/clock.js')}}"></script>
+<script src="{{url('assets/libs/jquery-easypiechart/jquery.easypiechart.min.js')}}"></script>
+<script src="{{url('assets/libs/jquery-weather/jquery.simpleWeather-2.6.min.js')}}"></script>
+<script src="{{url('assets/libs/bootstrap-xeditable/js/bootstrap-editable.min.js')}}"></script>
+<script src="{{url('assets/libs/bootstrap-calendar/js/bic_calendar.min.js')}}"></script>
+<script src="{{url('assets/js/apps/calculator.js')}}"></script>
+<script src="{{url('assets/js/apps/todo.js')}}"></script>
+<script src="{{url('assets/js/apps/notes.js')}}"></script>
+<script src="{{url('assets/js/pages/index2.js')}}"></script>
 
 @stop

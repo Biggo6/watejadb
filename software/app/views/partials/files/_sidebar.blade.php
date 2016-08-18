@@ -25,12 +25,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                <a href='{{route('company.add')}}' class=' {{ Helper::activeRoute('company.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Company </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                <a href='{{route('company.manage')}}' class=' {{ Helper::activeRoute('company.manage') }} '>
                     <span><i class="fa fa-list"></i> Manage Company </span>
                 </a>
             </li>
@@ -116,6 +116,16 @@
             <li>
                 <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
                     <span><i class="fa fa-list"></i> Manage Businesses </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add Sub-Business </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                    <span><i class="fa fa-list"></i> Manage Sub-Businesses </span>
                 </a>
             </li>
         </ul>

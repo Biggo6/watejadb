@@ -61,10 +61,10 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>
-                   
+
                     <div class="clearfix"></div><br><br><br>
                 </div>
-               
+
             </div>
 
 
@@ -72,7 +72,7 @@
             <!-- Start right content -->
             <div class="content-page">
                 <ol class="breadcrumb">
-                    <li><a href="#">Home</a></li><li class="active">Dashboard v1</li>
+                    @yield('breadcrumb')
                 </ol>			
 
 
@@ -97,11 +97,13 @@
             <!-- End right content -->
 
         </div>
-        
+
         <!-- End of page -->
         <!-- the overlay modal element -->
         <div class="md-overlay"></div>
         <!-- End of eoverlay modal -->
         @include('incs.footer')
+        <!-- Page Specific JS Libraries -->
+        @yield('specific_js_libs')
     </body>
 </html>
