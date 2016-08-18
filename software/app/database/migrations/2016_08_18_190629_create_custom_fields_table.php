@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateCompaniesTable extends Migration {
+class CreateCustomFieldsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,16 +12,15 @@ class CreateCompaniesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('companies', function(Blueprint $table)
+		Schema::create('custom_fields', function(Blueprint $table)
 		{
 			$table->integer('id', true);
 			$table->string('name', 100);
-			$table->string('email', 100);
-			$table->string('phone', 100);
-			$table->string('website', 100);
-			$table->string('location', 100);
-			$table->integer('business_id');
-			$table->string('street', 100);
+			$table->integer('module_id');
+			$table->integer('active');
+			$table->string('field_type', 100);
+			$table->string('field_value', 100);
+			$table->integer('mandatory');
 			$table->timestamps();
 		});
 	}
@@ -34,7 +33,7 @@ class CreateCompaniesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('companies');
+		Schema::drop('custom_fields');
 	}
 
 }

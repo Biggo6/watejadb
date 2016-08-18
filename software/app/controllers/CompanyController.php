@@ -10,4 +10,5 @@ class CompanyController extends BaseController{
     public function add(){
         return View::make('companies.add');
     }
+   
 }

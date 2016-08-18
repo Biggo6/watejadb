@@ -203,13 +203,8 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
-                    <span><i class="fa fa-plus"></i> Add Licence Key </span>
-                </a>
-            </li>
-            <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
-                    <span><i class="fa fa-list"></i> Manage Licence Keyes </span>
+                <a href='{{route('app.configuration')}}' class=' {{ Helper::activeRoute('app.configuration') }} '>
+                    <span><i class="fa fa-list"></i> Manage Config</span>
                 </a>
             </li>
         </ul>

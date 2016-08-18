@@ -36,6 +36,11 @@
         <link href="{{url('assets/libs/bootstrap-xeditable/css/bootstrap-editable.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{url('assets/css/style.css" rel="stylesheet')}}" type="text/css" />
         <!-- Extra CSS Libraries End -->
+        <link href="{{url('assets/libs/jquery-datatables/css/dataTables.bootstrap.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{url('assets/libs/jquery-datatables/extensions/TableTools/css/dataTables.tableTools.css')}}" rel="stylesheet" type="text/css" />
+
+
+
 <link href="{{url('assets/css/style-responsive.css')}}" rel="stylesheet" />
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

@@ -1,5 +1,8 @@
 @extends('layout')
 
+@section('breadcrumb')
+<li><a href="#">Home</a></li><li><a href="#">Companies</a></li><li class="active">Add Company</li>
+@stop
 
 @section('content')
 
@@ -87,7 +90,7 @@
                         </div>
                         <div class="col-sm-6">
                             <label>Logo</label><br/>
-                            <input type="file" id="logo" name="logo" class="btn btn-default validate[required]" data-errormessage-value-missing="Logo is required!" data-prompt-position="bottomRight" title="Select Logo Image"
+                            <input type="file" id="logo" name="logo" class="btn btn-default" data-errormessage-value-missing="Logo is required!" data-prompt-position="bottomRight" title="Select Logo Image"
                             	
                              />
                              <hr/>

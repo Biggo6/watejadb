@@ -9,7 +9,8 @@
 	},
 	"require-dev": {
 	    "way/generators": "~2.0",
-	    "xethron/migrations-generator": "dev-master"
+	    "xethron/migrations-generator": "dev-master",
+	    "nathanmac/laravel-guid": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

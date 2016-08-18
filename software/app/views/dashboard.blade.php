@@ -126,4 +126,6 @@
 <script src="{{url('assets/js/apps/notes.js')}}"></script>
 <script src="{{url('assets/js/pages/index2.js')}}"></script>
 
+
+
 @stop

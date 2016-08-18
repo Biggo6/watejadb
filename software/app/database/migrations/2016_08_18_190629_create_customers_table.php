@@ -38,6 +38,7 @@ class CreateCustomersTable extends Migration {
 			$table->string('physical_postcode', 100);
 			$table->string('state', 100);
 			$table->string('photo', 100);
+			$table->string('data_source', 100);
 			$table->string('country', 100);
 			$table->timestamps();
 			$table->integer('company_id');
