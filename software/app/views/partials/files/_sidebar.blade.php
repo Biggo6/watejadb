@@ -1,1 +1,234 @@
- <ul><li class='has_sub'><a href='javascript:void(0);'><i class='icon-home-3'></i><span>Dashboard</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='index.html'><span>Dashboard v1</span></a></li><li><a href='index2.html' class='active'><span>Dashboard v2</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><i class='icon-feather'></i><span>UI Elements</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='alerts.html'><span>Alerts</span></a></li><li><a href='buttons.html'><span>Buttons</span></a></li><li><a href='calendar.html'><span>Calendar</span></a></li><li><a href='grid.html'><span>Grid</span></a></li><li><a href='icons.html'><span>Icons</span></a></li><li><a href='modals.html'><span>Modals</span></a></li><li><a href='nested-list.html'><span>Nested List</span></a></li><li><a href='notifications.html'><span>Notifications</span></a></li><li><a href='portlets.html'><span>Portlets</span></a></li><li><a href='progress-bars.html'><span>Progress Bars</span></a></li><li><a href='tabs-accordions.html'><span>Tabs & Accordions</span></a></li><li><a href='typography.html'><span>Typography</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><i class='icon-pencil-3'></i><span>Forms</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='forms.html'><span>Form Elements</span></a></li><li><a href='advanced-forms.html'><span>Advanced Forms</span></a></li><li><a href='form-wizard.html'><span>Form Wizard</span></a></li><li><a href='form-validation.html'><span>Form Validation</span></a></li><li><a href='form-uploads.html'><span>File Uploads</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-table'></i><span>Tables</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='tables.html'><span>Basic Tables</span></a></li><li><a href='datatables.html'><span>Datatables</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-map-marker'></i><span>Maps</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='google-maps.html'><span>Google Maps</span></a></li><li><a href='vector-maps.html'><span>Vector Maps</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><i class='fa fa-envelope'></i><span>Email</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='inbox.html'><span>Inbox</span></a></li><li><a href='read-message.html'><span>View Email</span></a></li><li><a href='new-message.html'><span>New Message</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><i class='icon-chart-line'></i><span>Charts</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='sparkline-charts.html'><span>Sparkline Charts</span></a></li><li><a href='morris-charts.html'><span>Morris Charts</span></a></li><li><a href='rickshaw-charts.html'><span>Rickshaw Charts</span></a></li><li><a href='other-charts.html'><span>Other Charts</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><i class='icon-megaphone'></i><span>Extras</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='blank.html'><span>Blank Page</span></a></li><li><a href='login.html'><span>Login</span></a></li><li><a href='register.html'><span>Register</span></a></li><li><a href='lockscreen.html'><span>Lock Screen</span></a></li><li><a href='404.html'><span>404 Error</span></a></li><li><a href='500.html'><span>500 Error</span></a></li><li><a href='profile.html'><span>User Profile</span></a></li><li><a href='invoice.html'><span>Invoice</span></a></li><li><a href='gallery.html'><span>Gallery</span></a></li><li><a href='maintenance.html'><span>Maintenance</span></a></li><li class='has_sub'><a href='javascript:void(0);'><span>3 Level menu</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='javascript:void(0);'><span>Sub Item</span></a></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><span>4 Level Menu</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li class='has_sub'><a href='javascript:void(0);'><span>Sub Item - level 3</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='javascript:void(0);'><span>Sub Item - level 4</span></a></li></ul></li></ul></li><li class='has_sub'><a href='javascript:void(0);'><span>Submenu with icons</span> <span class="pull-right"><i class="fa fa-angle-down"></i></span></a><ul><li><a href='javascript:void(0);'><i class='fa fa-camera'></i><span>Item with icon</span></a></li><li><a href='javascript:void(0);'><i class='entypo entypo-users'></i><span>Another Item</span></a></li></ul></li></ul></li></ul>  
+<ul>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='icon-home-3'></i>
+            <span>Home</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('app.dashboard') }} '>
+                    <span><i class="fa fa-dashboard"></i> Dashboard </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-bank'></i>
+            <span>Companies</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add Company </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                    <span><i class="fa fa-list"></i> Manage Company </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-users'></i>
+            <span>Users</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add User </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                    <span><i class="fa fa-list"></i> Manage Users </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-key'></i>
+            <span>Roles</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add Role </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                    <span><i class="fa fa-list"></i> Manage Roles </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-magic'></i>
+            <span>Permissions</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add Permission </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                    <span><i class="fa fa-list"></i> Manage Permissions </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-briefcase'></i>
+            <span>Business</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add Business </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                    <span><i class="fa fa-list"></i> Manage Businesses </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-th'></i>
+            <span>Packages</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add Package </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                    <span><i class="fa fa-list"></i> Manage Packages </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-dollar'></i>
+            <span>Subscription</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add Subscription </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                    <span><i class="fa fa-list"></i> Manage Subscriptions </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-lock'></i>
+            <span>Licences</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add Licence Key </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                    <span><i class="fa fa-list"></i> Manage Licence Keyes </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-wrench'></i>
+            <span>Configuration</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add Licence Key </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                    <span><i class="fa fa-list"></i> Manage Licence Keyes </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-line-chart'></i>
+            <span>Reports</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add Licence Key </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                    <span><i class="fa fa-list"></i> Manage Licence Keyes </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
+
+
+
+

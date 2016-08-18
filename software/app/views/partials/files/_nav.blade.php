@@ -37,7 +37,7 @@
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right top-navbar">
-                            <li class="dropdown iconify hide-phone">
+<!--                            <li class="dropdown iconify hide-phone">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i><span class="label label-danger absolute">4</span></a>
                                 <ul class="dropdown-menu dropdown-message">
                                     <li class="dropdown-header notif-header"><i class="icon-bell-2"></i> New Notifications<a class="pull-right" href="#"><i class="fa fa-cog"></i></a></li>
@@ -118,7 +118,7 @@
                                     </li>
                                     <li class="dropdown-footer"><div class=""><a href="#" class="btn btn-sm btn-block btn-primary"><i class="fa fa-share"></i> See all messages</a></div></li>
                                 </ul>
-                            </li>
+                            </li>-->
                             <li class="dropdown iconify hide-phone"><a href="#" onclick="javascript:toggle_fullscreen()"><i class="icon-resize-full-2"></i></a></li>
                             <li class="dropdown topbar-profile">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="rounded-image topbar-profile-image"><img src="{{url('images/user.png')}}"></span> <strong>{{Auth::user()->username}}</strong> <i class="fa fa-caret-down"></i></a>
