@@ -24,7 +24,7 @@ $region = Region::find($id);
         </select>
     </div>
     <button type="button" id="upadteRegion" class="btn btn-success">UPDATE</button>
-    <button type="button" id="cancelRegion" class="btn btn-danger">CANCEL</button>
+    <a href="{{route('app.configuration.regions')}}"><button type="button" id="cancelRegion_" class="btn btn-danger">CANCEL</button></a>
     <br/>
     <br/>
 </form>
@@ -35,7 +35,7 @@ $region = Region::find($id);
 <script type="text/javascript">
 $(function(){
     $('#cancelRegion').on('click', function(){
-        //Wateja.refreshViewFromServer('regionsArea', '{{route("app.configuration.refreshRegions")}}');
+        Wateja.refreshViewFromServer('regionsArea', '{{route("app.configuration.refreshRegions")}}');
         Wateja.refreshViewFromServer('regionFormArea', '{{route("app.configuration.refreshAddRegion")}}');
     });
     $('#upadteRegion').on('click', function(){
@@ -53,7 +53,8 @@ $(function(){
                 if(res.error){
                     Wateja.showFeedBack(regionForm, res.msg, res.error);
                 }else{
-                    Wateja.showFeedBack(regionFBk, res.msg, res.error);                                                                                               Wateja.refreshViewFromServer('regionFormArea', '{{route("app.configuration.refreshAddRegion")}}');                                                                                                                                                                                                     
+
+                    window.location = '{{route("app.configuration.redirecthRegions")}}';   //                                                                                            Wateja.refreshViewFromServer('regionFormArea', '{{route("app.configuration.refreshAddRegion")}}');                                                                                                                                                                                                     
                 }               
             });
         }

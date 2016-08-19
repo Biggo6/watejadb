@@ -55,7 +55,8 @@ Route::group(['before' => 'auth'], function() {
     Route::post('app/configuration/updateRegion', ['as'=>'app.configuration.updateRegion', 'uses'=>'ConfigController@updateRegion']);
 
     // Manage Regions
-    Route::get('app/configuration/regions', ['as'=>'app.configuration.regions', 'uses'=>'RegionController@index']);    
+    Route::get('app/configuration/regions', ['as'=>'app.configuration.regions', 'uses'=>'RegionController@index']);  
+    Route::get('app/configuration/redirecthRegions', ['as'=>'app.configuration.redirecthRegions', 'uses'=>'RegionController@redirectWith']);  
     // Manage Districts
     Route::get('app/configuration/districts', ['as'=>'app.configuration.districts', 'uses'=>'DistrictController@index']);    
 

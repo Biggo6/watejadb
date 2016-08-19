@@ -40,6 +40,7 @@
 
                                     <div class="widget-content">
                                         <br>	
+                                        @include('partials.files._success')
                                         <div id="regionFBk"></div>		
                                         <div id="regionsArea">		
                                             <div class="table-responsive" >
