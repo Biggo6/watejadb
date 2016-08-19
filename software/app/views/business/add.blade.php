@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('breadcrumb')
-<li><a href="#">Home</a></li><li class="active">Dashboard</li>
+<li><a href="#">Home</a></li><li><a href="#">Manage Business</a></li><li class="active">Add Business</li>
 @stop
 
 @section('content')
@@ -27,7 +27,8 @@
                                 <option value="0">Block</option>
                             </select>
                         </div>
-                        <button type="button" id="buzSave" class="btn btn-primary">SAVE</button>
+                        <button type="button" id="buzSaveNew" class="btn btn-primary">SAVE</button>
+                        <button type="button" id="buzSave" class="btn btn-success">SAVE & NEW</button>
                         <br/>
                         <br/>
                     </form>

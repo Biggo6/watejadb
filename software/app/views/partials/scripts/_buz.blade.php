@@ -3,6 +3,26 @@
 <script type="text/javascript">
 $(function(){
 
+    $('#buzSaveNew').click(function(){
+        
+        var registerForm =  $("#buzForm").validationEngine('validate');
+
+        var data = Wateja.getAllFormData(buzForm);
+
+        if(registerForm){
+            Wateja.applyOpacity(buzForm);
+            Wateja.talkToServer("{{route('business.store')}}", data).then(function(res){
+                Wateja.removeOpacity(buzForm);
+
+                if(res.error){
+                    Wateja.showFeedBack(buzForm, res.msg, res.error);
+                }else{
+                   window.location = '{{route("business.redirectWith")}}';                                                                                                                                                                                                                                                                                                
+                }
+            });
+        }
+
+    });
 	
 
 	$('#buzSave').click(function(){

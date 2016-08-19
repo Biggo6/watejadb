@@ -9,10 +9,48 @@
 
 @include('partials.scripts._dependencies')
 
+@if($config == "business")
+<script type="text/javascript">
+
+function tryToDelete(el){
+
+	
+
+		if(Wateja.confirmDialog('Are you sure')){
+			var id = (Wateja.getProp(el, 'rowid'));
+			var url = $(el).attr('url');
+			
+			Wateja.getParent(el,2).css('opacity', 0.2);
+			Wateja.talkToServer(url, {id:id}).then(function(res){
+				Wateja.showFeedBack(regionFBk, res.msg, false);
+				Wateja.refreshViewFromServer('regionsArea', '{{route("business.refresh")}}');
+			});
+		}
+	
+
+	
+}
+
+function tryToEdit(el){
+
+	var id = (Wateja.getProp(el, 'rowid'));
+	var url = $(el).attr('url');
+			
+	Wateja.getParent(el,2).css('opacity', 0.2);
+	Wateja.talkToServer(url, {id:id}).then(function(res){
+		$('#manage-area').html(res).hide().fadeIn(); 
+	});
+
+
+}
+
+</script>
+@endif
+
 @if($config == 'districts')
 
 
-@else
+@elseif($config == "regions")
 
 <script type="text/javascript">
 

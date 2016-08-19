@@ -89,7 +89,12 @@
                             <label>Business</label>
                             <select id="business" type="text" class="form-control validate[required]" data-errormessage-value-missing="Business is required!" data-prompt-position="bottomRight" name="business"
                             	
-                            ></select><br/>
+                            >
+                            <option value="">-- Select Business -- </option>
+                            @foreach(Business::where('active', 1)->get() as $r)
+                                    <option value="{{$r->id}}">{{$r->name}}</option>
+                                @endforeach
+                        </select><br/>
                            {{--  <label>Sub-Business</label>
                             <select id="sub-business" type="text" class="form-control validate[required]" data-errormessage-value-missing="Sub-Business is required!" data-prompt-position="bottomRight" name="sub-business"
                                 

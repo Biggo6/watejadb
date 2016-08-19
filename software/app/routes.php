@@ -23,6 +23,12 @@ Route::group(['before' => 'auth'], function() {
     Route::get('business/index',['as'=>'business.index', 'uses'=>'BusinessController@index']);
     Route::get('business/add',['as'=>'business.add', 'uses'=>'BusinessController@add']);
     Route::post('business/store',['as'=>'business.store', 'uses'=>'BusinessController@store']);
+    Route::post('business/delete',['as'=>'business.delete', 'uses'=>'BusinessController@delete']);
+    Route::post('business/edit',['as'=>'business.edit', 'uses'=>'BusinessController@edit']);
+    Route::get('business/refresh',['as'=>'business.refresh', 'uses'=>'BusinessController@refresh']);
+    Route::post('business/update',['as'=>'business.update', 'uses'=>'BusinessController@update']);
+    Route::get('business/redirectWith',['as'=>'business.redirectWith', 'uses'=>'BusinessController@redirectWith']);
+
 
     //Company codes
     Route::get('company/add',['as'=>'company.add', 'uses'=>'CompanyController@add']);
