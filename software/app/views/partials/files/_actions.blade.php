@@ -13,9 +13,6 @@
 <script type="text/javascript">
 
 function tryToDelete(el){
-
-	
-
 		if(Wateja.confirmDialog('Are you sure')){
 			var id = (Wateja.getProp(el, 'rowid'));
 			var url = $(el).attr('url');
@@ -26,9 +23,6 @@ function tryToDelete(el){
 				Wateja.refreshViewFromServer('regionsArea', '{{route("business.refresh")}}');
 			});
 		}
-	
-
-	
 }
 
 function tryToEdit(el){
@@ -49,8 +43,39 @@ function tryToEdit(el){
 
 @if($config == 'districts')
 
+<script type="text/javascript">
 
-@elseif($config == "regions")
+function tryToDelete(el){
+		if(Wateja.confirmDialog('Are you sure')){
+			var id = (Wateja.getProp(el, 'rowid'));
+			var url = $(el).attr('url');
+			Wateja.getParent(el,2).css('opacity', 0.2);
+			Wateja.talkToServer(url, {id:id}).then(function(res){
+				Wateja.showFeedBack(districtFBk, res.msg, false);
+				Wateja.refreshViewFromServer('districtsArea', '{{route("districts.refresh")}}');
+			});
+		}
+}
+
+function tryToEdit(el){
+
+	var id = (Wateja.getProp(el, 'rowid'));
+	var url = $(el).attr('url');
+			
+	Wateja.getParent(el,2).css('opacity', 0.2);
+	Wateja.talkToServer(url, {id:id}).then(function(res){
+		Wateja.getParent(el,2).css('opacity', 1);
+		$('#districtFormArea').html(res).hide().fadeIn(); 
+	});
+
+
+}
+
+</script>
+
+@endif
+
+@if($config == "regions")
 
 <script type="text/javascript">
 
@@ -94,8 +119,10 @@ function tryToEdit(el){
 	editMode = true;
 	var url = $(el).attr('url');
 	Wateja.applyOpacity(regionFormArea);
+	Wateja.getParent(el,2).css('opacity', 0.2);
 	Wateja.talkToServer(url, {id:id}, false, 'get').then(function(res){
 		Wateja.removeOpacity(regionFormArea);
+		Wateja.getParent(el,2).css('opacity', 1);
 		$(regionFormArea).html(res).hide().fadeIn();
 	});
 

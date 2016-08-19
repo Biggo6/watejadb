@@ -27,7 +27,7 @@
                     <td>{{Region::find($d->region_id)->name}}</td>
                     <td>{{Helper::getStatus($d->active)}}</td>
                     <td>{{Carbon::parse($d->created_at)->format('Y-m-d h:i:s')}}</td>
-                    <td>{{Helper::generateActions($d->id, route('app.configuration.deleteDistrict'), route('app.configuration.editDistrict'))}}</td>
+                    <td>{{Helper::generateActions($d->id, route('app.configuration.deleteDistrict'), route('app.configuration.editDistrict'), 'districts')}}</td>
                 </tr>
                 <?php $i++; ?>
                 @endforeach

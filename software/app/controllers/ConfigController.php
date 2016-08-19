@@ -83,7 +83,8 @@ class ConfigController  extends BaseController{
     
 
     public function editDistrict(){
-
+        $id = Input::get('id');
+        return View::make('partials.files._editDistrict', compact('id'));
     }
 
     public function storeDistrict(){
@@ -142,6 +143,7 @@ class ConfigController  extends BaseController{
     public function deleteDistrict(){
         $id = Input::get('id');
         sleep(1);
+        District::find($id)->delete();
         return Response::json([
                 'msg'   => ' Successfully deleted!',
                 'error' => false

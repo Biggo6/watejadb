@@ -47,7 +47,7 @@ Route::group(['before' => 'auth'], function() {
     Route::get('app/configuration/refreshAddRegion', ['as'=>'app.configuration.refreshAddRegion', 'uses'=>'ConfigController@refreshAddRegion']);
 
     Route::get('app.configuration.editRegion', ['as'=>'app.configuration.editRegion', 'uses'=>'ConfigController@editRegion']);
-    Route::get('app.configuration.editDistrict', ['as'=>'app.configuration.editDistrict', 'uses'=>'ConfigController@editDistrict']);
+    Route::post('app.configuration.editDistrict', ['as'=>'app.configuration.editDistrict', 'uses'=>'ConfigController@editDistrict']);
 
     Route::post('app/configuration/deleteRegion', ['as'=>'app.configuration.deleteRegion', 'uses'=>'ConfigController@deleteRegion']);
     Route::post('app/configuration/deleteDistrict', ['as'=>'app.configuration.deleteDistrict', 'uses'=>'ConfigController@deleteDistrict']);
@@ -58,7 +58,9 @@ Route::group(['before' => 'auth'], function() {
     Route::get('app/configuration/regions', ['as'=>'app.configuration.regions', 'uses'=>'RegionController@index']);  
     Route::get('app/configuration/redirecthRegions', ['as'=>'app.configuration.redirecthRegions', 'uses'=>'RegionController@redirectWith']);  
     // Manage Districts
-    Route::get('app/configuration/districts', ['as'=>'app.configuration.districts', 'uses'=>'DistrictController@index']);    
+    Route::get('app/configuration/districts', ['as'=>'app.configuration.districts', 'uses'=>'DistrictController@index']); 
+    Route::get('districts/refresh', ['as'=>'districts.refresh', 'uses'=>'DistrictController@refresh']);   
+    Route::post('app/configuration/updateDistrict', ['as'=>'app.configuration.updateDistrict', 'uses'=>'DistrictController@updateDistrict']);
 
 
 

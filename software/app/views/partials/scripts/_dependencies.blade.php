@@ -41,14 +41,32 @@ function getAllFormData(el){
 	return $(el).serializeArray();
 }
 
-function showFeedBack(el, str, error=true){
-	if(!error){
-		var newDiv = $('<div/>').addClass('alert alert-success flush').html('<h5><i class="fa fa-check-circle"></i> ' + str + '</h5>').delay(1000).fadeOut();
+function showFeedBack(el, str, error=true, url=null){
+
+	if(url != null){
+		if(!error){
+			var newDiv = $('<div/>').addClass('alert alert-success flush').html('<h5><i class="fa fa-check-circle"></i> ' + str + '</h5>').delay(1000).fadeOut('normal', function(){
+					window.location = url;
+			});
+		}else{
+			var newDiv = $('<div/>').addClass('alert alert-danger flush').html('<h5><i class="fa fa-close"></i> ' + str + '</h5>').delay(1000).fadeOut('normal', function(){
+					window.location = url;
+			});	
+		}
+	  	$(el).before(newDiv);
 	}else{
-		var newDiv = $('<div/>').addClass('alert alert-danger flush').html('<h5><i class="fa fa-close"></i> ' + str + '</h5>').delay(1000).fadeOut();	
-	}
-  	$(el).before(newDiv);
+
+		if(!error){
+			var newDiv = $('<div/>').addClass('alert alert-success flush').html('<h5><i class="fa fa-check-circle"></i> ' + str + '</h5>').delay(1000).fadeOut();
+		}else{
+			var newDiv = $('<div/>').addClass('alert alert-danger flush').html('<h5><i class="fa fa-close"></i> ' + str + '</h5>').delay(1000).fadeOut();	
+		}
+	  	$(el).before(newDiv);
+
+  	}
 }
+
+
 
 function logIt(str){
 	if(this.debug){
