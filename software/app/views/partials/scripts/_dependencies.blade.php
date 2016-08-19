@@ -86,6 +86,8 @@ function refreshViewFromServer(view, url){
 }
 
 function talkToServer(url, data, isFileUpload=false, method='post', dataType='text', el=null,type='post'){
+
+
 	
 	if(isFileUpload){
 		var promise = $.ajax({
@@ -114,8 +116,7 @@ function talkToServer(url, data, isFileUpload=false, method='post', dataType='te
 			
 			var p  = $.post(url,data);
 			return p;
-		}else{
-			
+		}else{		
 			var g  = $.get(url,data);
 			return g;
 		}		

@@ -109,16 +109,16 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                <a href='{{route('business.add')}}' class=' {{ Helper::activeRoute('business.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Business </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                <a href='{{route('business.index')}}' class=' {{ Helper::activeRoute('business.index') }} '>
                     <span><i class="fa fa-list"></i> Manage Businesses </span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Sub-Business </span>
                 </a>
@@ -127,7 +127,7 @@
                 <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
                     <span><i class="fa fa-list"></i> Manage Sub-Businesses </span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </li>
     <li class='has_sub'>
@@ -202,11 +202,21 @@
             </span>
         </a>
         <ul>
-            <li>
+            {{-- <li>
                 <a href='{{route('app.configuration')}}' class=' {{ Helper::activeRoute('app.configuration') }} '>
                     <span><i class="fa fa-list"></i> Manage Config</span>
                 </a>
-            </li>
+            </li> --}}
+            <li>
+                <a href='{{route('app.configuration.regions')}}' class=' {{ Helper::activeRoute('app.configuration.regions') }} '>
+                    <span><i class="fa fa-list"></i> Manage Regions</span>
+                </a>
+            </li> 
+            <li>
+                <a href='{{route('app.configuration.districts')}}' class=' {{ Helper::activeRoute('app.configuration.districts') }} '>
+                    <span><i class="fa fa-list"></i> Manage Districts</span>
+                </a>
+            </li> 
         </ul>
     </li>
     <li class='has_sub'>

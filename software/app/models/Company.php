@@ -6,6 +6,6 @@
  * and open the template in the editor.
  */
 
-class Company extends \Illuminate\Database\Eloquent{
+class Company extends Eloquent{
     protected $table = "companies";
 }

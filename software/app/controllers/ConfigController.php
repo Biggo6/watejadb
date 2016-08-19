@@ -79,9 +79,56 @@ class ConfigController  extends BaseController{
     		]);
     	}
     }
+
+    
+
+    public function editDistrict(){
+
+    }
+
+    public function storeDistrict(){
+
+        if(!count(Input::all())){
+            return;
+        }
+
+        $name    = Input::get('district_name');
+        $region  = Input::get('district_region');
+        $status  = Input::get('district_active');
+
+        $check = District::where('name', $name)->where('region_id', $region)->count();
+
+        if($check){
+            return Response::json([
+                'msg'   => 'Region already registred',
+                'error' => true
+            ]);
+        }else{
+
+            $d = new District;
+            $d->name = $name;
+            $d->region_id = $region;
+            $d->active = $status;
+            $d->save();
+
+            return Response::json([
+                'msg'   => 'Successfully saved!',
+                'error' => false
+            ]);
+        }
+
+        
+    }
+
+
     public function refreshRegions(){
     	return View::make('partials.files._regions');
     }
+
+    public function refreshDistricts(){
+        return View::make('partials.files._districts');   
+    }
+
     public function deleteRegion(){
     	$id = Input::get('id');
     	sleep(1);
@@ -90,6 +137,15 @@ class ConfigController  extends BaseController{
                 'msg'   => ' Successfully deleted!',
                 'error' => false
     		]);
+    }
+
+    public function deleteDistrict(){
+        $id = Input::get('id');
+        sleep(1);
+        return Response::json([
+                'msg'   => ' Successfully deleted!',
+                'error' => false
+            ]);
     }
 
 }

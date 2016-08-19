@@ -17,9 +17,7 @@
     <br/>
 </form>
 
-@include('partials.scripts._dependencies')
+
 
 @include('partials.scripts._addRegion')
 
-@include('partials.scripts._onlyJquery')
-@include('partials.scripts._datatable')

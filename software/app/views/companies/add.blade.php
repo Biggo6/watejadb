@@ -89,7 +89,11 @@
                             <label>Business</label>
                             <select id="business" type="text" class="form-control validate[required]" data-errormessage-value-missing="Business is required!" data-prompt-position="bottomRight" name="business"
                             	
-                            ></select>
+                            ></select><br/>
+                           {{--  <label>Sub-Business</label>
+                            <select id="sub-business" type="text" class="form-control validate[required]" data-errormessage-value-missing="Sub-Business is required!" data-prompt-position="bottomRight" name="sub-business"
+                                
+                            ></select> --}}
                         </div>
                         <div class="col-sm-6">
                             <label>Logo</label><br/>
@@ -134,6 +138,7 @@
 </div>
 
 @include('partials.scripts._company');
+
 
 
 @stop

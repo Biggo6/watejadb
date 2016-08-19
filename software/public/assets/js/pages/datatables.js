@@ -1,6 +1,8 @@
 $(function(){
 	$(".datatables-1").dataTable();
 
+    $(".datatables2").dataTable();
+
 	var table = $('#datatables-2').DataTable();
  
     $("#datatables-2 tfoot th").each( function ( i ) {

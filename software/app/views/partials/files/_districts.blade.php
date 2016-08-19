@@ -5,32 +5,35 @@
                 <tr>
                     <th>#</th>
                     <th>Name</th>
+                    <th>Region</th>
                     <th>Status</th>
                     <th>Created At</th>
                     <th>Actions</th>
                 </tr>
             </thead>
 
-           
+
 
             <tbody >
-                
-                <?php $i=1; $regions = Region::orderBy('created_at','DESC')->get(); ?>
 
-                @foreach($regions as $r)
+                <?php $i = 1;
+                $districts = District::orderBy('created_at', 'DESC')->get();
+                ?>
+
+                @foreach($districts as $d)
                 <tr>
                     <td>{{$i}}</td>
-                    <td>{{$r->name}}</td>
-                    <td>{{Helper::getStatus($r->active)}}</td>
-                    <td>{{Carbon::parse($r->created_at)->format('Y-m-d h:i:s')}}</td>
-                    <td>{{Helper::generateActions($r->id, route('app.configuration.deleteRegion'), route('app.configuration.editRegion'))}}</td>
+                    <td>{{$d->name}}</td>
+                    <td>{{Region::find($d->region_id)->name}}</td>
+                    <td>{{Helper::getStatus($d->active)}}</td>
+                    <td>{{Carbon::parse($d->created_at)->format('Y-m-d h:i:s')}}</td>
+                    <td>{{Helper::generateActions($d->id, route('app.configuration.deleteDistrict'), route('app.configuration.editDistrict'))}}</td>
                 </tr>
                 <?php $i++; ?>
                 @endforeach
-                
+
             </tbody>
         </table>
     </form>
 </div>
-@include('partials.scripts._onlyJquery')
-@include('partials.scripts._datatable')
+
