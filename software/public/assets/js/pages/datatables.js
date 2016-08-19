@@ -1,5 +1,5 @@
 $(function(){
-	$("#datatables-1").dataTable();
+	$(".datatables-1").dataTable();
 
 	var table = $('#datatables-2').DataTable();
  

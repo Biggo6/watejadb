@@ -1,3 +1,4 @@
+
 @include('partials.scripts._dependencies')
 @include('partials.scripts._ve')
 <script type="text/javascript">

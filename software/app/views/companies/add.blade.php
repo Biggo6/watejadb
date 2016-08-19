@@ -40,9 +40,12 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <label>Region</label>
-                            <select id="region" type="text" class="form-control validate[required]" data-errormessage-value-missing="Region is required!" data-prompt-position="bottomRight" name="region"
-                            
-                            ></select>
+                            <select id="region" type="text" class="form-control validate[required]" data-errormessage-value-missing="Region is required!" data-prompt-position="bottomRight" name="region">
+                                <option value="">-- Select Region -- </option>
+                                @foreach(Region::where('active', 1)->get() as $r)
+                                    <option value="{{$r->id}}">{{$r->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-sm-4">
                             <label>District</label>

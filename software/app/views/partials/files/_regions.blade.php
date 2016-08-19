@@ -1,6 +1,8 @@
+
+
 <div class="table-responsive" >
     <form class='form-horizontal' role='form'>
-        <table id="datatables-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <table id="datatables-1" class="table table-striped table-bordered datatables-1" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th>#</th>
@@ -23,7 +25,7 @@
                     <td>{{$r->name}}</td>
                     <td>{{Helper::getStatus($r->active)}}</td>
                     <td>{{Carbon::parse($r->created_at)->format('Y-m-d h:i:s')}}</td>
-                    <td>{{Helper::generateActions($r->id)}}</td>
+                    <td>{{Helper::generateActions($r->id, route('app.configuration.deleteRegion'), route('app.configuration.editRegion'))}}</td>
                 </tr>
                 <?php $i++; ?>
                 @endforeach
@@ -32,5 +34,5 @@
         </table>
     </form>
 </div>
-
+@include('partials.scripts._onlyJquery')
 @include('partials.scripts._datatable')

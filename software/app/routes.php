@@ -27,4 +27,10 @@ Route::group(['before' => 'auth'], function() {
     Route::get('app/configuration',['as'=>'app.configuration', 'uses'=>'ConfigController@manage']);
     Route::post('app/configuration/storeRegion',['as'=>'app.configuration.storeRegion', 'uses'=>'ConfigController@storeRegion']);
     Route::get('app/configuration/refreshRegions', ['as'=>'app.configuration.refreshRegions', 'uses'=>'ConfigController@refreshRegions']);
+    Route::get('app/configuration/refreshAddRegion', ['as'=>'app.configuration.refreshAddRegion', 'uses'=>'ConfigController@refreshAddRegion']);
+    Route::get('app.configuration.editRegion', ['as'=>'app.configuration.editRegion', 'uses'=>'ConfigController@editRegion']);
+    Route::post('app/configuration/deleteRegion', ['as'=>'app.configuration.deleteRegion', 'uses'=>'ConfigController@deleteRegion']);
+    Route::post('app/configuration/updateRegion', ['as'=>'app.configuration.updateRegion', 'uses'=>'ConfigController@updateRegion']);
+
+
 });

@@ -25,8 +25,8 @@ class Helper {
     	}
     }
 
-    public static function generateActions($rId){
-    	return View::make('partials.files._actions',compact('rId'))->render();
+    public static function generateActions($rId, $url=null, $url1=null){
+    	return View::make('partials.files._actions',compact('rId', 'url', 'url1'))->render();
     }
 
 }

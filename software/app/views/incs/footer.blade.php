@@ -4,8 +4,7 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="{{url('assets/libs/jquery/jquery-1.11.1.min.js')}}"></script>
 
-	<script src="{{url('ve/js/languages/jquery.validationEngine-en.js')}}" type="text/javascript" charset="utf-8"></script>
-	<script src="{{url('ve/js/jquery.validationEngine.js')}}" type="text/javascript" charset="utf-8"></script>
+	@include('partials.scripts._ve')
 
 	<script src="{{url('assets/libs/bootstrap/js/bootstrap.min.js')}}"></script>
 	<script src="{{url('assets/libs/jqueryui/jquery-ui-1.10.4.custom.min.js')}}"></script>

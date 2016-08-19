@@ -24,7 +24,7 @@
                 <div class="tab-content">
                     <div class="tab-pane fade active in" id="Regions">
                         <div class="row" style="border: 1px solid #ccc; padding:4px;margin:1px">
-                            <div class="col-md-4">
+                            <div class="col-md-4" id="regionFormArea">
                                 <h4><i class="fa fa-plus"></i> Add New Region</h4>
                                 <hr/>
                                 <form action="" id="regionForm" method="POST" role="form">
@@ -55,7 +55,7 @@
                                         <div id="regionsArea">		
                                             <div class="table-responsive" >
                                                 <form class='form-horizontal' role='form'>
-                                                    <table id="datatables-1" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                                    <table id="datatables-1" class="table table-striped table-bordered datatables-1" cellspacing="0" width="100%">
                                                         <thead>
                                                             <tr>
                                                                 <th>#</th>
@@ -78,7 +78,7 @@
                                                                 <td>{{$r->name}}</td>
                                                                 <td>{{Helper::getStatus($r->active)}}</td>
                                                                 <td>{{Carbon::parse($r->created_at)->format('Y-m-d h:i:s')}}</td>
-                                                                <td>{{Helper::generateActions($r->id)}}</td>
+                                                                <td>{{Helper::generateActions($r->id, route('app.configuration.deleteRegion'), route('app.configuration.editRegion'))}}</td>
                                                             </tr>
                                                             <?php $i++; ?>
                                                             @endforeach

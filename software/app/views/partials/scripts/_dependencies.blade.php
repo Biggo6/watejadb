@@ -17,6 +17,7 @@
 </div>
 
 <script src="{{url('assets/libs/jquery/jquery-1.11.1.min.js')}}"></script>
+@include('partials.scripts._ve')
 
 <script type="text/javascript">
 function applyOpacity(el, value=0.2){
@@ -25,6 +26,17 @@ function applyOpacity(el, value=0.2){
 function removeOpacity(el){
 	$(el).css('opacity', 1);
 }
+
+function getParent(el, level=1){
+	if(parseInt(level) == 1){
+		return $(el).parent();
+	}else if(parseInt(level) == 2){
+		return $(el).parent().parent();
+	}else if(parseInt(level) == 3){
+		return $(el).parent().parent().parent();
+	}
+}
+
 function getAllFormData(el){
 	return $(el).serializeArray();
 }
@@ -73,41 +85,48 @@ function refreshViewFromServer(view, url){
 	});
 }
 
-function talkToServer(url, data, isFileUpload=false, dataType='text', el=null,type='post'){
-	var promise = $.ajax({
-				
-				url: url,
-				dataType: dataType, 
-				cache: false,
-				contentType: false,
-				processData: false,
-				data: data,
-				type: type,
-				 xhr: function () {
-					var xhr = $.ajaxSettings.xhr();
-					xhr.upload.onprogress = function (e) {
-						var ps = (Math.floor(e.loaded / e.total * 100) + '%');
-						if(el != null){
-							$(el).html(ps);
-						}
-					};
-					return xhr;
-				}
-			});
-
-	var p  = $.post(url,data);
-
+function talkToServer(url, data, isFileUpload=false, method='post', dataType='text', el=null,type='post'){
+	
 	if(isFileUpload){
+		var promise = $.ajax({
+				
+			url: url,
+			dataType: dataType, 
+			cache: false,
+			contentType: false,
+			processData: false,
+			data: data,
+			type: type,
+			 xhr: function () {
+				var xhr = $.ajaxSettings.xhr();
+				xhr.upload.onprogress = function (e) {
+					var ps = (Math.floor(e.loaded / e.total * 100) + '%');
+					if(el != null){
+						$(el).html(ps);
+					}
+				};
+				return xhr;
+			}
+		});
 		return promise;
 	}else{
-		return p;
-	}
+		if(method=='post'){
+			
+			var p  = $.post(url,data);
+			return p;
+		}else{
+			
+			var g  = $.get(url,data);
+			return g;
+		}		
+	}	
 		
 	
 }
 
 var Wateja = {
 	debug : false,
+	edit : false,
 	applyOpacity : applyOpacity,
 	removeOpacity : removeOpacity,
 	getAllFormData : getAllFormData,
@@ -118,7 +137,8 @@ var Wateja = {
 	unSet : unSet,
 	refreshViewFromServer : refreshViewFromServer,
 	getProp : getProp,
-	confirmDialog : confirmDialog
+	confirmDialog : confirmDialog,
+	getParent : getParent
 }
 
 </script>

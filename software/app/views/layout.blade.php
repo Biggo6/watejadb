@@ -79,7 +79,7 @@
                 <!-- Start Content here -->
                 <!-- ============================================================== -->
                 <div class="content">
-
+                    
                     @yield("content")
                     <!-- Start info box -->
 
