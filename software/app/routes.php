@@ -32,9 +32,13 @@ Route::group(['before' => 'auth'], function() {
 
     //Company codes
     Route::get('company/add',['as'=>'company.add', 'uses'=>'CompanyController@add']);
+    Route::post('company/store',['as'=>'company.store', 'uses'=>'CompanyController@store']);
     Route::get('company/manage',['as'=>'company.manage', 'uses'=>'CompanyController@manage']);
+    Route::get('company/redirectWith',['as'=>'company.redirectWith', 'uses'=>'CompanyController@redirectWith']);
     Route::get('company/refresh',['as'=>'company.refresh', 'uses'=>'CompanyController@refresh']);
     Route::post('company/getDistricts',['as'=>'company.getDistricts', 'uses'=>'CompanyController@getDistricts']);
+
+
     //Config codes
     Route::get('app/configuration',['as'=>'app.configuration', 'uses'=>'ConfigController@manage']);
     

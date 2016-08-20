@@ -37,6 +37,22 @@ function getParent(el, level=1){
 	}
 }
 
+function serializeData(el){
+	return $(el).serializeArray();
+}
+
+function prepareFormData(arr, arr2){
+	var form_data = new FormData();
+	$.each(arr, function(i, k){
+		form_data.append(k.name, k.value);
+	});
+	$.each(arr2, function(i, k){
+		var a = $('#' + k).prop('files')[0];
+		form_data.append(k, a);
+	});
+	return form_data;
+}
+
 function getAllFormData(el){
 	return $(el).serializeArray();
 }
@@ -66,6 +82,9 @@ function showFeedBack(el, str, error=true, url=null){
   	}
 }
 
+function isFileValueSetted(file){
+	return $(file).prop('files')[0]
+}
 
 
 function logIt(str){
@@ -157,7 +176,10 @@ var Wateja = {
 	refreshViewFromServer : refreshViewFromServer,
 	getProp : getProp,
 	confirmDialog : confirmDialog,
-	getParent : getParent
+	getParent : getParent,
+	prepareFormData : prepareFormData,
+	serializeData : serializeData,
+	isFileValueSetted : isFileValueSetted
 }
 
 </script>

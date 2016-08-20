@@ -1,11 +1,12 @@
-<script type="text/javascript">	
+@include('partials.scripts._OnlyJquery')
+<script type="text/javascript">
 		window.onload = function(){
-			
+
 			var fileInput = document.getElementById('logo');
-			
-			
+
+
 			var fileDisplayArea = document.getElementById('logo-placeholder');
-			
+
 
 			fileInput.addEventListener('change', function(e) {
 				var file = fileInput.files[0];
@@ -26,9 +27,11 @@
 
 					// Add the image to the page.
 					fileDisplayArea.appendChild(img);
+					$(fileDisplayArea).append("<br/><hr/><label class='label label-danger' style='cursor:pointer' id='removeLogo'><i class='fa fa-trash'></i> REMOVE LOGO</label>");
+
 				  }
 
-				  reader.readAsDataURL(file); 
+				  reader.readAsDataURL(file);
 				} else {
 				  fileDisplayArea.innerHTML = "<label class='label label-danger'><i class='fa fa-warning'></i> File not supported!</label>";
 				  fileDisplayArea.style.borderRadius = "4px";
@@ -39,4 +42,15 @@
 			});
 
 		}
+</script>
+
+<script type="text/javascript">
+$(function(){
+	$('body').on('click', '#removeLogo', function(){
+		$('#logo-placeholder').html('');
+		var $el = $('#logo');
+		$el.wrap('<form>').closest('form').get(0).reset();
+		$el.unwrap();
+	});
+});
 </script>

@@ -24,16 +24,28 @@
                 <div id="fidq" style="display:none" class="alert alert-success"><i class="fa fa-check"></i> Successfully Added</div>
 
                 <div class="form-group">
-                    <label>Company Name</label>
-                    <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Company is required!" data-prompt-position="bottomRight" name="companyname"  id="companyname"
-                     	
-    				/>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Company Name</label>
+                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Company is required!" data-prompt-position="bottomRight" name="companyname"  id="companyname"
+
+                    />
+                        </div>
+                        <div class="col-sm-6">
+                            <label>TIN(Tax Identification Number)</label>
+                            <input id="tin" type="text" class="form-control validate[required,custom[number]" data-errormessage-value-missing="TIN is required!" data-prompt-position="bottomRight" name="tin"
+
+                             />
+                        </div>
+                    </div>
                 </div>
+
+                
                 <div class="form-group">
                     <label>Address</label>
                     <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Address is required!" data-prompt-position="bottomRight" name="address" id="address"
-                    	
-  
+
+
                      />
                 </div>
                 <div class="form-group">
@@ -48,15 +60,15 @@
                             </select>
                         </div>
                         <div class="col-sm-4">
-                            <label>District</label>
+                            <label>District <span style="display:none" id="ld"><img src="{{url('images/ld.gif')}}" /></span></label>
                             <select id="district" type="text" class="form-control validate[required]" data-errormessage-value-missing="District is required!" data-prompt-position="bottomRight" name="district"
-                            	
+
                             ></select>
                         </div>
                         <div class="col-sm-4">
                             <label>Street</label>
                             <input id="street" type="text" class="form-control validate[required]" data-errormessage-value-missing="Street is required!" data-prompt-position="bottomRight" name="street"
-                            	
+
                              />
                         </div>
                     </div>
@@ -71,14 +83,14 @@
                         <div class="col-sm-6">
                             <label>Mobile</label>
                             <input id="mobile" type="text" class="form-control validate[required,custom[number]]" data-errormessage-value-missing="Mobile is required!" data-prompt-position="bottomRight" name="mobile"
-                            	
-  					  			
+
+
                              />
                         </div>
                         <div class="col-sm-6">
                             <label>Email</label>
                             <input id="email" type="email" class="form-control validate[required,custom[email]]" data-errormessage-value-missing="Email is required!" data-prompt-position="bottomRight" name="email"
-                            	
+
                              />
                         </div>
                     </div>
@@ -88,7 +100,7 @@
                         <div class="col-sm-6">
                             <label>Business</label>
                             <select id="business" type="text" class="form-control validate[required]" data-errormessage-value-missing="Business is required!" data-prompt-position="bottomRight" name="business"
-                            	
+
                             >
                             <option value="">-- Select Business -- </option>
                             @foreach(Business::where('active', 1)->get() as $r)
@@ -97,17 +109,17 @@
                         </select><br/>
                            {{--  <label>Sub-Business</label>
                             <select id="sub-business" type="text" class="form-control validate[required]" data-errormessage-value-missing="Sub-Business is required!" data-prompt-position="bottomRight" name="sub-business"
-                                
+
                             ></select> --}}
                         </div>
                         <div class="col-sm-6">
                             <label>Logo</label><br/>
                             <input type="file" id="logo" name="logo" class="btn btn-default" data-errormessage-value-missing="Logo is required!" data-prompt-position="bottomRight" title="Select Logo Image"
-                            	
+
                              />
                              <hr/>
                             <div id="logo-placeholder"></div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -116,7 +128,7 @@
                         <div class="col-sm-12">
                             <label>Website</label>
                             <input id="website" type="text" class="form-control validate[required]" data-errormessage-value-missing="Website is required!" data-prompt-position="bottomRight" name="website"
-                            	
+
                              />
                         </div>
 
@@ -147,4 +159,3 @@
 
 
 @stop
-
