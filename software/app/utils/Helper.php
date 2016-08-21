@@ -19,6 +19,15 @@ class Helper
         }
     }
 
+    public static function getCompanyLogo($c){
+        $url = Company::find($c)->company_logo;
+        if($url == ""){
+            return url('wateja/images/logo.png');
+        }else{
+            return $url;
+        }
+    }
+
     public static function uplodFileThenReturnPath($fileStringInput, $destinationPath='uploads/companylogos/')
     {
         $file            = Input::file($fileStringInput);

@@ -13,6 +13,24 @@ class CompanyController extends BaseController
         return View::make('companies.add');
     }
 
+    public function edit(){
+        $id = Input::get('id');
+        return View::make('partials.files._editCompany', compact('id'));
+    }
+
+    public function delete(){
+        $id = Input::get('id');
+        Company::find($id)->delete();
+        return Response::json([
+                'msg'   => ' Successfully deleted!' . $id,
+                'error' => false
+            ]);
+    }
+
+    public function refresh(){
+        return View::make('partials.files._refreshCompanies');
+    }
+
     public function manage(){
       return View::make('companies.index');
     }
@@ -47,6 +65,7 @@ class CompanyController extends BaseController
         $c->district_id   = $district;
         $c->email         = $email;
         $c->phone         = $telephone;
+        $c->location      = $address;
         $c->mobile        = $mobile;
         $c->website       = $website;
         $c->street        = $street;
