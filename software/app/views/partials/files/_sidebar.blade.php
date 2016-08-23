@@ -46,12 +46,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                <a href='{{route('users.add')}}' class=' {{ Helper::activeRoute('users.add') }} '>
                     <span><i class="fa fa-plus"></i> Add User </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                <a href='{{route('users')}}' class=' {{ Helper::activeRoute('users') }} '>
                     <span><i class="fa fa-list"></i> Manage Users </span>
                 </a>
             </li>
@@ -67,12 +67,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                <a href='{{route('roles.add')}}' class=' {{ Helper::activeRoute('roles.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Role </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                <a href='{{route('roles')}}' class=' {{ Helper::activeRoute('roles') }} '>
                     <span><i class="fa fa-list"></i> Manage Roles </span>
                 </a>
             </li>

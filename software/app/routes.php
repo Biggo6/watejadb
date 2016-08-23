@@ -43,6 +43,27 @@ Route::group(['before' => 'auth'], function() {
     //Permissions
     Route::get('permissions/add', ['as'=>'permissions.add', 'uses'=>'PermissionController@add']);
     Route::get('permissions', ['as'=>'permissions.index', 'uses'=>'PermissionController@index']);
+    Route::get('permissions/redirectWith', ['as'=>'permissions.redirectWith', 'uses'=>'PermissionController@redirectWith']);
+    Route::post('permissions/store', ['as'=>'permissions.store', 'uses'=>'PermissionController@store']);
+    Route::post('permissions/delete', ['as'=>'permissions.delete', 'uses'=>'PermissionController@delete']);
+    Route::post('permissions/edit', ['as'=>'permissions.edit', 'uses'=>'PermissionController@edit']);
+    Route::get('permissions/refresh', ['as'=>'permissions.refresh', 'uses'=>'PermissionController@refresh']);
+
+    // Modules code
+    Route::post('modules/store', ['as'=>'modules.store', 'uses'=>'ModulesController@store']);
+    Route::post('modules/delete', ['as'=>'modules.delete', 'uses'=>'ModulesController@delete']);
+    Route::post('modules/edit', ['as'=>'modules.edit', 'uses'=>'ModulesController@edit']);
+    Route::get('modules/refresh', ['as'=>'modules.refresh', 'uses'=>'ModulesController@refresh']);
+    Route::get('modules/redirectWith', ['as'=>'modules.redirectWith', 'uses'=>'ModulesController@redirectWith']);
+    Route::post('modules/update', ['as'=>'modules.update', 'uses'=>'ModulesController@update']);
+
+    // Roles code
+    Route::get('roles/add', ['as'=>'roles.add', 'uses'=>'RolesController@add']);
+    Route::get('roles', ['as'=>'roles', 'uses'=>'RolesController@index']);
+
+    // Users code
+    Route::get('users/add', ['as'=>'users.add', 'uses'=>'UserController@add']);
+    Route::get('users', ['as'=>'users', 'uses'=>'UserController@index']);
 
 
     //Config codes

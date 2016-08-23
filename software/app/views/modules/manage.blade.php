@@ -25,8 +25,8 @@
                                         <label for="">Category</label>
                                         <select id="module_cat" name="module_cat" class="form-control validate[required]" data-errormessage-value-missing="Category is required!" data-prompt-position="bottomRight">
                                             <option value="">--- Select Module Category here --</option>
-                                            <option value="1">User Defined</option>
-                                            <option value="0">System Defined</option>
+                                            <option value="0">User Defined</option>
+                                            <option value="1">System Defined</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -47,7 +47,8 @@
                                 <div class="widget">
 
                                     <div class="widget-content">
-                                        <br>    
+                                        <br>   
+                                        @include('partials.files._success') 
                                         <div id="moduleFBk"></div>      
                                         <div id="modulesArea">      
                                             <div class="table-responsive" >
@@ -68,7 +69,21 @@
 
                                                         <tbody >
 
-                                                            
+                                                            <?php $i = 1;
+                                                            $modules = Module::orderBy('created_at', 'DESC')->get();
+                                                            ?>
+
+                                                            @foreach($modules as $m)
+                                                            <tr>
+                                                                <td>{{$i}}</td>
+                                                                <td>{{$m->name}}</td>
+                                                                <td>{{$m->system == 1 ? '<label class="label label-danger">System Defined</label>' : '<label class="label label-warning">User Defined</label>'}}</td>
+                                                                <td>{{Helper::getStatus($m->status)}}</td>
+                                                                <td>{{Carbon::parse($m->created_at)->format('Y-m-d h:i:s')}}</td>
+                                                                <td>{{Helper::generateActions($m->id, route('modules.delete'), route('modules.edit'),'modules')}}</td>
+                                                            </tr>
+                                                            <?php $i++; ?>
+                                                            @endforeach
 
                                                         </tbody>
                                                     </table>

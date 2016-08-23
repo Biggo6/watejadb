@@ -4,6 +4,8 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="{{url('assets/libs/jquery/jquery-1.11.1.min.js')}}"></script>
 
+	<script src="{{url('jstree/jstree.js')}}"></script>
+
 	@include('partials.scripts._ve')
 
 	<script src="{{url('assets/libs/bootstrap/js/bootstrap.min.js')}}"></script>

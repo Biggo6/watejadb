@@ -7,6 +7,9 @@
 <meta name="author" content="Joram Kimata">
 
 
+
+<link rel="stylesheet" href="{{url('jstree/themes/default/style.min.css')}}" />
+
 <link rel="stylesheet" href="{{url('ve/css/validationEngine.jquery.css')}}" type="text/css"/>
 
 <!-- Base Css Files -->
