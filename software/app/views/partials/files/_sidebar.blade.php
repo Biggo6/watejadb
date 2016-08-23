@@ -88,12 +88,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                <a href='{{route('permissions.add')}}' class=' {{ Helper::activeRoute('permissions.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Permission </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                <a href='{{route('permissions.index')}}' class=' {{ Helper::activeRoute('permissions.index') }} '>
                     <span><i class="fa fa-list"></i> Manage Permissions </span>
                 </a>
             </li>
@@ -209,14 +209,19 @@
             </li> --}}
             <li>
                 <a href='{{route('app.configuration.regions')}}' class=' {{ Helper::activeRoute('app.configuration.regions') }} '>
-                    <span><i class="fa fa-list"></i> Manage Regions</span>
+                    <span><i class="fa fa-list"></i> Regions</span>
                 </a>
             </li> 
             <li>
                 <a href='{{route('app.configuration.districts')}}' class=' {{ Helper::activeRoute('app.configuration.districts') }} '>
-                    <span><i class="fa fa-list"></i> Manage Districts</span>
+                    <span><i class="fa fa-list"></i> Districts</span>
                 </a>
-            </li> 
+            </li>
+            <li>
+                <a href='{{route('app.configuration.modules')}}' class=' {{ Helper::activeRoute('app.configuration.modules') }} '>
+                    <span><i class="fa fa-list"></i> Modules</span>
+                </a>
+            </li>  
         </ul>
     </li>
     <li class='has_sub'>

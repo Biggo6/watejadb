@@ -11,17 +11,17 @@
         <div class="widget">
 
             <div class="widget-content padding">
-            	<!-- Content Form Goes here -->
-            	<div class="col-md-12" id="manage-area">
+                <!-- Content Form Goes here -->
+                <div class="col-md-12" id="manage-area">
                                 @include('partials.files._success')
                                 <h4><i class="fa fa-list"></i> Manage Companies</h4>
                                 <hr/>
                                 <div class="widget">
 
                                     <div class="widget-content">
-                                        <br>	
-                                        <div id="regionFBk"></div>		
-                                        <div id="regionsArea">		
+                                        <br>
+                                        <div id="regionFBk"></div>
+                                        <div id="regionsArea">
                                             <div class="table-responsive" >
                                                 <form class='form-horizontal' role='form'>
                                                     <table id="datatables-1" class="table table-striped table-bordered datatables-1" cellspacing="0" width="100%">
@@ -50,13 +50,21 @@
                                                         <tbody >
 
                                                            <?php $i = 1;
-                                                            $regions = Company::orderBy('created_at', 'DESC')->get();
-                                                            ?>
+$regions                                                            = Company::orderBy('created_at', 'DESC')->get();
+?>
 
                                                             @foreach($regions as $r)
                                                             <tr>
                                                                 <td>{{$i}}</td>
-                                                                <td><img src="{{Helper::getCompanyLogo($r->id)}}" style="width:72px" /></td>
+                                                                <td>
+                                                                    <div class="image-upload">
+    <label for="file-input">
+        <img src="{{Helper::getCompanyLogo($r->id)}}" style="width:72px" />
+    </label>
+
+    <input id="file-input" type="file"/>
+</div>
+                                                                    </td>
                                                                 <td>{{$r->name}}</td>
                                                                 <td>{{$r->tin}}</td>
                                                                 <td>{{$r->location}}</td>
@@ -71,7 +79,7 @@
                                                                 <td>{{$r->created_at}}</td>
                                                                 <td>{{Helper::generateActions($r->id, route('companies.delete'), route('companies.edit'),'companies')}}</td>
                                                             </tr>
-                                                            <?php $i++; ?>
+                                                            <?php $i++;?>
                                                             @endforeach
 
                                                         </tbody>
@@ -86,7 +94,7 @@
 
         </div>
 
-    </div>	
+    </div>
 </div>
 
 

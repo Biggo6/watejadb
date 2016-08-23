@@ -39,6 +39,10 @@ Route::group(['before' => 'auth'], function() {
     Route::get('company/redirectWith',['as'=>'company.redirectWith', 'uses'=>'CompanyController@redirectWith']);
     Route::get('company/refresh',['as'=>'company.refresh', 'uses'=>'CompanyController@refresh']);
     Route::post('company/getDistricts',['as'=>'company.getDistricts', 'uses'=>'CompanyController@getDistricts']);
+    
+    //Permissions
+    Route::get('permissions/add', ['as'=>'permissions.add', 'uses'=>'PermissionController@add']);
+    Route::get('permissions', ['as'=>'permissions.index', 'uses'=>'PermissionController@index']);
 
 
     //Config codes
@@ -52,8 +56,10 @@ Route::group(['before' => 'auth'], function() {
 
     Route::get('app/configuration/refreshAddRegion', ['as'=>'app.configuration.refreshAddRegion', 'uses'=>'ConfigController@refreshAddRegion']);
 
-    Route::get('app.configuration.editRegion', ['as'=>'app.configuration.editRegion', 'uses'=>'ConfigController@editRegion']);
-    Route::post('app.configuration.editDistrict', ['as'=>'app.configuration.editDistrict', 'uses'=>'ConfigController@editDistrict']);
+    Route::get('app/configuration./editRegion', ['as'=>'app.configuration.editRegion', 'uses'=>'ConfigController@editRegion']);
+    Route::post('app./configuration/editDistrict', ['as'=>'app.configuration.editDistrict', 'uses'=>'ConfigController@editDistrict']);
+
+    Route::get('app/configuration/modules',['as'=>'app.configuration.modules', 'uses'=>'ModulesController@manage']);
 
     Route::post('app/configuration/deleteRegion', ['as'=>'app.configuration.deleteRegion', 'uses'=>'ConfigController@deleteRegion']);
     Route::post('app/configuration/deleteDistrict', ['as'=>'app.configuration.deleteDistrict', 'uses'=>'ConfigController@deleteDistrict']);

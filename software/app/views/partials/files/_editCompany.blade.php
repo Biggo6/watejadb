@@ -111,19 +111,7 @@ $c = Company::find($id);
 
                             ></select> --}}
                         </div>
-                        <div class="col-sm-6">
-                            <label>Logo</label><br/>
-                            <input type="file" id="logo" name="logo" class="btn btn-default" data-errormessage-value-missing="Logo is required!" data-prompt-position="bottomRight" title="Select Logo Image"
-
-                             />
-                             <hr/>
-                            <div id="logo-placeholder">
-                                @if($c->company_logo != "")
-                                    <img src="{{$c->company_logo}}" width="150px" />
-                                @endif
-                            </div>
-
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="form-group">
@@ -157,3 +145,12 @@ $c = Company::find($id);
 
 @include('partials.scripts._dependencies')
 @include('partials.scripts._jsImagePreview')
+
+<script type="text/javascript">
+$(function(){
+    $('#cancel').on('click', function(){
+            Wateja.applyOpacity(form_reg);
+            Wateja.refreshViewFromServer('manage-area', '{{route("company.refresh")}}');
+    });
+});
+</script>
