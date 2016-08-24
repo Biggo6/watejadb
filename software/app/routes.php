@@ -39,6 +39,10 @@ Route::group(['before' => 'auth'], function() {
     Route::get('company/redirectWith',['as'=>'company.redirectWith', 'uses'=>'CompanyController@redirectWith']);
     Route::get('company/refresh',['as'=>'company.refresh', 'uses'=>'CompanyController@refresh']);
     Route::post('company/getDistricts',['as'=>'company.getDistricts', 'uses'=>'CompanyController@getDistricts']);
+
+    //Customers
+    Route::get('customers/add', ['as'=>'customers.add', 'uses'=>'CustomerController@add']);
+    Route::get('customers', ['as'=>'customers', 'uses'=>'CustomerController@index']);
     
     //Permissions
     Route::get('permissions/add', ['as'=>'permissions.add', 'uses'=>'PermissionController@add']);

@@ -59,6 +59,90 @@
     </li>
     <li class='has_sub'>
         <a href='javascript:void(0);'>
+            <i class='fa fa-users'></i>
+            <span>Customers</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('customers.add')}}' class=' {{ Helper::activeRoute('customers.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add User </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('customers')}}' class=' {{ Helper::activeRoute('customers') }} '>
+                    <span><i class="fa fa-list"></i> Manage Users </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-envelope'></i>
+            <span>Messages</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('customers.add')}}' class=' {{ Helper::activeRoute('customers.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add User </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('customers')}}' class=' {{ Helper::activeRoute('customers') }} '>
+                    <span><i class="fa fa-list"></i> Manage Users </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-bicycle'></i>
+            <span>Visits</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('customers.add')}}' class=' {{ Helper::activeRoute('customers.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add User </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('customers')}}' class=' {{ Helper::activeRoute('customers') }} '>
+                    <span><i class="fa fa-list"></i> Manage Users </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-share-alt'></i>
+            <span>Groups</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('customers.add')}}' class=' {{ Helper::activeRoute('customers.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add User </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('customers')}}' class=' {{ Helper::activeRoute('customers') }} '>
+                    <span><i class="fa fa-list"></i> Manage Users </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
             <i class='fa fa-key'></i>
             <span>Roles</span> 
             <span class="pull-right">
@@ -176,6 +260,27 @@
         <a href='javascript:void(0);'>
             <i class='fa fa-lock'></i>
             <span>Licences</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add Licence Key </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                    <span><i class="fa fa-list"></i> Manage Licence Keyes </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
+            <i class='fa fa-link'></i>
+            <span>API</span> 
             <span class="pull-right">
                 <i class="fa fa-angle-down"></i>
             </span>
