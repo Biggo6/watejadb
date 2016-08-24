@@ -110,6 +110,9 @@
                             <label>Role</label>
                             <select class="form-control">
                                 <option>--Select Role--</option>
+                                 @foreach(Role::all() as $r)
+                                    <option value="{{$r->id}}">{{$r->name}}</option>
+                                @endforeach
                             </select>
                         </div>
 

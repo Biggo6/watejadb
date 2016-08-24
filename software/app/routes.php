@@ -60,6 +60,10 @@ Route::group(['before' => 'auth'], function() {
     // Roles code
     Route::get('roles/add', ['as'=>'roles.add', 'uses'=>'RolesController@add']);
     Route::get('roles', ['as'=>'roles', 'uses'=>'RolesController@index']);
+    Route::post('roles/store', ['as'=>'roles.store', 'uses'=>'RolesController@store']);
+    Route::post('roles/delete', ['as'=>'roles.delete', 'uses'=>'RolesController@delete']);
+    Route::post('roles/edit', ['as'=>'roles.edit', 'uses'=>'RolesController@edit']);
+    Route::get('roles/redirectWith', ['as'=>'roles.redirectWith', 'uses'=>'RolesController@redirectWith']);
 
     // Users code
     Route::get('users/add', ['as'=>'users.add', 'uses'=>'UserController@add']);

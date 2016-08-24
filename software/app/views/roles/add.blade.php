@@ -22,7 +22,7 @@
                         </div>
                         <div class="form-group">
                                         <label for="">Category</label>
-                                        <select id="module_cat" name="module_cat" class="form-control validate[required]" data-errormessage-value-missing="Category is required!" data-prompt-position="bottomRight">
+                                        <select id="role_module_cat" name="role_module_cat" class="form-control validate[required]" data-errormessage-value-missing="Category is required!" data-prompt-position="bottomRight">
                                             <option value="">--- Select Module Category here --</option>
                                             <option value="0">User Defined</option>
                                             <option value="1">System Defined</option>
@@ -30,13 +30,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Status</label>
-                                        <select id="module_status" name="module_status" class="form-control validate[required]" data-errormessage-value-missing="Status is required!" data-prompt-position="bottomRight">
+                                        <select id="role_status" name="role_status" class="form-control validate[required]" data-errormessage-value-missing="Status is required!" data-prompt-position="bottomRight">
                                             <option value="1">Active</option>
                                             <option value="0">Block</option>
                                         </select>
                                     </div>
                         <div class="form-group">
-                            <label for="">Permissions</label>
+                            <label id="perm" for="">Permissions</label>
                             
                             <div id="jstree" data-jstree='{"opened":true,"selected":true}'>
 							    <ul>
@@ -44,12 +44,12 @@
 							      <?php $modules = Module::where('status', 1)->get();  ?>
 							      @if(count($modules))
 							      	@foreach($modules as $m)
-								      <li>{{$m->name}}
+								      <li id="{{$m->name}}_{{$m->name}}_0">{{$m->name}}
 
 								      	
 								        <ul>
 								        	@foreach(Permission::where('module_id', $m->id)->get() as $p)		
-								          		<li id="">{{$p->name}} {{$m->name}}</li>
+								          		<li id="{{$m->name}}_{{$p->name}}_{{$p->id}}">{{$p->name}} {{$m->name}}</li>
 								          	@endforeach	
 								        </ul>
 								        
@@ -62,7 +62,8 @@
 							 </div>
                         </div>
                         
-                        <button type="button" id="saveRole" class="btn btn-primary">SAVE</button>
+                        <button type="button" id="saveRole" register="save" class="btn btn-primary">SAVE</button>
+                        <button type="button" id="saveNewRole" register="saveNew" class="btn btn-success">SAVE & NEW</button>
                         <br/>
                         <br/>
                     </form>
