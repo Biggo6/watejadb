@@ -50,6 +50,21 @@ $(function(){
 	});
 
 
+     $('#company').on('change', function(){
+        var company = $(this).val();
+        if(company != ""){
+            $('#branch').prop('disabled', true);
+            $('#ld').show();
+            Wateja.talkToServer('{{route("company.getBranches")}}', {company_id : company}).then(function(res){
+                $('#branch').prop('disabled', false);
+                $('#ld').hide();
+                $('#branch').html(res);
+            });
+        }else{
+                $('#branch').html('');
+        }
+    });
+
 
 
 });

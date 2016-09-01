@@ -88,6 +88,12 @@
                                     <option value="{{$r->id}}">{{$r->name}}</option>
                                 @endforeach
                         </select><br/>
+                        <div class="form-group">
+                            <label for="">Company Branch <span style="display:none" id="ld"><img src="{{url('images/ld.gif')}}" /></span></label>
+                            <select id="branch" type="text" class="form-control validate[required]" data-errormessage-value-missing="Branch is required!" data-prompt-position="bottomRight" name="branch"
+
+                            ></select>
+                        </div>
                            {{--  <label>Sub-Business</label>
                             <select id="sub-business" type="text" class="form-control validate[required]" data-errormessage-value-missing="Sub-Business is required!" data-prompt-position="bottomRight" name="sub-business"
 

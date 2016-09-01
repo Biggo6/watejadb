@@ -18,6 +18,7 @@ class UserController extends BaseController{
         $lastname       = Input::get('lastname');
         $password       = Input::get('password');
         $company        = Input::get('company');
+        $branch        = Input::get('branch');
         $role           = Input::get('role');
 
         $user 	= new User;
@@ -25,7 +26,8 @@ class UserController extends BaseController{
         $user->lastname   = $lastname;
         $user->email 	  = $email;
       	$user->role_id    = $role;
-      	$user->company_id = $company;
+        $user->company_id = $company;
+      	$user->branch_id = $branch;
       	$user->username   = $username;
       	$user->password   = Hash::make($password);
 

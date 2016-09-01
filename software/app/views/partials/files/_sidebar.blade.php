@@ -68,12 +68,12 @@
         <ul>
             <li>
                 <a href='{{route('customers.add')}}' class=' {{ Helper::activeRoute('customers.add') }} '>
-                    <span><i class="fa fa-plus"></i> Add User </span>
+                    <span><i class="fa fa-plus"></i> Add Customer </span>
                 </a>
             </li>
             <li>
                 <a href='{{route('customers')}}' class=' {{ Helper::activeRoute('customers') }} '>
-                    <span><i class="fa fa-list"></i> Manage Users </span>
+                    <span><i class="fa fa-list"></i> Manage Customers </span>
                 </a>
             </li>
         </ul>
@@ -88,12 +88,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('customers.add')}}' class=' {{ Helper::activeRoute('customers.add') }} '>
+                <a href='{{route('messages.add')}}' class=' {{ Helper::activeRoute('messages.add') }} '>
                     <span><i class="fa fa-plus"></i> Add User </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('customers')}}' class=' {{ Helper::activeRoute('customers') }} '>
+                <a href='{{route('messages')}}' class=' {{ Helper::activeRoute('messages') }} '>
                     <span><i class="fa fa-list"></i> Manage Users </span>
                 </a>
             </li>
@@ -109,12 +109,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('customers.add')}}' class=' {{ Helper::activeRoute('customers.add') }} '>
+                <a href='{{route('visits.add')}}' class=' {{ Helper::activeRoute('visits.add') }} '>
                     <span><i class="fa fa-plus"></i> Add User </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('customers')}}' class=' {{ Helper::activeRoute('customers') }} '>
+                <a href='{{route('visits')}}' class=' {{ Helper::activeRoute('visits') }} '>
                     <span><i class="fa fa-list"></i> Manage Users </span>
                 </a>
             </li>
@@ -130,12 +130,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('customers.add')}}' class=' {{ Helper::activeRoute('customers.add') }} '>
+                <a href='{{route('groups.add')}}' class=' {{ Helper::activeRoute('groups.add') }} '>
                     <span><i class="fa fa-plus"></i> Add User </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('customers')}}' class=' {{ Helper::activeRoute('customers') }} '>
+                <a href='{{route('groups')}}' class=' {{ Helper::activeRoute('groups') }} '>
                     <span><i class="fa fa-list"></i> Manage Users </span>
                 </a>
             </li>
@@ -326,7 +326,12 @@
                 <a href='{{route('app.configuration.modules')}}' class=' {{ Helper::activeRoute('app.configuration.modules') }} '>
                     <span><i class="fa fa-list"></i> Modules</span>
                 </a>
-            </li>  
+            </li> 
+            <li>
+                <a href='{{route('app.configuration.branches')}}' class=' {{ Helper::activeRoute('app.configuration.branches') }} '>
+                    <span><i class="fa fa-list"></i> Branches</span>
+                </a>
+            </li>   
         </ul>
     </li>
     <li class='has_sub'>

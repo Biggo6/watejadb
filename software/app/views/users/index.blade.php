@@ -36,6 +36,7 @@
                                                                 <th>Email</th>
                                                                 <th>Role</th>
                                                                 <th>Company</th>
+                                                                <th>Branch</th>
                                                                 <th>Status</th>
                                                                 <th>Created At</th>
                                                                 <th>Login Time</th>
@@ -70,6 +71,7 @@
                                                                 <td><b>{{$r->email}}</b></td>
                                                                 <td><b>{{Role::find($r->role_id)->name}}</b></td>
                                                                 <td><b>{{Company::find($r->company_id)->name}}</b></td>
+                                                                <td><b>{{Branch::find($r->branch_id)->name}}</b></td>
                                                                 <td><b>{{Helper::getStatus($r->status)}}</b></td>
                                                                 <td> {{$r->created_at}}</td>
                                                                 <td> {{Helper::getLoginTime($r->id)}}</td>

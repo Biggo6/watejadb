@@ -39,10 +39,24 @@ Route::group(['before' => 'auth'], function() {
     Route::get('company/redirectWith',['as'=>'company.redirectWith', 'uses'=>'CompanyController@redirectWith']);
     Route::get('company/refresh',['as'=>'company.refresh', 'uses'=>'CompanyController@refresh']);
     Route::post('company/getDistricts',['as'=>'company.getDistricts', 'uses'=>'CompanyController@getDistricts']);
+    Route::post('company/getBranches',['as'=>'company.getBranches', 'uses'=>'CompanyController@getBranches']);
 
     //Customers
     Route::get('customers/add', ['as'=>'customers.add', 'uses'=>'CustomerController@add']);
     Route::get('customers', ['as'=>'customers', 'uses'=>'CustomerController@index']);
+
+    // Messages
+    Route::get('messages/add', ['as'=>'messages.add', 'uses'=>'CustomerController@add']);
+    Route::get('messages', ['as'=>'messages', 'uses'=>'CustomerController@index']);
+
+    //Visits
+    Route::get('visits/add', ['as'=>'visits.add', 'uses'=>'CustomerController@add']);
+    Route::get('visits', ['as'=>'visits', 'uses'=>'CustomerController@index']);
+
+    //Groups
+    Route::get('groups/add', ['as'=>'groups.add', 'uses'=>'CustomerController@add']);
+    Route::get('groups', ['as'=>'groups', 'uses'=>'CustomerController@index']);
+
     
     //Permissions
     Route::get('permissions/add', ['as'=>'permissions.add', 'uses'=>'PermissionController@add']);
@@ -60,6 +74,14 @@ Route::group(['before' => 'auth'], function() {
     Route::get('modules/refresh', ['as'=>'modules.refresh', 'uses'=>'ModulesController@refresh']);
     Route::get('modules/redirectWith', ['as'=>'modules.redirectWith', 'uses'=>'ModulesController@redirectWith']);
     Route::post('modules/update', ['as'=>'modules.update', 'uses'=>'ModulesController@update']);
+
+    //Branches codes
+    Route::post('branches/store', ['as'=>'branches.store', 'uses'=>'BranchesController@store']);
+    Route::post('branches/delete', ['as'=>'branches.delete', 'uses'=>'BranchesController@delete']);
+    Route::post('branches/edit', ['as'=>'branches.edit', 'uses'=>'BranchesController@edit']);
+    Route::get('branches/refresh', ['as'=>'branches.refresh', 'uses'=>'BranchesController@refresh']);
+    Route::get('branches/redirectWith', ['as'=>'branches.redirectWith', 'uses'=>'BranchesController@redirectWith']);
+    Route::post('branches/update', ['as'=>'branches.update', 'uses'=>'BranchesController@update']);
 
     // Roles code
     Route::get('roles/add', ['as'=>'roles.add', 'uses'=>'RolesController@add']);
@@ -91,6 +113,7 @@ Route::group(['before' => 'auth'], function() {
     Route::post('app./configuration/editDistrict', ['as'=>'app.configuration.editDistrict', 'uses'=>'ConfigController@editDistrict']);
 
     Route::get('app/configuration/modules',['as'=>'app.configuration.modules', 'uses'=>'ModulesController@manage']);
+    Route::get('app/configuration/branches',['as'=>'app.configuration.branches', 'uses'=>'BranchesController@manage']);
 
     Route::post('app/configuration/deleteRegion', ['as'=>'app.configuration.deleteRegion', 'uses'=>'ConfigController@deleteRegion']);
     Route::post('app/configuration/deleteDistrict', ['as'=>'app.configuration.deleteDistrict', 'uses'=>'ConfigController@deleteDistrict']);

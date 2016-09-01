@@ -45,6 +45,13 @@ class CompanyController extends BaseController
         $districts = District::where('region_id', $rid)->get();
         return View::make('partials.files._companyDistricts')->with('ds', $districts);
     }
+
+    public function getBranches(){
+        $cid       = Input::get('company_id');
+        $branches = Branch::where('company_id', $cid)->get();
+        return View::make('partials.files._companyBranches')->with('bs', $branches);
+    }
+
     public function store()
     {
         $companyname = Input::get('companyname');
