@@ -235,23 +235,24 @@
                 <div class="row">
                     <div class="col-md-6">
 
-                        <div class="form-group" onclick="alert(3)">
+                        <div class="form-group">
                             
-                                
-                                  <label>
-                                    <input type="checkbox" onclick="checkIt()" />
-                                    Subscribe To Social Media Updates
-                                  </label>
 
-                                  
-                                
-                               
+                                <table>
+                                    <tr>
+                                        <td id="checx"><input type="checkbox" class="ios-switch ios-switch-default ios-switch-sm"   /></td>
+                                        <td><p> Subscribe To Social Media Updates</p></td>
+                                    </tr>
+                                </table>
+      
                         </div>
 
                         
                     </div>    
                      
                 </div>
+
+                <hr/>
 
                 <div style="display:none" id="socialaccounts">
                     <div class="row">
@@ -353,6 +354,9 @@
 
 
 </div>
+
+
+
 
 @include('partials.scripts._customers');
 

@@ -6,9 +6,18 @@
 
 $(function(){
 
-    
-	$('#subscribe').on('click', function(){
-        alert(35)
+    var c = 0;
+	$('#checx').click(function(){
+        var chk = $(this).find('.ios-switch .ios-switch-default .ios-switch-sm').is(':checked');
+        if(chk == false){
+            c = c + 1;
+        }
+        if(c == 1){
+            $('#socialaccounts').fadeIn();   
+        }else{
+            $('#socialaccounts').fadeOut(); 
+            c = 0;
+        }
     });
 
 	$('.register').click(function(){
