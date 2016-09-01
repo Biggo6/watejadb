@@ -71,7 +71,9 @@ Route::group(['before' => 'auth'], function() {
 
     // Users code
     Route::get('users/add', ['as'=>'users.add', 'uses'=>'UserController@add']);
+    Route::get('users/redirectWith', ['as'=>'users.redirectWith', 'uses'=>'UserController@redirectWith']);
     Route::get('users', ['as'=>'users', 'uses'=>'UserController@index']);
+    Route::post('users', ['as'=>'users.store', 'uses'=>'UserController@store']);
 
 
     //Config codes

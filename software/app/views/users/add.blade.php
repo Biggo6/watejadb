@@ -27,13 +27,13 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <label>Username</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Company is required!" data-prompt-position="bottomRight" name="companyname"  id="companyname"
+                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Username is required!" data-prompt-position="bottomRight" name="username"  id="username"
 
                     />
                         </div>
                         <div class="col-sm-6">
                             <label>Primary Email</label>
-                            <input id="tin" type="text" class="form-control validate[required,custom[number]" data-errormessage-value-missing="TIN is required!" data-prompt-position="bottomRight" name="tin"
+                            <input id="email" type="text" class="form-control validate[required,custom[email]]" data-errormessage-value-missing="Email is required!" data-prompt-position="bottomRight" name="email"
 
                              />
                         </div>
@@ -44,13 +44,13 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <label>Firstname</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Company is required!" data-prompt-position="bottomRight" name="companyname"  id="companyname"
+                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Firstname is required!" data-prompt-position="bottomRight" name="firstname"  id="firstname"
 
                     />
                         </div>
                         <div class="col-sm-6">
                             <label>Lastname</label>
-                            <input id="tin" type="text" class="form-control validate[required,custom[number]" data-errormessage-value-missing="TIN is required!" data-prompt-position="bottomRight" name="tin"
+                            <input id="lastname" type="text" class="form-control validate[required]" data-errormessage-value-missing="Lastname is required!" data-prompt-position="bottomRight" name="lastname"
 
                              />
                         </div>
@@ -61,13 +61,13 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <label>Password</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Company is required!" data-prompt-position="bottomRight" name="companyname"  id="companyname"
+                            <input type="password" class="form-control validate[required,funcCall[checkPassMatch[cpassword]]]" data-errormessage-value-missing="Password is required!" data-prompt-position="bottomRight" name="password"  id="password"
 
                     />
                         </div>
                         <div class="col-sm-6">
                             <label>Confirm Password</label>
-                            <input id="tin" type="text" class="form-control validate[required,custom[number]" data-errormessage-value-missing="TIN is required!" data-prompt-position="bottomRight" name="tin"
+                            <input id="cpassword" type="password" class="form-control validate[required,funcCall[checkPassMatch[password]]]" data-errormessage-value-missing="Confirm Password is required!" data-prompt-position="bottomRight" name="cpassword"
 
                              />
                         </div>
@@ -80,7 +80,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <label>Company</label>
-                            <select id="business" type="text" class="form-control validate[required]" data-errormessage-value-missing="Business is required!" data-prompt-position="bottomRight" name="business"
+                            <select id="company" type="text" class="form-control validate[required]" data-errormessage-value-missing="Company is required!" data-prompt-position="bottomRight" name="company"
 
                             >
                             <option value="">-- Select Company -- </option>
@@ -95,7 +95,7 @@
                         </div>
                         <div class="col-sm-6">
                             <label>Profile Picture</label><br/>
-                            <input type="file" id="logo" name="logo" class="btn btn-default" data-errormessage-value-missing="Logo is required!" data-prompt-position="bottomRight" title="Select Logo Image"
+                            <input type="file" id="logo" name="logo" class="btn btn-default" data-errormessage-value-missing="Profile Picture is required!" data-prompt-position="bottomRight" title="Select Profile Image"
 
                              />
                              <hr/>
@@ -108,8 +108,8 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <label>Role</label>
-                            <select class="form-control">
-                                <option>--Select Role--</option>
+                            <select id="role" type="text" class="form-control validate[required]" data-errormessage-value-missing="Role is required!" data-prompt-position="bottomRight" name="role">
+                                <option value="">--Select Role--</option>
                                  @foreach(Role::all() as $r)
                                     <option value="{{$r->id}}">{{$r->name}}</option>
                                 @endforeach
@@ -138,7 +138,7 @@
 
 </div>
 
-@include('partials.scripts._company');
+@include('partials.scripts._user');
 
 
 

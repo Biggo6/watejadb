@@ -58,13 +58,13 @@ $regions                                                            = Company::o
                                                                 <td>{{$i}}</td>
                                                                 <td>
                                                                     <div class="image-upload">
-    <label for="file-input">
-        <img src="{{Helper::getCompanyLogo($r->id)}}" style="width:72px" />
-    </label>
+                                                                        <label for="file-input">
+                                                                            <img src="{{Helper::getCompanyLogo($r->id)}}" style="width:72px" />
+                                                                        </label>
 
-    <input id="file-input" type="file"/>
-</div>
-                                                                    </td>
+                                                                        <input id="file-input" type="file"/>
+                                                                    </div>
+                                                                </td>
                                                                 <td>{{$r->name}}</td>
                                                                 <td>{{$r->tin}}</td>
                                                                 <td>{{$r->location}}</td>

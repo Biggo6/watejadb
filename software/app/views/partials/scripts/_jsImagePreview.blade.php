@@ -27,12 +27,16 @@
 
 					// Add the image to the page.
 					fileDisplayArea.appendChild(img);
-					$(fileDisplayArea).append("<br/><hr/><label class='label label-danger' style='cursor:pointer' id='removeLogo'><i class='fa fa-trash'></i> REMOVE LOGO</label>");
+					$(fileDisplayArea).append("<br/><hr/><label class='label label-danger' style='cursor:pointer' id='removeLogo'><i class='fa fa-trash'></i> REMOVE PHOTO</label>");
 
 				  }
 
 				  reader.readAsDataURL(file);
 				} else {
+			  	  $('#logo-placeholder').html('');
+				  var $el = $('#logo');
+				  $el.wrap('<form>').closest('form').get(0).reset();
+				  $el.unwrap();		
 				  fileDisplayArea.innerHTML = "<label class='label label-danger'><i class='fa fa-warning'></i> File not supported!</label>";
 				  fileDisplayArea.style.borderRadius = "4px";
 				  fileDisplayArea.style.border		 = "1px solid #ccc";
