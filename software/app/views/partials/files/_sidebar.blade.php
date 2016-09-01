@@ -80,6 +80,27 @@
     </li>
     <li class='has_sub'>
         <a href='javascript:void(0);'>
+            <i class='fa fa-share-alt'></i>
+            <span>Groups</span> 
+            <span class="pull-right">
+                <i class="fa fa-angle-down"></i>
+            </span>
+        </a>
+        <ul>
+            <li>
+                <a href='{{route('groups.add')}}' class=' {{ Helper::activeRoute('groups.add') }} '>
+                    <span><i class="fa fa-plus"></i> Add Group </span>
+                </a>
+            </li>
+            <li>
+                <a href='{{route('groups')}}' class=' {{ Helper::activeRoute('groups') }} '>
+                    <span><i class="fa fa-list"></i> Manage Groups </span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class='has_sub'>
+        <a href='javascript:void(0);'>
             <i class='fa fa-envelope'></i>
             <span>Messages</span> 
             <span class="pull-right">
@@ -120,27 +141,7 @@
             </li>
         </ul>
     </li>
-    <li class='has_sub'>
-        <a href='javascript:void(0);'>
-            <i class='fa fa-share-alt'></i>
-            <span>Groups</span> 
-            <span class="pull-right">
-                <i class="fa fa-angle-down"></i>
-            </span>
-        </a>
-        <ul>
-            <li>
-                <a href='{{route('groups.add')}}' class=' {{ Helper::activeRoute('groups.add') }} '>
-                    <span><i class="fa fa-plus"></i> Add User </span>
-                </a>
-            </li>
-            <li>
-                <a href='{{route('groups')}}' class=' {{ Helper::activeRoute('groups') }} '>
-                    <span><i class="fa fa-list"></i> Manage Users </span>
-                </a>
-            </li>
-        </ul>
-    </li>
+    
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-key'></i>

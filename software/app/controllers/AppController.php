@@ -16,8 +16,10 @@ class AppController extends BaseController{
 		return View::make('dashboard');
 	}
         public function logout(){
+            
+        	Helper::updateLogouttime();
             Auth::logout();
-            Helper::updateLogouttime();
+            
             return Redirect::to('/');
         }
 }

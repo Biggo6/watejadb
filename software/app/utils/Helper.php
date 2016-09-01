@@ -88,6 +88,16 @@ class Helper
         }
     }
 
+    public static function costPic($cid){
+        $c = Customer::find($cid);
+        $profilepic = $c->photo;
+        if($profilepic == ""){
+            return url('images/user.png');
+        }else{
+            return $profilepic;
+        }
+    }
+
     public static function userPic($uid){
         $user = User::find($uid);
         $profilepic = $user->profilepic;

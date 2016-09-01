@@ -44,6 +44,8 @@ Route::group(['before' => 'auth'], function() {
     //Customers
     Route::get('customers/add', ['as'=>'customers.add', 'uses'=>'CustomerController@add']);
     Route::get('customers', ['as'=>'customers', 'uses'=>'CustomerController@index']);
+    Route::post('customers', ['as'=>'customers.store', 'uses'=>'CustomerController@store']);
+    Route::get('customers/redirectWith', ['as'=>'customers.redirectWith', 'uses'=>'CustomerController@redirectWith']);
 
     // Messages
     Route::get('messages/add', ['as'=>'messages.add', 'uses'=>'CustomerController@add']);

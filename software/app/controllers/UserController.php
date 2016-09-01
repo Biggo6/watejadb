@@ -12,7 +12,7 @@ class UserController extends BaseController{
 
 	public function store(){
 
-		$username       = Input::get('username');
+		    $username       = Input::get('username');
         $email          = Input::get('email');
         $firstname      = Input::get('firstname');
         $lastname       = Input::get('lastname');

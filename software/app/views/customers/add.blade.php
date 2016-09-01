@@ -26,7 +26,7 @@
 
                         <div class="form-group">
                     
-                            <label>Firstname</label>
+                            <label>Firstname: <label class="label label-danger">*</label></label>
                             <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Firstname is required!" data-prompt-position="bottomRight" name="firstname"  id="firstname" />
                         </div>
 
@@ -36,7 +36,7 @@
                         <div class="form-group">
                     
                             <label>Middlename</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Middlename is required!" data-prompt-position="bottomRight" name="middlename"  id="middlename" />
+                            <input type="text" class="form-control"  name="middlename"  id="middlename" />
                         </div>
 
                     </div>    
@@ -44,18 +44,21 @@
 
                         <div class="form-group">
                     
-                            <label>Lastname</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Lastname is required!" data-prompt-position="bottomRight" name="lastname"  id="lastname" />
+                            <label>Lastname: <label class="label label-danger">*</label></label>
+                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Lastname is required!" data-prompt-position="bottomRight"  name="lastname"  id="lastname" />
                         </div>
 
                     </div>    
                     <div class="col-md-3">
 
+
                         <div class="form-group">
                     
-                            <label>Customer Code #</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Customer Code # is required!" data-prompt-position="bottomRight" name="customer_code"  id="customer_code" />
+                            <label>Phone: <label class="label label-danger">*</label></label>
+                            <input type="text" class="form-control validate[required, custom[number]]" data-errormessage-value-missing="Phone is required!" data-prompt-position="bottomRight" name="phone"  id="phone" />
                         </div>
+
+                        
 
                     </div>    
                 </div>
@@ -66,7 +69,7 @@
                         <div class="form-group">
                     
                             <label>Date Of Birth</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Date Of Birth is required!" data-prompt-position="bottomRight" name="dob"  id="dob" />
+                            <input type="text" class="form-control datepicker-autoclose"  name="dob"  id="dob" />
                         </div>
 
                     </div>    
@@ -75,7 +78,7 @@
                         <div class="form-group">
                     
                             <label>Gender</label>
-                            <select class="form-control">
+                            <select class="form-control" id="gender" name="gender">
                                 <option>-- Select Gender Here ---</option>
                                 <option> Male </option>
                                 <option> Female</option>
@@ -87,8 +90,8 @@
 
                         <div class="form-group">
                     
-                            <label>Phone</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Phone is required!" data-prompt-position="bottomRight" name="phone"  id="phone" />
+                            <label>Customer Code #</label>
+                            <input type="text" class="form-control" value="{{Uuid::generate(4)}}" disabled  name="customer_code"  id="customer_code" />
                         </div>
 
                     </div>    
@@ -97,7 +100,7 @@
                         <div class="form-group">
                     
                             <label>Mobile</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Mobile # is required!" data-prompt-position="bottomRight" name="mobile"  id="mobile" />
+                            <input type="text" class="form-control"  name="mobile"  id="mobile" />
                         </div>
 
                     </div>    
@@ -109,7 +112,7 @@
                         <div class="form-group">
                     
                             <label>Fax</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Fax is required!" data-prompt-position="bottomRight" name="fax"  id="fax" />
+                            <input type="text" class="form-control" name="fax"  id="fax" />
                         </div>
 
                     </div>    
@@ -118,7 +121,7 @@
                         <div class="form-group">
                     
                             <label>Email</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Email is required!" data-prompt-position="bottomRight" name="email"  id="email" />
+                            <input type="text" class="form-control" name="email"  id="email" />
                         </div>
 
                     </div>    
@@ -127,7 +130,7 @@
                         <div class="form-group">
                     
                             <label>Website</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Website is required!" data-prompt-position="bottomRight" name="website"  id="website" />
+                            <input type="text" class="form-control" name="website"  id="website" />
                         </div>
 
                     </div>  
@@ -136,7 +139,7 @@
                         <div class="form-group">
                     
                             <label>P.O BOX</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Website is required!" data-prompt-position="bottomRight" name="website"  id="website" />
+                            <input type="text" class="form-control" name="pobox"  id="pobox" />
                         </div>
 
                     </div>   
@@ -150,7 +153,7 @@
 
                         <div class="form-group">
                             <label>Region</label>
-                            <select id="region" type="text" class="form-control validate[required]" data-errormessage-value-missing="Region is required!" data-prompt-position="bottomRight" name="region">
+                            <select id="region" type="text" class="form-control" name="region">
                                 <option value="">-- Select Region -- </option>
                                 @foreach(Region::where('active', 1)->get() as $r)
                                     <option value="{{$r->id}}">{{$r->name}}</option>
@@ -164,7 +167,7 @@
                         <div class="form-group">
                     
                             <label>District <span style="display:none" id="ld"><img src="{{url('images/ld.gif')}}" /></span></label>
-                            <select id="district" type="text" class="form-control validate[required]" data-errormessage-value-missing="District is required!" data-prompt-position="bottomRight" name="district"
+                            <select id="district" type="text" class="form-control"  name="district"
 
                             ></select>
                         </div>
@@ -175,7 +178,7 @@
                         <div class="form-group">
                     
                             <label>Street</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Street is required!" data-prompt-position="bottomRight" name="street"  id="street" />
+                            <input type="text" class="form-control" name="street"  id="street" />
                         </div>
 
                     </div>    
@@ -184,7 +187,7 @@
                         <div class="form-group">
                     
                             <label>Location</label>
-                            <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Location is required!" data-prompt-position="bottomRight" name="location"  id="location" />
+                            <input type="text" class="form-control"  name="location"  id="location" />
                         </div>
 
                     </div>    
@@ -211,11 +214,11 @@
                         <div class="form-group">
                     
                             <label>Profile Picture</label><br/>
-                            <input type="file" id="logo" name="logo" class="btn btn-default" data-errormessage-value-missing="Logo is required!" data-prompt-position="bottomRight" title="Select Logo Image"
+                            <input type="file" id="logo" name="logo" class="btn btn-default"  title="Select Logo Image"
 
                              />
-                             <button class="btn btn-success"><i class="fa fa-camera"></i> Take Photo</button>
-                             <button class="btn btn-danger"><i class="fa fa-facebook"></i> Attach From Social Media</button>
+                             <button class="btn btn-success" disabled><i class="fa fa-camera"></i> Take Photo</button>
+                             <button class="btn btn-danger" disabled><i class="fa fa-facebook"></i> Attach From Social Media</button>
                              <hr/>
                             <div id="logo-placeholder"></div>
                             
@@ -240,7 +243,7 @@
 
                                 <table>
                                     <tr>
-                                        <td id="checx"><input type="checkbox" class="ios-switch ios-switch-default ios-switch-sm"   /></td>
+                                        <td id="checx"><input name="subsuv" id="subsuv" type="checkbox" class="ios-switch ios-switch-default ios-switch-sm"   /></td>
                                         <td><p> Subscribe To Social Media Updates</p></td>
                                     </tr>
                                 </table>
@@ -256,12 +259,13 @@
 
                 <div style="display:none" id="socialaccounts">
                     <div class="row">
+
                         <div class="col-md-3">
 
                             <div class="form-group">
                         
-                                <label>facebook ID</label>
-                                <input type="text" class="form-control validate[required]" data-errormessage-value-missing="facebook is required!" data-prompt-position="bottomRight" name="facebook"  id="facebook" />
+                                <label>Instagram ID - (username)</label>
+                                <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Instagram ID is required!" data-prompt-position="bottomRight"  name="instagram"  id="instagram" />
                             </div>
 
                         </div>    
@@ -269,27 +273,33 @@
 
                             <div class="form-group">
                         
-                                <label>Instagram ID</label>
-                                <input type="text" class="form-control validate[required]" data-errormessage-value-missing="instagram is required!" data-prompt-position="bottomRight" name="instagram"  id="instagram" />
+                                <label>Whatsapp Number</label>
+                                <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Whatsapp Number is required!" data-prompt-position="bottomRight" name="whatsapp"  id="whatsapp" />
                             </div>
 
-                        </div>    
-                        <div class="col-md-3">
+                        </div>  
 
-                            <div class="form-group">
-                        
-                                <label>Whatsapp ID</label>
-                                <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Whatapp is required!" data-prompt-position="bottomRight" name="whatsapp"  id="whatsapp" />
-                            </div>
 
-                        </div>    
                         <div class="col-md-3">
 
                             <div class="form-group">
                         
                                 <label>Skype ID</label>
-                                <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Skype is required!" data-prompt-position="bottomRight" name="skype"  id="skype" />
+                                <input type="text" disabled class="form-control" name="skype"  id="skype" />
                             </div>
+                            
+
+                        </div>    
+                          
+                        <div class="col-md-3">
+
+                            <div class="form-group">
+                        
+                                <label>facebook ID</label>
+                                <input type="text" disabled class="form-control"  name="facebook"  id="facebook" />
+                            </div>
+
+                            
 
                         </div>    
                     </div>
@@ -300,7 +310,7 @@
                             <div class="form-group">
                         
                                 <label>Twitter ID</label>
-                                <input type="text" class="form-control validate[required]" data-errormessage-value-missing="facebook is required!" data-prompt-position="bottomRight" name="facebook"  id="facebook" />
+                                <input type="text" disabled class="form-control"  name="facebook"  id="facebook" />
                             </div>
 
                         </div>    
@@ -309,7 +319,7 @@
                             <div class="form-group">
                         
                                 <label>Telegram ID</label>
-                                <input type="text" class="form-control validate[required]" data-errormessage-value-missing="instagram is required!" data-prompt-position="bottomRight" name="instagram"  id="instagram" />
+                                <input type="text" disabled class="form-control"  name="instagram"  id="instagram" />
                             </div>
 
                         </div>    
@@ -318,7 +328,7 @@
                             <div class="form-group">
                         
                                 <label>WeChat ID</label>
-                                <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Whatapp is required!" data-prompt-position="bottomRight" name="whatsapp"  id="whatsapp" />
+                                <input type="text" disabled class="form-control"  name="whatsapp"  id="whatsapp" />
                             </div>
 
                         </div>    
@@ -327,7 +337,7 @@
                             <div class="form-group">
                         
                                 <label>Google++ ID</label>
-                                <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Skype is required!" data-prompt-position="bottomRight" name="skype"  id="skype" />
+                                <input type="text" disabled class="form-control"  name="skype"  id="skype" />
                             </div>
 
                         </div>    

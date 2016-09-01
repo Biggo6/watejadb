@@ -6,8 +6,18 @@
 
 @section('content')
 
-<div class="row top-summary">
-    <div class="col-lg-3 col-md-6">
+<style type="text/css">
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 100px;
+    right: 80px;
+    //display:none;
+}
+</style>
+
+<div class="row top-summary" style="height:600px">
+    <!-- <div class="col-lg-3 col-md-6">
         <div class="widget lightblue-1">
             <div class="widget-content padding">
                 <div class="widget-icon">
@@ -98,11 +108,12 @@
                 <div class="clearfix"></div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </div>
 <!-- End of info box -->
 
+<a id="back-to-top" href="#" class="btn btn-danger btn-lg back-to-top" role="button" title="Click to add dashboard Widgets" data-toggle="tooltip" data-placement="left"><span class="fa fa-plus"></span> New Dashboard Widget</a>
 
 
 @stop

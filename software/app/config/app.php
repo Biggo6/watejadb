@@ -124,6 +124,7 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider',
 
+
 	),
 
 	/*
@@ -191,6 +192,7 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Carbon'			=> 'Carbon\Carbon',
+		'Uuid'              => 'Webpatser\Uuid\Uuid',
 
 	),
 
