@@ -56,8 +56,8 @@ Route::group(['before' => 'auth'], function() {
     Route::get('visits', ['as'=>'visits', 'uses'=>'CustomerController@index']);
 
     //Groups
-    Route::get('groups/add', ['as'=>'groups.add', 'uses'=>'CustomerController@add']);
-    Route::get('groups', ['as'=>'groups', 'uses'=>'CustomerController@index']);
+    Route::get('groups/add', ['as'=>'groups.add', 'uses'=>'GroupController@add']);
+    Route::get('groups', ['as'=>'groups', 'uses'=>'GroupController@index']);
 
     
     //Permissions
