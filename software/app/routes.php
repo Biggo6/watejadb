@@ -58,7 +58,8 @@ Route::group(['before' => 'auth'], function() {
     //Groups
     Route::get('groups/add', ['as'=>'groups.add', 'uses'=>'GroupController@add']);
     Route::get('groups', ['as'=>'groups', 'uses'=>'GroupController@index']);
-
+    Route::post('groups', ['as'=>'groups.store', 'uses'=>'GroupController@store']);
+    Route::get('groups/redirectWith', ['as'=>'groups.redirectWith', 'uses'=>'GroupController@redirectWith']);
     
     //Permissions
     Route::get('permissions/add', ['as'=>'permissions.add', 'uses'=>'PermissionController@add']);
