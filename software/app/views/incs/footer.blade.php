@@ -4,7 +4,11 @@
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="{{url('assets/libs/jquery/jquery-1.11.1.min.js')}}"></script>
 
-	<script src="{{url('jstree/jstree.js')}}"></script>
+	<script src="{{url('jstree/jstree.js')}}"></script> 
+	<script src="{{url('wateja/Tokenize/jquery.tokenize.js')}}"></script> 
+	<script type="text/javascript">
+	    $('#tokenize, #tokenize-group').tokenize({displayDropdownOnFocus:true});
+	</script>
 
 	@include('partials.scripts._ve')
 
