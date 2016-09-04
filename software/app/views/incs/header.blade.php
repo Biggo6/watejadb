@@ -11,11 +11,12 @@
 <link rel="stylesheet" href="{{url('jstree/themes/default/style.min.css')}}" />
 
 <link rel="stylesheet" href="{{url('ve/css/validationEngine.jquery.css')}}" type="text/css"/>
+<link rel="stylesheet" href="{{url('wateja/font-awesome/css/font-awesome.css')}}" type="text/css"/>
+<link rel="stylesheet" href="{{url('wateja/Tokenize/jquery.tokenize.css')}}" type="text/css"/>
 
 <!-- Base Css Files -->
 <link href="{{url('assets/libs/jqueryui/ui-lightness/jquery-ui-1.10.4.custom.min.css')}}" rel="stylesheet" />
 <link href="{{url('assets/libs/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
-<link href="{{url('assets/libs/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" />
 <link href="{{url('assets/libs/fontello/css/fontello.css')}}" rel="stylesheet" />
 <link href="{{url('assets/libs/animate-css/animate.min.css')}}" rel="stylesheet" />
 <link href="{{url('assets/libs/nifty-modal/css/component.css')}}" rel="stylesheet" />

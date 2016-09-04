@@ -59,7 +59,7 @@
                                                             <tr>
                                                                 <td>{{$i}}</td>
                                                                 
-                                                                <td><img src="{{Helper::costPic($r->id)}}" style="width:50px" /></td>
+                                                                <td><img src="{{HelperX::costPic($r->id)}}" style="width:50px" /></td>
                                                                 <td>{{$r->firstname}}</td>
                                                                 
                                                                 <td>{{$r->lastname}}</td>
@@ -68,7 +68,7 @@
                                                                 <td>{{$r->data_source}}</td>
 
                                                                 <td>{{Carbon::parse($r->created_at)->format('Y-m-d h:i:s')}}</td>
-                                                                <td>{{Helper::generateActions($r->id, route('business.delete'), route('business.edit'),'customers')}}
+                                                                <td>{{HelperX::generateActions($r->id, route('business.delete'), route('business.edit'),'customers')}}
 
                                                                 	&nbsp; <span style="cursor: pointer" class="label label-info" title="View more details" >
 																	<i class="fa fa-eye">

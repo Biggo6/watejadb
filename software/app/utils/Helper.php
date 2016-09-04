@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-class Helper
+class HelperX
 {
 
     public static function activeRoute($route)

@@ -51,9 +51,9 @@
                                                                 <td>{{Module::find($p->module_id)->name}}</td>
                                                                 <td><label class="label label-default">{{url($p->route_link)}}</label></td>
                                                                 <td>{{$p->name}} {{Module::find($p->module_id)->name}}</td>
-                                                                <td>{{Helper::getStatus($p->active)}}</td>
+                                                                <td>{{HelperX::getStatus($p->active)}}</td>
                                                                 <td>{{Carbon::parse($p->created_at)->format('Y-m-d h:i:s')}}</td>
-                                                                <td>{{Helper::generateActions($p->id, route('permissions.delete'), route('permissions.edit'),'permissions')}}</td>
+                                                                <td>{{HelperX::generateActions($p->id, route('permissions.delete'), route('permissions.edit'),'permissions')}}</td>
                                                             </tr>
                                                             <?php $i++; ?>
                                                             @endforeach

@@ -59,7 +59,7 @@ $regions                                                            = Company::o
                                                                 <td>
                                                                     <div class="image-upload">
                                                                         <label for="file-input">
-                                                                            <img src="{{Helper::getCompanyLogo($r->id)}}" style="width:72px" />
+                                                                            <img src="{{HelperX::getCompanyLogo($r->id)}}" style="width:72px" />
                                                                         </label>
 
                                                                         <input id="file-input" type="file"/>
@@ -77,7 +77,7 @@ $regions                                                            = Company::o
                                                                 <td>{{Business::find($r->business_id)->name}}</td>
                                                                 <td>{{$r->website}}</td>
                                                                 <td>{{$r->created_at}}</td>
-                                                                <td>{{Helper::generateActions($r->id, route('companies.delete'), route('companies.edit'),'companies')}}</td>
+                                                                <td>{{HelperX::generateActions($r->id, route('companies.delete'), route('companies.edit'),'companies')}}</td>
                                                             </tr>
                                                             <?php $i++;?>
                                                             @endforeach

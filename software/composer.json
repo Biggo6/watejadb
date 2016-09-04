@@ -6,7 +6,9 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"webpatser/laravel-uuid": "2.*"
+		"webpatser/laravel-uuid": "2.*",
+		"mgp25/instagram-php": "^1.4",
+		"whatsapp/chat-api": "v3.2.0.1"
 	},
 	"require-dev": {
 	    "way/generators": "~2.0",
@@ -20,8 +22,12 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
-			"app/tests/TestCase.php"
-		]
+			"app/tests/TestCase.php",
+			"app/utils"
+		],
+		"psr-0":{
+		    "App\\Utils" : "app/utils"
+		}
 	},
 	"scripts": {
 		"post-install-cmd": [

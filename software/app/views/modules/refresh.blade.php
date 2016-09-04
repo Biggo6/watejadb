@@ -25,9 +25,9 @@
                 <td>{{$i}}</td>
                 <td>{{$m->name}}</td>
                 <td>{{$m->system == 1 ? '<label class="label label-danger">System Defined</label>' : '<label class="label label-warning">User Defined</label>'}}</td>
-                <td>{{Helper::getStatus($m->status)}}</td>
+                <td>{{HelperX::getStatus($m->status)}}</td>
                 <td>{{Carbon::parse($m->created_at)->format('Y-m-d h:i:s')}}</td>
-                <td>{{Helper::generateActions($m->id, route('modules.delete'), route('modules.edit'),'modules')}}</td>
+                <td>{{HelperX::generateActions($m->id, route('modules.delete'), route('modules.edit'),'modules')}}</td>
             </tr>
             <?php $i++; ?>
             @endforeach

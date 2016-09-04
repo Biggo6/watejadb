@@ -92,9 +92,9 @@
                                                                 <td>{{$b->location}}</td>
                                                                 <td>{{$b->phone}}</td>
                                                                 <td>{{Company::find($b->company_id)->name}}</td>
-                                                                <td>{{Helper::getStatus($b->status)}}</td>
+                                                                <td>{{HelperX::getStatus($b->status)}}</td>
                                                                 <td>{{Carbon::parse($b->created_at)->format('Y-m-d h:i:s')}}</td>
-                                                                <td>{{Helper::generateActions($b->id, route('modules.delete'), route('modules.edit'),'branches')}}</td>
+                                                                <td>{{HelperX::generateActions($b->id, route('modules.delete'), route('modules.edit'),'branches')}}</td>
                                                             </tr>
                                                             <?php $i++; ?>
                                                             @endforeach

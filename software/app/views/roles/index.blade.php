@@ -50,9 +50,9 @@
                                                                 <td>{{$i}}</td>
                                                                 <td>{{$r->name}}</td>
                                                                 <td>{{$r->system == 1 ? '<label class="label label-danger">System Defined</label>' : '<label class="label label-warning">User Defined</label>'}}</td>
-                                                                <td>{{Helper::getStatus($r->status)}}</td>
+                                                                <td>{{HelperX::getStatus($r->status)}}</td>
                                                                 <td>{{Carbon::parse($r->created_at)->format('Y-m-d h:i:s')}}</td>
-                                                                <td>{{Helper::generateActions($r->id, route('roles.delete'), route('roles.edit'),'roles')}}</td>
+                                                                <td>{{HelperX::generateActions($r->id, route('roles.delete'), route('roles.edit'),'roles')}}</td>
                                                             </tr>
                                                             <?php $i++; ?>
                                                             @endforeach

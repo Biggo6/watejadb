@@ -6,7 +6,7 @@ class AppController extends BaseController{
 		$credits = Input::all();
 		$credits['status'] = 1;
 		if(Auth::attempt($credits)){
-			Helper::updateLogintime();
+			HelperX::updateLogintime();
 			return Redirect::to('dashboard');
 		}else{
 			return Redirect::back()->with('Error', 'Invalid User, Please enter correct info');
@@ -17,7 +17,7 @@ class AppController extends BaseController{
 	}
         public function logout(){
             
-        	Helper::updateLogouttime();
+        	HelperX::updateLogouttime();
             Auth::logout();
             
             return Redirect::to('/');

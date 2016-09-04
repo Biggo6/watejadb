@@ -9,7 +9,7 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('app.dashboard') }} '>
+                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('app.dashboard') }} '>
                     <span><i class="fa fa-dashboard"></i> Dashboard </span>
                 </a>
             </li>
@@ -25,12 +25,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('company.add')}}' class=' {{ Helper::activeRoute('company.add') }} '>
+                <a href='{{route('company.add')}}' class=' {{ HelperX::activeRoute('company.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Company </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('company.manage')}}' class=' {{ Helper::activeRoute('company.manage') }} '>
+                <a href='{{route('company.manage')}}' class=' {{ HelperX::activeRoute('company.manage') }} '>
                     <span><i class="fa fa-list"></i> Manage Company </span>
                 </a>
             </li>
@@ -46,12 +46,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('users.add')}}' class=' {{ Helper::activeRoute('users.add') }} '>
+                <a href='{{route('users.add')}}' class=' {{ HelperX::activeRoute('users.add') }} '>
                     <span><i class="fa fa-plus"></i> Add User </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('users')}}' class=' {{ Helper::activeRoute('users') }} '>
+                <a href='{{route('users')}}' class=' {{ HelperX::activeRoute('users') }} '>
                     <span><i class="fa fa-list"></i> Manage Users </span>
                 </a>
             </li>
@@ -67,12 +67,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('customers.add')}}' class=' {{ Helper::activeRoute('customers.add') }} '>
+                <a href='{{route('customers.add')}}' class=' {{ HelperX::activeRoute('customers.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Customer </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('customers')}}' class=' {{ Helper::activeRoute('customers') }} '>
+                <a href='{{route('customers')}}' class=' {{ HelperX::activeRoute('customers') }} '>
                     <span><i class="fa fa-list"></i> Manage Customers </span>
                 </a>
             </li>
@@ -88,12 +88,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('groups.add')}}' class=' {{ Helper::activeRoute('groups.add') }} '>
+                <a href='{{route('groups.add')}}' class=' {{ HelperX::activeRoute('groups.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Group </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('groups')}}' class=' {{ Helper::activeRoute('groups') }} '>
+                <a href='{{route('groups')}}' class=' {{ HelperX::activeRoute('groups') }} '>
                     <span><i class="fa fa-list"></i> Manage Groups </span>
                 </a>
             </li>
@@ -109,15 +109,21 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('messages.add')}}' class=' {{ Helper::activeRoute('messages.add') }} '>
-                    <span><i class="fa fa-plus"></i> Add User </span>
+                <a href='{{route('messages.sms')}}' class=' {{ HelperX::activeRoute('messages.sms') }} '>
+                    <span><i class="fa fa-mobile"></i> SMS & Call</span>
                 </a>
             </li>
             <li>
-                <a href='{{route('messages')}}' class=' {{ Helper::activeRoute('messages') }} '>
-                    <span><i class="fa fa-list"></i> Manage Users </span>
+                <a href='{{route('messages.instagram')}}' class=' {{ HelperX::activeRoute('messages.instagram') }} '>
+                    <span><i class="fa fa-instagram"></i> Instagram - DM </span>
                 </a>
             </li>
+            <li>
+                <a href='{{route('messages.whatsapp')}}' class=' {{ HelperX::activeRoute('messages.whatsapp') }} '>
+                    <span><i class="fa fa-whatsapp"></i> Whatsapp </span>
+                </a>
+            </li>
+            
         </ul>
     </li>
     <li class='has_sub'>
@@ -130,12 +136,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('visits.add')}}' class=' {{ Helper::activeRoute('visits.add') }} '>
+                <a href='{{route('visits.add')}}' class=' {{ HelperX::activeRoute('visits.add') }} '>
                     <span><i class="fa fa-plus"></i> Add User </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('visits')}}' class=' {{ Helper::activeRoute('visits') }} '>
+                <a href='{{route('visits')}}' class=' {{ HelperX::activeRoute('visits') }} '>
                     <span><i class="fa fa-list"></i> Manage Users </span>
                 </a>
             </li>
@@ -152,12 +158,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('roles.add')}}' class=' {{ Helper::activeRoute('roles.add') }} '>
+                <a href='{{route('roles.add')}}' class=' {{ HelperX::activeRoute('roles.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Role </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('roles')}}' class=' {{ Helper::activeRoute('roles') }} '>
+                <a href='{{route('roles')}}' class=' {{ HelperX::activeRoute('roles') }} '>
                     <span><i class="fa fa-list"></i> Manage Roles </span>
                 </a>
             </li>
@@ -173,12 +179,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('permissions.add')}}' class=' {{ Helper::activeRoute('permissions.add') }} '>
+                <a href='{{route('permissions.add')}}' class=' {{ HelperX::activeRoute('permissions.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Permission </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('permissions.index')}}' class=' {{ Helper::activeRoute('permissions.index') }} '>
+                <a href='{{route('permissions.index')}}' class=' {{ HelperX::activeRoute('permissions.index') }} '>
                     <span><i class="fa fa-list"></i> Manage Permissions </span>
                 </a>
             </li>
@@ -194,12 +200,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('business.add')}}' class=' {{ Helper::activeRoute('business.add') }} '>
+                <a href='{{route('business.add')}}' class=' {{ HelperX::activeRoute('business.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Business </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('business.index')}}' class=' {{ Helper::activeRoute('business.index') }} '>
+                <a href='{{route('business.index')}}' class=' {{ HelperX::activeRoute('business.index') }} '>
                     <span><i class="fa fa-list"></i> Manage Businesses </span>
                 </a>
             </li>
@@ -225,12 +231,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Package </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.manage') }} '>
                     <span><i class="fa fa-list"></i> Manage Packages </span>
                 </a>
             </li>
@@ -246,12 +252,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Subscription </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.manage') }} '>
                     <span><i class="fa fa-list"></i> Manage Subscriptions </span>
                 </a>
             </li>
@@ -267,12 +273,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Licence Key </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.manage') }} '>
                     <span><i class="fa fa-list"></i> Manage Licence Keyes </span>
                 </a>
             </li>
@@ -288,12 +294,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Licence Key </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.manage') }} '>
                     <span><i class="fa fa-list"></i> Manage Licence Keyes </span>
                 </a>
             </li>
@@ -314,22 +320,22 @@
                 </a>
             </li> --}}
             <li>
-                <a href='{{route('app.configuration.regions')}}' class=' {{ Helper::activeRoute('app.configuration.regions') }} '>
+                <a href='{{route('app.configuration.regions')}}' class=' {{ HelperX::activeRoute('app.configuration.regions') }} '>
                     <span><i class="fa fa-list"></i> Regions</span>
                 </a>
             </li> 
             <li>
-                <a href='{{route('app.configuration.districts')}}' class=' {{ Helper::activeRoute('app.configuration.districts') }} '>
+                <a href='{{route('app.configuration.districts')}}' class=' {{ HelperX::activeRoute('app.configuration.districts') }} '>
                     <span><i class="fa fa-list"></i> Districts</span>
                 </a>
             </li>
             <li>
-                <a href='{{route('app.configuration.modules')}}' class=' {{ Helper::activeRoute('app.configuration.modules') }} '>
+                <a href='{{route('app.configuration.modules')}}' class=' {{ HelperX::activeRoute('app.configuration.modules') }} '>
                     <span><i class="fa fa-list"></i> Modules</span>
                 </a>
             </li> 
             <li>
-                <a href='{{route('app.configuration.branches')}}' class=' {{ Helper::activeRoute('app.configuration.branches') }} '>
+                <a href='{{route('app.configuration.branches')}}' class=' {{ HelperX::activeRoute('app.configuration.branches') }} '>
                     <span><i class="fa fa-list"></i> Branches</span>
                 </a>
             </li>   
@@ -345,12 +351,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.add') }} '>
+                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Licence Key </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ Helper::activeRoute('compay.manage') }} '>
+                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.manage') }} '>
                     <span><i class="fa fa-list"></i> Manage Licence Keyes </span>
                 </a>
             </li>

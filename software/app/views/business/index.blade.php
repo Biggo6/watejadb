@@ -47,9 +47,9 @@
                                                             <tr>
                                                                 <td>{{$i}}</td>
                                                                 <td>{{$r->name}}</td>
-                                                                <td>{{Helper::getStatus($r->active)}}</td>
+                                                                <td>{{HelperX::getStatus($r->active)}}</td>
                                                                 <td>{{Carbon::parse($r->created_at)->format('Y-m-d h:i:s')}}</td>
-                                                                <td>{{Helper::generateActions($r->id, route('business.delete'), route('business.edit'),'business')}}</td>
+                                                                <td>{{HelperX::generateActions($r->id, route('business.delete'), route('business.edit'),'business')}}</td>
                                                             </tr>
                                                             <?php $i++; ?>
                                                             @endforeach

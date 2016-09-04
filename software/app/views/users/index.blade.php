@@ -74,9 +74,9 @@
                                                                 <td><b>{{Branch::find($r->branch_id)->name}}</b></td>
                                                                 <td><b>{{Helper::getStatus($r->status)}}</b></td>
                                                                 <td> {{$r->created_at}}</td>
-                                                                <td> {{Helper::getLoginTime($r->id)}}</td>
-                                                                <td> {{Helper::getLoginTime($r->id)}}</td>
-                                                                <td>{{Helper::generateActions($r->id, route('companies.delete'), route('companies.edit'),'users')}}
+                                                                <td> {{HelperX::getLoginTime($r->id)}}</td>
+                                                                <td> {{HelperX::getLoginTime($r->id)}}</td>
+                                                                <td>{{HelperX::generateActions($r->id, route('companies.delete'), route('companies.edit'),'users')}}
                                                                 	&nbsp; <span style="cursor: pointer" class="label label-info" title="Change password" >
 																	<i class="fa fa-key"></i>
 																</span>

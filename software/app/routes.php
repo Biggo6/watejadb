@@ -48,8 +48,9 @@ Route::group(['before' => 'auth'], function() {
     Route::get('customers/redirectWith', ['as'=>'customers.redirectWith', 'uses'=>'CustomerController@redirectWith']);
 
     // Messages
-    Route::get('messages/add', ['as'=>'messages.add', 'uses'=>'CustomerController@add']);
-    Route::get('messages', ['as'=>'messages', 'uses'=>'CustomerController@index']);
+    Route::get('messages/sms', ['as'=>'messages.sms', 'uses'=>'MessageController@sms']);
+    Route::get('messages/instagram', ['as'=>'messages.instagram', 'uses'=>'MessageController@instagram']);
+    Route::get('messages/whatsapp', ['as'=>'messages.whatsapp', 'uses'=>'MessageController@whatsapp']);
 
     //Visits
     Route::get('visits/add', ['as'=>'visits.add', 'uses'=>'CustomerController@add']);

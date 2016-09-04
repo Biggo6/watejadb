@@ -52,7 +52,7 @@
                                                                 <td>{{$i}}</td>
                                                                 <td>{{$r->group_name}}</td>
                                                                 
-                                                                <td>{{Helper::getStatus($r->status)}}</td>
+                                                                <td>{{HelperX::getStatus($r->status)}}</td>
                                                                 <td>
                                                                 	<?php
 
@@ -78,7 +78,7 @@
 										                            </div>
                                                                 </td>
                                                                 <td>{{Carbon::parse($r->created_at)->format('Y-m-d h:i:s')}}</td>
-                                                                <td>{{Helper::generateActions($r->id, route('business.delete'), route('business.edit'),'groups')}}</td>
+                                                                <td>{{HelperX::generateActions($r->id, route('business.delete'), route('business.edit'),'groups')}}</td>
                                                             </tr>
                                                             <?php $i++; ?>
                                                             @endforeach
