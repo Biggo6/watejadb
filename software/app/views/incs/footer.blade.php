@@ -10,7 +10,20 @@
 	    $('#tokenize, #tokenize-group').tokenize({displayDropdownOnFocus:true});
 	</script>
 
+
+
 	@include('partials.scripts._ve')
+
+	<script type="text/javascript" src="{{url('wateja/js/Wateja.js')}}"></script>
+	<script type="text/javascript">
+		$(function(){
+
+			$('#instaSend').on('click', function(){
+				alert(34)
+			});
+
+		});
+	</script>
 
 	<script src="{{url('assets/libs/bootstrap/js/bootstrap.min.js')}}"></script>
 	<script src="{{url('assets/libs/jqueryui/jquery-ui-1.10.4.custom.min.js')}}"></script>

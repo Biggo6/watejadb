@@ -22,11 +22,11 @@
             	<div class="col-md-4">
             		<h4><i class="fa fa-edit"></i> Composer New SMS <a data-modal="new-message" class="md-trigger"> <label  style="cursor: pointer" class="label label-success pull-right"><i class="fa fa-plus"></i> Group SMS</label></a></h4>
             		<hr/>
-            		<form action="" id="buzForm" method="POST" role="form">
+            		<form action="" id="instaForm" method="POST" role="form">
                         <div class="form-group">
                             <label for="">Receivers</label>
                             <br/>
-                            <select id="tokenize" multiple="multiple" class="tokenize-sample">
+                            <select id="tokenize" name="instaRecs" multiple="multiple" class="tokenize-sample">
                             	<?php $customers = Customer::where('added_by', Auth::user()->id)->where('instagram', '!=', '')->get(); ?>
                             	@foreach($customers as $c)
 							    <option value="{{$c->id}}">{{$c->firstname}} {{$c->lastname}} @{{{$c->instagram}}}</option>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Compose SMS</label>
-                            <textarea class="form-control" rows="6"></textarea>
+                            <textarea class="form-control" id="instaSMS" name="instaSMS" rows="6"></textarea>
                         </div>
                         <div class="form-group">
                         	<label>Attach Image</label><br/>
@@ -46,7 +46,7 @@
                             <div id="logo-placeholder"></div>
                         </div>
                         
-                        <button type="button" id="buzSaveNew" class="btn btn-danger">SEND DM</button>
+                        <button type="button" id="instaSend" class="btn btn-danger">SEND DM</button>
                         <br/>
                         <br/>
                     </form>
@@ -104,7 +104,10 @@
 </div>
 
 
+
 @stop
+
+
 
 @section('specific_js_libs')
 
