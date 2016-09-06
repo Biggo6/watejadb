@@ -55,7 +55,16 @@
                         <div class="form-group">
                     
                             <label>Phone: <label class="label label-danger">*</label></label>
-                            <input type="text" class="form-control validate[required, custom[number]]" data-errormessage-value-missing="Phone is required!" data-prompt-position="bottomRight" name="phone"  id="phone" />
+
+                            <div class="input-group phone-input">
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="type-text">+255</span> </button>
+                                   
+                                </span>
+                                <input type="text" class="form-control validate[required, custom[number], ,maxSize[9], ,minSize[9]]" data-errormessage-value-missing="Phone is required!" data-prompt-position="topLeft" placeholder="XXX XXX XXX" name="phone"  id="phone" />
+                            </div>
+
+                            
                         </div>
 
                         

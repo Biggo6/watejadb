@@ -26,7 +26,7 @@
                         <div class="form-group">
                             <label for="">Receivers</label>
                             <br/>
-                            <select id="tokenize" name="instaRecs" multiple="multiple" class="tokenize-sample">
+                            <select id="tokenize" name="instaRecs" multiple="multiple" class="tokenize-sample validate[required]" data-errormessage-value-missing="Customers is required!" data-prompt-position="bottomRight">
                             	<?php $customers = Customer::where('added_by', Auth::user()->id)->where('instagram', '!=', '')->get(); ?>
                             	@foreach($customers as $c)
 							    <option value="{{$c->id}}">{{$c->firstname}} {{$c->lastname}} @{{{$c->instagram}}}</option>
@@ -35,11 +35,11 @@
                         </div>
                         <div class="form-group">
                             <label for="">Compose SMS</label>
-                            <textarea class="form-control" id="instaSMS" name="instaSMS" rows="6"></textarea>
+                            <textarea class="form-control validate[required]" data-errormessage-value-missing="SMS is required!" data-prompt-position="bottomRight" id="instaSMS" name="instaSMS" rows="6"></textarea>
                         </div>
                         <div class="form-group">
                         	<label>Attach Image</label><br/>
-                            <input type="file" id="logo" name="logo" class="btn btn-default" data-errormessage-value-missing="Logo is required!" data-prompt-position="bottomRight" title="Select Logo Image"
+                            <input type="file" id="logo" name="logo" class="btn btn-default validate[required]" data-errormessage-value-missing="Logo is required!" data-prompt-position="bottomRight" title="Select Logo Image"
 
                              />
                              <hr/>

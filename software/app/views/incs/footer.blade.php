@@ -19,7 +19,10 @@
 		$(function(){
 
 			$('#instaSend').on('click', function(){
-				alert(34)
+				var registerForm =  $("#instaForm").validationEngine('validate');
+				if(registerForm){
+
+				}
 			});
 
 		});
