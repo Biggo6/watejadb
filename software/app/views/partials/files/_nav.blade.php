@@ -1,7 +1,7 @@
 <div class="container">
                     <div class="navbar-collapse2">
                         <ul class="nav navbar-nav hidden-xs">
-                            <li class="dropdown">
+                            <!--<li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-th"></i></a>
                                 <div class="dropdown-menu grid-dropdown">
                                     <div class="row stacked">
@@ -28,12 +28,20 @@
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                            </li>
+                            </li>-->
                             <li class="language_bar dropdown hidden-xs">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">English  <i class="fa fa-caret-down"></i></a>
                                 <ul class="dropdown-menu pull-right">
                                     <li><a href="#">Kiswahili</a></li>
                                 </ul>
+                            </li>
+                            <li class="language_bar dropdown hidden-xs">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@if(Auth::user()->role_id != 1)Company: <i><b>{{Company::find(Auth::user()->company_id)->name}}@endif</b></i> </a>
+                                
+                            </li>
+                            <li class="language_bar dropdown hidden-xs">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@if(Auth::user()->role_id != 1)Branch: <i><b>{{Branch::find(Auth::user()->branch_id)->name}}@endif</b></i> </a>
+                                
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right top-navbar">

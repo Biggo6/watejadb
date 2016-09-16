@@ -10,6 +10,12 @@ class UserController extends BaseController{
 		return View::make('users.index');
 	}
 
+
+  public function getPerms(){
+    $uid = Input::get('user');
+    return View::make('users.getPerms')->with('uid', $uid);
+  }
+
 	public function store(){
 
 		    $username       = Input::get('username');

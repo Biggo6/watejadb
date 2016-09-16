@@ -6,6 +6,23 @@
 
 @section('content')
 
+
+<div class="modal fade" id="role">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-key"></i> Permissions</h4>
+            </div>
+            <div class="modal-body">
+                    <center><img id="loader" style="height: 30px; display: none" src="{{url('images/ld.gif')}}" /></center>
+                    <div id="perms_editor"></div>
+            </div>
+            <hr/>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-sm-12">
         <div class="widget">
@@ -69,7 +86,7 @@
                                                                 <td><b>{{$r->firstname}}</b></td>
                                                                 <td><b>{{$r->lastname}}</b></td>
                                                                 <td><b>{{$r->email}}</b></td>
-                                                                <td><b>{{Role::find($r->role_id)->name}}</b></td>
+                                                                <td><b><a data-toggle="modal" user="{{$r->id}}" class="user_role" href='#role'>{{Role::find($r->role_id)->name}}</a></b></td>
                                                                 <td><b>{{Company::find($r->company_id)->name}}</b></td>
                                                                 <td><b>{{Branch::find($r->branch_id)->name}}</b></td>
                                                                 <td><b>{{HelperX::getStatus($r->status)}}</b></td>
@@ -104,6 +121,8 @@
 
 @stop
 
+
+
 @section('specific_js_libs')
 
 <script src="{{url('assets/js/pages/tabs-accordions.js')}}"></script>
@@ -113,4 +132,23 @@
 <script src="{{url('assets/js/pages/datatables.js')}}"></script>
 
 
+
+<script type="text/javascript">
+$(function(){
+    $('.user_role').on('click', function(){
+            $('#loader').show();
+            var uid = $(this).attr('user');
+            $('#perms_editor').html('');
+            $.get('{{route("users.getPerms")}}', {user:uid},function(res){
+                $('#loader').hide();
+                $('#perms_editor').html(res);
+            });
+    });
+});
+</script>
+
+
+
 @stop
+
+

@@ -21,6 +21,10 @@ class HelperX
 
     public static function canAccess($m){
 
+        if(Auth::user()->role_id == 1){
+            return true;
+        }
+
         $mArr  = HelperX::getUserAccessModules();
 
         if(!in_array($m, $mArr)){
