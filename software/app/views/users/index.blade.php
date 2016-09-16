@@ -64,7 +64,7 @@
                                                             @foreach($users as $r)
                                                             <tr>
                                                                 <td>{{$i}}</td>
-                                                                <td><img src="{{Helper::userPic($r->id)}}" style="width:50px" /></td>
+                                                                <td><img src="{{HelperX::userPic($r->id)}}" style="width:50px" /></td>
                                                                 <td><label class="label label-default">{{$r->username}}</label></td>
                                                                 <td><b>{{$r->firstname}}</b></td>
                                                                 <td><b>{{$r->lastname}}</b></td>
@@ -72,7 +72,7 @@
                                                                 <td><b>{{Role::find($r->role_id)->name}}</b></td>
                                                                 <td><b>{{Company::find($r->company_id)->name}}</b></td>
                                                                 <td><b>{{Branch::find($r->branch_id)->name}}</b></td>
-                                                                <td><b>{{Helper::getStatus($r->status)}}</b></td>
+                                                                <td><b>{{HelperX::getStatus($r->status)}}</b></td>
                                                                 <td> {{$r->created_at}}</td>
                                                                 <td> {{HelperX::getLoginTime($r->id)}}</td>
                                                                 <td> {{HelperX::getLoginTime($r->id)}}</td>

@@ -1,4 +1,5 @@
 <ul>
+
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='icon-home-3'></i>
@@ -15,6 +16,8 @@
             </li>
         </ul>
     </li>
+
+    @if(HelperX::canAccess('Companies'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-bank'></i>
@@ -36,6 +39,9 @@
             </li>
         </ul>
     </li>
+    @endif
+
+    @if(HelperX::canAccess('Users'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-users'></i>
@@ -57,6 +63,9 @@
             </li>
         </ul>
     </li>
+    @endif
+
+    @if(HelperX::canAccess('Customers'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-users'></i>
@@ -78,6 +87,9 @@
             </li>
         </ul>
     </li>
+    @endif
+
+    @if(HelperX::canAccess('Groups'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-share-alt'></i>
@@ -99,6 +111,9 @@
             </li>
         </ul>
     </li>
+    @endif
+
+    @if(HelperX::canAccess('Messages'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-envelope'></i>
@@ -126,6 +141,9 @@
             
         </ul>
     </li>
+    @endif
+
+    @if(HelperX::canAccess('Visits'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-bicycle'></i>
@@ -147,7 +165,9 @@
             </li>
         </ul>
     </li>
-    
+    @endif
+
+    @if(HelperX::canAccess('Roles'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-key'></i>
@@ -169,6 +189,9 @@
             </li>
         </ul>
     </li>
+    @endif
+
+    @if(HelperX::canAccess('Permissions'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-magic'></i>
@@ -190,6 +213,9 @@
             </li>
         </ul>
     </li>
+    @endif
+
+    @if(HelperX::canAccess('Business'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-briefcase'></i>
@@ -221,6 +247,9 @@
             </li> --}}
         </ul>
     </li>
+    @endif
+
+    @if(HelperX::canAccess('Packages'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-th'></i>
@@ -242,6 +271,9 @@
             </li>
         </ul>
     </li>
+    @endif
+
+    @if(HelperX::canAccess('Subscription'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-dollar'></i>
@@ -263,6 +295,9 @@
             </li>
         </ul>
     </li>
+    @endif
+
+    @if(HelperX::canAccess('Licences'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-lock'></i>
@@ -284,6 +319,9 @@
             </li>
         </ul>
     </li>
+    @endif
+
+    @if(HelperX::canAccess('API'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-link'></i>
@@ -305,6 +343,9 @@
             </li>
         </ul>
     </li>
+    @endif
+
+    @if(HelperX::canAccess('Configuration'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-wrench'></i>
@@ -341,6 +382,9 @@
             </li>   
         </ul>
     </li>
+    @endif
+
+    @if(HelperX::canAccess('Reports'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-line-chart'></i>
@@ -362,6 +406,9 @@
             </li>
         </ul>
     </li>
+    @endif
+
+    
 </ul>
 
 

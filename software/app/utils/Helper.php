@@ -19,6 +19,35 @@ class HelperX
         }
     }
 
+    public static function canAccess($m){
+
+        $mArr  = HelperX::getUserAccessModules();
+
+        if(!in_array($m, $mArr)){
+            return false;
+        }
+
+        return true;
+
+    }
+
+    public static function getUserAccessModules(){
+        $role_id = Auth::user()->role_id;
+        $perms   = RolePerm::where('role_id', $role_id)->get();
+        $uniqModules = [];
+        if(count($perms)){
+           
+            foreach ($perms as $p) {
+                $pid         = $p->permission_id;
+                $module_name = Module::find(Permission::find($pid)->module_id)->name; 
+                if (!in_array($module_name, $uniqModules)) {
+                    $uniqModules[] = $module_name;
+                }
+            }
+        }
+        return $uniqModules;
+    }
+
     public static function updateLogouttime() {
         $check = LoginHistory::where('user_id', Auth::user()->id)->count();
 
