@@ -10,6 +10,11 @@ class RolesController extends BaseController{
 		return View::make('roles.index');
 	}
 
+	public function getPerms(){
+		$role_id = Input::get('role_id');
+		return View::make('roles.getPerms')->with('role', $role_id);
+	}
+
 	public function store(){
 		$role_name         = Input::get('role_name');
 		$role_module_cat   = Input::get('role_module_cat');

@@ -17,7 +17,7 @@
         </ul>
     </li>
 
-    @if(HelperX::canAccess('Companies'))
+    @if(HelperX::canAccess('Company'))
     <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-bank'></i>
@@ -408,7 +408,7 @@
     </li>
     @endif
 
-    
+
 </ul>
 
 

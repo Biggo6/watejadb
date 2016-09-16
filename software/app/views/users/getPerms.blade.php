@@ -1,5 +1,11 @@
+<?php
 
-<div class="form-group well">
+$role_id = User::find($uid)->role_id;
+
+?>
+
+
+<div class="form-group well" >
     <label id="perm" for="">Permissions</label>
     
     <div id="jstree" data-jstree='{"opened":true,"selected":true}'>
@@ -8,12 +14,22 @@
 	      <?php $modules = Module::where('status', 1)->get();  ?>
 	      @if(count($modules))
 	      	@foreach($modules as $m)
-		      <li id="{{$m->name}}_{{$m->name}}_0">{{$m->name}}
+		      <li data-jstree='{"disabled":true}' id="{{$m->name}}_{{$m->name}}_{{$m->id}}" class="jstree-open">{{$m->name}}
 
 		      	
 		        <ul>
 		        	@foreach(Permission::where('module_id', $m->id)->get() as $p)		
-		          		<li id="{{$m->name}}_{{$p->name}}_{{$p->id}}">{{$p->name}} {{$m->name}}</li>
+
+		        		<?php
+
+		        			$c = RolePerm::where('role_id', $role_id)->where('permission_id', $p->id)->count();
+
+		        		?>
+		        		@if($c)
+		          			<li   id="{{$m->name}}_{{$p->name}}_{{$p->id}}"><a class="jstree-clicked">{{$p->name}} {{$m->name}}</a></li>
+		          		@else
+		          			<li data-jstree='{"disabled":true}'  id="{{$m->name}}_{{$p->name}}_{{$p->id}}"><a >{{$p->name}} {{$m->name}}</a></li>
+		          		@endif
 		          	@endforeach	
 		        </ul>
 		        
@@ -32,10 +48,13 @@
 
 <script type="text/javascript">
 $(function(){
-	$('#jstree').jstree({
 
+	$("#jstree").prop('disabled',true);
+
+	$('#jstree').jstree({
+	  
 	  "checkbox" : {
-	    "keep_selected_style" : true
+	    "keep_selected_style" : false
 	  },
 	  "plugins" : [ "wholerow", "checkbox" ]
 	});

@@ -44,7 +44,7 @@
 							      <?php $modules = Module::where('status', 1)->get();  ?>
 							      @if(count($modules))
 							      	@foreach($modules as $m)
-								      <li id="{{$m->name}}_{{$m->name}}_0">{{$m->name}}
+								      <li id="{{$m->name}}_{{$m->name}}_0" class="jstree-open">{{$m->name}}
 
 								      	
 								        <ul>

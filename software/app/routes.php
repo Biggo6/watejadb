@@ -94,6 +94,7 @@ Route::group(['before' => 'auth'], function() {
     Route::post('roles/delete', ['as'=>'roles.delete', 'uses'=>'RolesController@delete']);
     Route::post('roles/edit', ['as'=>'roles.edit', 'uses'=>'RolesController@edit']);
     Route::get('roles/redirectWith', ['as'=>'roles.redirectWith', 'uses'=>'RolesController@redirectWith']);
+    Route::get('roles/getPerms',['as'=>'roles.getPerms', 'uses'=>'RolesController@getPerms']);
 
     // Users code
     Route::get('users/add', ['as'=>'users.add', 'uses'=>'UserController@add']);
