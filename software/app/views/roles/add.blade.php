@@ -24,8 +24,8 @@
                                         <label for="">Category</label>
                                         <select id="role_module_cat" name="role_module_cat" class="form-control validate[required]" data-errormessage-value-missing="Category is required!" data-prompt-position="bottomRight">
                                             <option value="">--- Select Module Category here --</option>
-                                            <option value="0">User Defined</option>
-                                            <option value="1">System Defined</option>
+                                            <option value="0">User Defined - Child Role</option>
+                                            <option value="1">System Defined - Main Role</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

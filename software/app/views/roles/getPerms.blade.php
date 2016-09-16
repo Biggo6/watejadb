@@ -42,7 +42,7 @@
 	      <?php $modules = Module::where('status', 1)->get();  ?>
 	      @if(count($modules))
 	      	@foreach($modules as $m)
-		      <li  id="{{$m->name}}_{{$m->name}}_{{$m->id}}" class="jstree-open">{{$m->name}}
+		      <li  id="{{$m->name}}_{{$m->name}}_0" class="jstree-open">{{$m->name}}
 
 		      	
 		        <ul>
@@ -72,7 +72,7 @@
 
 <hr/>
 
-<button class="btn btn-danger"><i class="fa fa-save"></i> Save Changes</button>
+<button class="btn btn-danger" id="saveRole"><i class="fa fa-save"></i> Save Changes</button>
 
 @endif
 
@@ -95,5 +95,37 @@ $(function(){
 	$('#jstree').on("changed.jstree", function (e, data) {
       roles = (data.selected);
     });
+
+	$('#saveRole').on('click', function(){
+		var role_ids = [];
+		
+		for(i=0; i<(roles).length;i++){
+			var role_id = parseInt((roles[i]).split('_')[2]);
+			if(role_id != 0){
+				role_ids.push(role_id);
+			}
+		}
+
+		if(role_ids.length == 0){
+			$('#jstree').css('background-color', '#F2DEDE').delay(200).fadeOut('normal', function(){
+				$(this).fadeIn('normal', function(){
+					$(this).css('background-color', '');
+				});
+			});
+		}else{
+			var conf  = confirm("Are you sure");
+			if(conf){
+				$('#jstree').css('opacity', 0.2);
+				$.post("{{route('roles.update')}}", {role:'{{$role}}', role_ids : role_ids}, function(res){
+					console.log(res)
+					$('#jstree').css('opacity', 1);
+					alert('Successfully update');
+					window.location  = "";
+				});
+			}
+		}
+	});	
+
+
 });
 </script>

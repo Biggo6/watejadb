@@ -84,7 +84,7 @@
 
                             >
                             <option value="">-- Select Company -- </option>
-                            @foreach(Company::all() as $r)
+                            @foreach(Company::where('id', Auth::user()->company_id)->get() as $r)
                                     <option value="{{$r->id}}">{{$r->name}}</option>
                                 @endforeach
                         </select><br/>
@@ -116,9 +116,17 @@
                             <label>Role</label>
                             <select id="role" type="text" class="form-control validate[required]" data-errormessage-value-missing="Role is required!" data-prompt-position="bottomRight" name="role">
                                 <option value="">--Select Role--</option>
-                                 @foreach(Role::all() as $r)
+                                @if(Auth::user()->role_id == 1) 
+                                @foreach(Role::all() as $r)
                                     <option value="{{$r->id}}">{{$r->name}}</option>
                                 @endforeach
+                                @else
+                                @foreach(Role::all() as $r)
+                                    @if($r->name != "superadmin")
+                                    <option value="{{$r->id}}">{{$r->name}}</option>
+                                    @endif
+                                @endforeach
+                                @endif
                             </select>
                         </div>
 

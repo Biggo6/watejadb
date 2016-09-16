@@ -10,6 +10,35 @@ class RolesController extends BaseController{
 		return View::make('roles.index');
 	}
 
+	public function update(){
+
+		$role_ids		   = Input::get('role_ids');
+		$role 			   = Input::get('role');
+
+
+		$roles  =  ($role_ids);
+
+
+
+		RolePerm::where('role_id',$role)->delete();
+
+		$perms  = [];
+
+		for ($i=0; $i < count($roles); $i++) { 
+				$p_id = (integer)$roles[$i];
+
+				$perms[]  = Permission::find($p_id)->name;
+
+				$rp   = new RolePerm;
+				$rp->role_id = $role;
+				$rp->permission_id = $p_id;
+				$rp->save();
+		}
+
+		
+
+	}
+
 	public function getPerms(){
 		$role_id = Input::get('role_id');
 		return View::make('roles.getPerms')->with('role', $role_id);
