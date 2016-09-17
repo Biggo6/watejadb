@@ -31,9 +31,19 @@
                                 
                                 <?php $routeCollection = Route::getRoutes(); ?>
 
+                                <?php
+                                    $perms = Permission::all();
+                                    $links = [];
+                                    foreach ($perms as $l) {
+                                        $links[] = $l->route_link;
+                                    }
+                                ?>
+
                                 <?php foreach ($routeCollection as $value): ?> 
                                     
-                                    <option>{{$value->getPath()}}</option>
+                                    @if(!in_array($value->getPath(), $links))
+                                        <option>{{$value->getPath()}}</option>
+                                    @endif
                             
                                 <?php endforeach; ?>        
                                 

@@ -12,10 +12,12 @@
 
             <div class="widget-content padding">
             	<!-- Content Form Goes here -->
-            	<div class="col-md-4" id="roleFormArea">
+                <div id="roleFormArea">
+                     <form action="" id="roleForm" method="POST" role="form">
+                    <div class="col-md-4" >
                     <h4><i class="fa fa-plus"></i> Add New Role</h4>
                     <hr/>
-                    <form action="" id="roleForm" method="POST" role="form">
+                   
                         <div class="form-group">
                             <label for="">Name</label>
                             <input type="text" name="role_name" id="module_name" class="form-control validate[required]" data-errormessage-value-missing="Role name is required!" data-prompt-position="bottomRight"  placeholder="Enter Role Name">
@@ -35,39 +37,48 @@
                                             <option value="0">Block</option>
                                         </select>
                                     </div>
-                        <div class="form-group">
+                        
+                        
+                        
+                    
+                </div>
+                <div class="col-md-8" >
+
+                    <div class="form-group">
                             <label id="perm" for="">Permissions</label>
                             
                             <div id="jstree" data-jstree='{"opened":true,"selected":true}'>
-							    <ul>
-							      
-							      <?php $modules = Module::where('status', 1)->get();  ?>
-							      @if(count($modules))
-							      	@foreach($modules as $m)
-								      <li id="{{$m->name}}_{{$m->name}}_0" class="jstree-open">{{$m->name}}
+                                <ul>
+                                  
+                                  <?php $modules = Module::where('status', 1)->get();  ?>
+                                  @if(count($modules))
+                                    @foreach($modules as $m)
+                                      <li id="{{$m->name}}_{{$m->name}}_0" class="jstree-open">{{$m->name}}
 
-								      	
-								        <ul>
-								        	@foreach(Permission::where('module_id', $m->id)->get() as $p)		
-								          		<li id="{{$m->name}}_{{$p->name}}_{{$p->id}}">{{$p->name}} {{$m->name}}</li>
-								          	@endforeach	
-								        </ul>
-								        
-								      
-								      </li>
-								    @endforeach  
-							      @endif
-							      
-							    </ul>
-							 </div>
+                                        
+                                        <ul>
+                                            @foreach(Permission::where('module_id', $m->id)->get() as $p)       
+                                                <li id="{{$m->name}}_{{$p->name}}_{{$p->id}}">{{$p->name}} {{$m->name}}</li>
+                                            @endforeach 
+                                        </ul>
+                                        
+                                      
+                                      </li>
+                                    @endforeach  
+                                  @endif
+                                  
+                                </ul>
+                             </div>
                         </div>
-                        
-                        <button type="button" id="saveRole" register="save" class="btn btn-primary">SAVE</button>
+
+                </div>
+                <button type="button" id="saveRole" register="save" class="btn btn-primary">SAVE</button>
                         <button type="button" id="saveNewRole" register="saveNew" class="btn btn-success">SAVE & NEW</button>
                         <br/>
                         <br/>
-                    </form>
+                </form>
                 </div>
+            	
             </div>
 
         </div>

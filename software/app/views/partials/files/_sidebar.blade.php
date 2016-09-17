@@ -155,12 +155,12 @@
         <ul>
             <li>
                 <a href='{{route('visits.add')}}' class=' {{ HelperX::activeRoute('visits.add') }} '>
-                    <span><i class="fa fa-plus"></i> Add User </span>
+                    <span><i class="fa fa-plus"></i> Add New Visit </span>
                 </a>
             </li>
             <li>
                 <a href='{{route('visits')}}' class=' {{ HelperX::activeRoute('visits') }} '>
-                    <span><i class="fa fa-list"></i> Manage Users </span>
+                    <span><i class="fa fa-list"></i> Manage Visits </span>
                 </a>
             </li>
         </ul>
@@ -260,12 +260,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.add') }} '>
+                <a href='{{route('packages.add')}}' class=' {{ HelperX::activeRoute('packages.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Package </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.manage') }} '>
+                <a href='{{route('packages.index')}}' class=' {{ HelperX::activeRoute('packages.index') }} '>
                     <span><i class="fa fa-list"></i> Manage Packages </span>
                 </a>
             </li>
@@ -393,18 +393,7 @@
                 <i class="fa fa-angle-down"></i>
             </span>
         </a>
-        <ul>
-            <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.add') }} '>
-                    <span><i class="fa fa-plus"></i> Add Licence Key </span>
-                </a>
-            </li>
-            <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.manage') }} '>
-                    <span><i class="fa fa-list"></i> Manage Licence Keyes </span>
-                </a>
-            </li>
-        </ul>
+        
     </li>
     @endif
 

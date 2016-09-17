@@ -53,8 +53,8 @@ Route::group(['before' => 'auth'], function() {
     Route::get('messages/whatsapp', ['as'=>'messages.whatsapp', 'uses'=>'MessageController@whatsapp']);
 
     //Visits
-    Route::get('visits/add', ['as'=>'visits.add', 'uses'=>'CustomerController@add']);
-    Route::get('visits', ['as'=>'visits', 'uses'=>'CustomerController@index']);
+    Route::get('visits/add', ['as'=>'visits.add', 'uses'=>'VisitsController@add']);
+    Route::get('visits', ['as'=>'visits', 'uses'=>'VisitsController@index']);
 
     //Groups
     Route::get('groups/add', ['as'=>'groups.add', 'uses'=>'GroupController@add']);
@@ -134,6 +134,11 @@ Route::group(['before' => 'auth'], function() {
     Route::get('app/configuration/districts', ['as'=>'app.configuration.districts', 'uses'=>'DistrictController@index']); 
     Route::get('districts/refresh', ['as'=>'districts.refresh', 'uses'=>'DistrictController@refresh']);   
     Route::post('app/configuration/updateDistrict', ['as'=>'app.configuration.updateDistrict', 'uses'=>'DistrictController@updateDistrict']);
+
+
+    //Packages Codes
+    Route::get('packages/add', ['as'=>'packages.add', 'uses'=>'PackagesController@add']);
+    Route::get('packages/index', ['as'=>'packages.index', 'uses'=>'PackagesController@index']);
 
 
 
