@@ -298,7 +298,7 @@
     @endif
 
     @if(HelperX::canAccess('Licences'))
-    <li class='has_sub'>
+    <!-- <li class='has_sub'>
         <a href='javascript:void(0);'>
             <i class='fa fa-lock'></i>
             <span>Licences</span> 
@@ -318,7 +318,7 @@
                 </a>
             </li>
         </ul>
-    </li>
+    </li> -->
     @endif
 
     @if(HelperX::canAccess('API'))

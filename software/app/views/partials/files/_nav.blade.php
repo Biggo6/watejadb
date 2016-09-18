@@ -43,6 +43,14 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">@if(Auth::user()->role_id != 1)Branch: <i><b>{{Branch::find(Auth::user()->branch_id)->name}}@endif</b></i> </a>
                                 
                             </li>
+                            <li class="language_bar dropdown hidden-xs">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@if(Auth::user()->role_id != 1)Package: <i><b class="label label-warning">{{HelperX::getPackage()}} ({{HelperX::getDays()}} days)@endif</b></i> </a>
+                                
+                            </li>
+                            <li class="language_bar dropdown hidden-xs">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@if(Auth::user()->role_id != 1)Days Remain: <i><b class="label label-primary">{{HelperX::getRemainDays()}} days @endif</b></i> </a>
+                                
+                            </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right top-navbar">
                             <!--                            <li class="dropdown iconify hide-phone">

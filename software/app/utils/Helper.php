@@ -19,6 +19,51 @@ class HelperX
         }
     }
 
+
+    public static function getPackage(){
+        if(Auth::user()->role_id != 1){
+            $cid = Auth::user()->company_id;
+            $bid = Auth::user()->branch_id;
+            $sub = Subscription::where('company_id', $cid)->where('branch_id', $bid)->first();
+            $days = Package::find($sub->subscription_id)->package;
+            return $days;
+        }
+    }
+
+    public static function getDays(){
+        if(Auth::user()->role_id != 1){
+            $cid = Auth::user()->company_id;
+            $bid = Auth::user()->branch_id;
+            $sub = Subscription::where('company_id', $cid)->where('branch_id', $bid)->where('tried', 1)->first();
+            $days = Package::find($sub->subscription_id)->duration_days;
+            return $days;
+        }
+    }
+
+    public static function getRemainDays(){
+        if(Auth::user()->role_id != 1){
+            $cid = Auth::user()->company_id;
+            $bid = Auth::user()->branch_id;
+            $sub = Subscription::where('company_id', $cid)->where('branch_id', $bid)->where('tried', 1)->first();
+
+            if($sub){
+                $days = Package::find($sub->subscription_id)->duration_days;
+
+                $firstDateStarted = new Carbon($sub->updated_at);
+                $now = Carbon::now();
+
+                $rem = $days - $firstDateStarted->diff($now)->days;
+
+                return $rem;    
+            }else{
+                return 0;
+            }
+
+            
+        }
+
+    }
+
     public static function canAccess($m){
 
         if(Auth::user()->role_id == 1){

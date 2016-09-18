@@ -50,6 +50,7 @@
 					<img src="{{url('wateja/images/logo.png')}}" class="img-circle not-logged-avatar">
 					<form role="form" action="{{route('app.doLogin')}}" method="POST">
 						@include('partials.files._error')
+						@include('partials.files._info')
 						<div class="form-group login-input">
 						<i class="fa fa-user overlay"></i>
 						<input type="text" required name="username" class="form-control text-input" placeholder="Username">
