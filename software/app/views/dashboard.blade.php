@@ -33,12 +33,12 @@
                 <h4 class="modal-title"><i class="fa fa-plus"></i>  New Dashboard Widget</h4>
             </div>
             <div class="modal-body">
-                <form action=""  role="form">
+                <form id="widget_form" role="form">
                     
                 
                     <div class="form-group">
                         <label for="">Widget Type</label>
-                        <select class="form-control" id="wtype">
+                        <select class="form-control validate[required]" data-errormessage-value-missing="Widget Type  is required!" data-prompt-position="bottomRight"  name="wtype" id="wtype">
                             <option value="">--Select Wiget Type --</option>
                             @foreach(HelperX::getUserAccessModules() as $m)
                                 <option>{{$m}}</option>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Widget Category</label>
-                        <select class="form-control" id="wcategory">
+                        <select class="form-control validate[required]" data-errormessage-value-missing="Widget Category is required!" data-prompt-position="bottomRight"  name="wcategory" id="wcategory">
                             <option value="">--Select Category --</option>
                             <option>Panel</option>
                             <option>Tablural</option>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Widget Layout Row </label>
-                        <select class="form-control" id="wrow">
+                        <select class="form-control validate[required]" data-errormessage-value-missing="Widget Layout Row is required!" data-prompt-position="bottomRight"  name="wrow" id="wrow">
                             <option value="">--Select Row --</option>
                            @foreach(HelperX::getUserAccessModules() as $m => $k)
                                 <option>{{$m + 1}} </option>
@@ -66,15 +66,15 @@
 
                     <div class="form-group">
                         <label for="">Widget Layout Columns</label>
-                        <select class="form-control" id="wcolumn">
+                        <select class="form-control validate[required]" data-errormessage-value-missing="Widget Layout Columns is required!" data-prompt-position="bottomRight"  name="wcolumn" id="wcolumn">
                             
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="">Widget Content Type</label>
-                        <select class="form-control" id="wcontent">
-                            <option value="">--Select Content Type --</option>
+                        <label for="">Widget Content Type <span style="display:none" id="ld"><img src="{{url('images/ld.gif')}}" /></span></label>
+                        <select class="form-control validate[required]" data-errormessage-value-missing="Widget Content Type is required!" data-prompt-position="bottomRight"  name="wcontent" id="wcontent">
+                            
                             
                         </select>
                     </div>
@@ -86,13 +86,13 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" id="saveWidget">Save changes</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="row top-summary" style="height:600px">
+<div class="row top-summary" id="dashboard_editor" style="height:600px">
 
     <?php
 
@@ -106,103 +106,13 @@
 
     @else
 
+        {{View::make('dashboard.widgets')->render()}}
 
     @endif
 
     
 
-    <!-- <div class="col-lg-3 col-md-6">
-        <div class="widget lightblue-1">
-            <div class="widget-content padding">
-                <div class="widget-icon">
 
-                </div>
-                <div class="text-box">
-                    <p class="maindata">TOTAL <b>VISITORS</b></p>
-                    <h2><span class="animate-number" data-value="25153" data-duration="3000">0</span></h2>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="widget-footer">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <i class="fa fa-caret-up rel-change"></i> <b>39%</b> increase in traffic
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-6">
-        <div class="widget green-1">
-            <div class="widget-content padding">
-                <div class="widget-icon">
-
-                </div>
-                <div class="text-box">
-                    <p class="maindata">TOTAL <b>SALES</b></p>
-                    <h2><span class="animate-number" data-value="6399" data-duration="3000">0</span></h2>
-
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="widget-footer">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <i class="fa fa-caret-down rel-change"></i> <b>11%</b> decrease in sales
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-6">
-        <div class="widget orange-4">
-            <div class="widget-content padding">
-                <div class="widget-icon">
-
-                </div>
-                <div class="text-box">
-                    <p class="maindata">OVERALL <b>INCOME</b></p>
-                    <h2>$<span class="animate-number" data-value="70389" data-duration="3000">0</span></h2>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="widget-footer">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <i class="fa fa-caret-down rel-change"></i> <b>7%</b> decrease in income
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-lg-3 col-md-6">
-        <div class="widget darkblue-2">
-            <div class="widget-content padding">
-                <div class="widget-icon">
-
-                </div>
-                <div class="text-box">
-                    <p class="maindata">TOTAL <b>USERS</b></p>
-                    <h2><span class="animate-number" data-value="18648" data-duration="3000">0</span></h2>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-            <div class="widget-footer">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <i class="fa fa-caret-up rel-change"></i> <b>6%</b> increase in users
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </div> -->
 
 </div>
 <!-- End of info box -->
@@ -247,7 +157,40 @@ $(function(){
                 });
             });
         }else{
-           // alert('we are good!')
+           $('#ld').show();
+           $.get('{{route("dashboard.getWigetContent")}}', {wcolumn:c, wtype:t, wcategory:ct, wrow:r}, function(res){
+                $('#ld').hide();
+                $('#wcontent').html(res);
+           });
+        }
+    });
+
+    
+
+
+});
+</script>
+
+@include('partials.scripts._dependencies')
+
+<script>
+$(function(){
+    $('#saveWidget').on('click', function(){
+        var registerForm =  $("#widget_form").validationEngine('validate');
+        if(registerForm){
+            data = Wateja.serializeData(widget_form);
+            Wateja.applyOpacity(widget_form);
+            Wateja.talkToServer('{{route("dashboard.storeWidget")}}', data).then(function(res){
+                
+                Wateja.removeOpacity(widget_form);
+                if(res.error){
+                    Wateja.showFeedBack(widget_form, res.msg, res.error);
+                }else{
+                    $('#addWidgets').modal('hide');
+                    $('#widget_form')[0].reset();
+                    $('#dashboard_editor').hide().html(res.msg).fadeIn();                                                                                                                                                                                                                                                                                                         
+                }
+            });
         }
     });
 });

@@ -51,12 +51,8 @@ Route::filter('checkLicience', function(){
 
 Route::filter('auth', function()
 {
-	if(Auth::user()->role_id != 1){
-		if(HelperX::getRemainDays() < 0){
-			HelperX::deactivatePackage();
-			return Redirect::to('/')->with('Info', 'Your Licence Expired - ' . HelperX::getPackage());
-		}
-	}
+
+	
 
 	if (Auth::guest())
 	{
@@ -67,6 +63,13 @@ Route::filter('auth', function()
 		else
 		{
 			return Redirect::guest('/');
+		}
+	}else{
+		if(Auth::user()->role_id != 1){
+			if(HelperX::getRemainDays() < 0){
+				HelperX::deactivatePackage();
+				return Redirect::to('/')->with('Info', 'Your Licence Expired - ' . HelperX::getPackage());
+			}
 		}
 	}
 });

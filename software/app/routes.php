@@ -153,6 +153,12 @@ Route::group(['before' => 'auth'], function() {
         Route::get('subscription/index', ['as'=>'subscription.index', 'uses' => 'SubscriptionController@index']);
         Route::get('subscription/redirectWith', ['as'=>'subscription.redirectWith', 'uses' => 'SubscriptionController@redirectWith']);
         Route::post('subscription/store', ['as'=>'subscription.store', 'uses'=>'SubscriptionController@store']);
+
+        // Dashboard codes
+        Route::get('dashboard/getWigetContent', ['as'=>'dashboard.getWigetContent', 'uses'=>'DashboardController@getWigetContent']);
+        Route::post('dashboard/storeWidget', ['as'=>'dashboard.storeWidget', 'uses'=>'DashboardController@storeWidget']);
+        Route::get('dashboard/redirectWith', ['as'=>'dashboard.redirectWith', 'uses'=>'DashboardController@redirectWith']);
+
     });
 
 });
