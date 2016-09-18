@@ -18,7 +18,7 @@ class  SubscriptionController extends BaseController {
 		$licience   = Input::get('lic');
 
 
-		$check 		= Subscription::where('company_id', $company)->where('branch_id', $branch)->count();
+		$check 		= Subscription::where('company_id', $company)->where('branch_id', $branch)->where('status', 1)->count();
 
 		if($check){
 			return Response::json([

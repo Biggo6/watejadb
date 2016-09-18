@@ -6,7 +6,7 @@ class ActivateKeyController  extends BaseController{
 		$key  = Input::get('key_');
 		$cid = Auth::user()->company_id;
 		$bid = Auth::user()->branch_id;
-		$sub = Subscription::where('company_id', $cid)->where('branch_id', $bid)->first();
+		$sub = Subscription::where('company_id', $cid)->where('branch_id', $bid)->where('status', 1)->first();
 		$lic = $sub->licience;
 		$intentedRoute  = Input::get('intentedRoute');
 

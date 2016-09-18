@@ -24,7 +24,7 @@ class HelperX
         if(Auth::user()->role_id != 1){
             $cid = Auth::user()->company_id;
             $bid = Auth::user()->branch_id;
-            $sub = Subscription::where('company_id', $cid)->where('branch_id', $bid)->first();
+            $sub = Subscription::where('company_id', $cid)->where('branch_id', $bid)->where('status', 1)->first();
             $days = Package::find($sub->subscription_id)->package;
             return $days;
         }
@@ -34,9 +34,20 @@ class HelperX
         if(Auth::user()->role_id != 1){
             $cid = Auth::user()->company_id;
             $bid = Auth::user()->branch_id;
-            $sub = Subscription::where('company_id', $cid)->where('branch_id', $bid)->where('tried', 1)->first();
+            $sub = Subscription::where('company_id', $cid)->where('branch_id', $bid)->where('tried', 1)->where('status', 1)->first();
             $days = Package::find($sub->subscription_id)->duration_days;
             return $days;
+        }
+    }
+
+    public static function deactivatePackage(){
+        if(Auth::user()->role_id != 1){
+            $cid = Auth::user()->company_id;
+            $bid = Auth::user()->branch_id;
+            $sub = Subscription::where('company_id', $cid)->where('branch_id', $bid)->where('status', 1)->first();
+            $sub->status = 0;
+            $sub->save();
+            
         }
     }
 
@@ -82,19 +93,37 @@ class HelperX
 
     public static function getUserAccessModules(){
         $role_id = Auth::user()->role_id;
-        $perms   = RolePerm::where('role_id', $role_id)->get();
-        $uniqModules = [];
-        if(count($perms)){
-           
-            foreach ($perms as $p) {
-                $pid         = $p->permission_id;
-                $module_name = Module::find(Permission::find($pid)->module_id)->name; 
-                if (!in_array($module_name, $uniqModules)) {
-                    $uniqModules[] = $module_name;
+
+        if($role_id != 1){
+             $perms   = RolePerm::where('role_id', $role_id)->get();
+            $uniqModules = [];
+            if(count($perms)){
+               
+                foreach ($perms as $p) {
+                    $pid         = $p->permission_id;
+                    $module_name = Module::find(Permission::find($pid)->module_id)->name; 
+                    if (!in_array($module_name, $uniqModules)) {
+                        $uniqModules[] = $module_name;
+                    }
                 }
             }
+            return $uniqModules;    
+        }else{
+            $uniqModules = [];
+            $modules = Module::all();
+            if(count($modules)){
+                foreach ($modules as $m) {
+                    
+                    $module_name = Module::find($m->id)->name; 
+                    if (!in_array($module_name, $uniqModules)) {
+                        $uniqModules[] = $module_name;
+                    }
+                }
+            }
+            return $uniqModules;   
         }
-        return $uniqModules;
+
+       
     }
 
     public static function updateLogouttime() {
