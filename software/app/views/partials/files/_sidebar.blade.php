@@ -284,12 +284,12 @@
         </a>
         <ul>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.add') }} '>
+                <a href='{{route('subscription.add')}}' class=' {{ HelperX::activeRoute('subscription.add') }} '>
                     <span><i class="fa fa-plus"></i> Add Subscription </span>
                 </a>
             </li>
             <li>
-                <a href='{{route('app.dashboard')}}' class=' {{ HelperX::activeRoute('compay.manage') }} '>
+                <a href='{{route('subscription.index')}}' class=' {{ HelperX::activeRoute('subscription.index') }} '>
                     <span><i class="fa fa-list"></i> Manage Subscriptions </span>
                 </a>
             </li>

@@ -139,6 +139,12 @@ Route::group(['before' => 'auth'], function() {
     //Packages Codes
     Route::get('packages/add', ['as'=>'packages.add', 'uses'=>'PackagesController@add']);
     Route::get('packages/index', ['as'=>'packages.index', 'uses'=>'PackagesController@index']);
+    Route::post('packages/store', ['as'=>'packages.store', 'uses'=>'PackagesController@store']);
+    Route::get('packages/redirectWith', ['as'=>'packages.redirectWith', 'uses'=>'PackagesController@redirectWith']);
+
+    //Subcription Codes
+    Route::get('subscription/add', ['as'=>'subscription.add', 'uses'=>'SubscriptionController@add']);
+    Route::get('subscription/index', ['as'=>'subscription.index', 'uses' => 'SubscriptionController@index']);
 
 
 
