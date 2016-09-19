@@ -19,6 +19,12 @@ class HelperX
         }
     }
 
+    public static function getRealCol($col){
+        if($col == 1){
+            return 4;
+        }
+    }
+
 
     public static function getPackage(){
         if(Auth::user()->role_id != 1){

@@ -92,15 +92,17 @@
     </div>
 </div>
 
-<div class="row top-summary" id="dashboard_editor" style="height:600px">
+<div class="row top-summary"  style="height:600px">
 
+
+    <div id="dashboard_editor">
     <?php
 
     $widgets = Widget::where('added_by', Auth::user()->id)->count();
 
     ?>  
 
-    @if(count($widgets))
+    @if(count($widgets) == 0)
 
         <div class="alert alert-info"><h3><i class="fa fa-info-circle"></i> You dont have any Widget, you can add by click the Red Button below</h3></div>
 
@@ -109,7 +111,7 @@
         {{View::make('dashboard.widgets')->render()}}
 
     @endif
-
+    </div>
     
 
 
