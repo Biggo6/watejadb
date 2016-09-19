@@ -100,9 +100,13 @@
 
     $widgets = Widget::where('added_by', Auth::user()->id)->count();
 
+
+
     ?>  
 
-    @if(count($widgets) == 0)
+
+
+    @if($widgets == 0)
 
         <div class="alert alert-info"><h3><i class="fa fa-info-circle"></i> You dont have any Widget, you can add by click the Red Button below</h3></div>
 
@@ -119,9 +123,35 @@
 </div>
 <!-- End of info box -->
 
-<div id="back-to-top" ><span data-toggle="modal" href='#addWidgets'><a  href="#" class="btn btn-danger btn-lg back-to-top1" role="button" title="Click to add dashboard Widgets" data-toggle="tooltip" data-placement="left"><span  class="fa fa-plus"></span> </a></span>
+<div id="back-to-top" ><span data-toggle="modal" href='#addWidgets'><a  href="#" class="btn btn-danger btn-lg back-to-top1" role="button" title="Click to add dashboard Widgets" data-toggle="tooltip" data-placement="left"><span  class="fa fa-plus"></span> New Widget </a></span>
 
-    <a  href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to configure Widgets" data-toggle="tooltip" data-placement="left"><span class="fa fa-cog"></span> </a></div>
+    <!-- <a  href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to configure Widgets" data-toggle="tooltip" data-placement="left"><span class="fa fa-cog"></span> </a> --></div>
+
+
+@include('partials.scripts._dependencies')
+
+<script>
+$(function(){
+    $('#saveWidget').on('click', function(){
+        var registerForm =  $("#widget_form").validationEngine('validate');
+        if(registerForm){
+            data = Wateja.serializeData(widget_form);
+            Wateja.applyOpacity(widget_form);
+            Wateja.talkToServer('{{route("dashboard.storeWidget")}}', data).then(function(res){
+                
+                Wateja.removeOpacity(widget_form);
+                if(res.error){
+                    Wateja.showFeedBack(widget_form, res.msg, res.error);
+                }else{
+                    $('#addWidgets').modal('hide');
+                    $('#widget_form')[0].reset();
+                    $('#dashboard_editor').hide().html(res.msg).fadeIn();                                                                                                                                                                                                                                                                                                         
+                }
+            });
+        }
+    });
+});
+</script>
 
 
 <script src="{{url('assets/libs/jquery/jquery-1.11.1.min.js')}}"></script>
@@ -173,30 +203,7 @@ $(function(){
 });
 </script>
 
-@include('partials.scripts._dependencies')
 
-<script>
-$(function(){
-    $('#saveWidget').on('click', function(){
-        var registerForm =  $("#widget_form").validationEngine('validate');
-        if(registerForm){
-            data = Wateja.serializeData(widget_form);
-            Wateja.applyOpacity(widget_form);
-            Wateja.talkToServer('{{route("dashboard.storeWidget")}}', data).then(function(res){
-                
-                Wateja.removeOpacity(widget_form);
-                if(res.error){
-                    Wateja.showFeedBack(widget_form, res.msg, res.error);
-                }else{
-                    $('#addWidgets').modal('hide');
-                    $('#widget_form')[0].reset();
-                    $('#dashboard_editor').hide().html(res.msg).fadeIn();                                                                                                                                                                                                                                                                                                         
-                }
-            });
-        }
-    });
-});
-</script>
 
 @stop
 
@@ -221,7 +228,10 @@ $(function(){
 <script src="{{url('assets/js/apps/notes.js')}}"></script>
 <script src="{{url('assets/js/pages/index2.js')}}"></script>
 
-
+ <script src="{{url('assets/libs/jquery-datatables/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{url('assets/libs/jquery-datatables/js/dataTables.bootstrap.js')}}"></script>
+    <script src="{{url('assets/libs/jquery-datatables/extensions/TableTools/js/dataTables.tableTools.min.js')}}"></script>
+    <script src="{{url('assets/js/pages/datatables.js')}}"></script>
 
 
 

@@ -37,6 +37,17 @@ class DashboardController extends BaseController {
 
 	}
 
+	public function removeWidget(){
+
+		Widget::find(Input::get('wid'))->delete();
+
+		$v = View::make('dashboard.widgets')->render();
+				return Response::json([
+		            'msg'   => $v,
+		            'error' => false,
+		          ]);
+	}
+
 	public function storeWidget(){
 
 		$wtype      = Input::get('wtype');

@@ -158,6 +158,7 @@ Route::group(['before' => 'auth'], function() {
         Route::get('dashboard/getWigetContent', ['as'=>'dashboard.getWigetContent', 'uses'=>'DashboardController@getWigetContent']);
         Route::post('dashboard/storeWidget', ['as'=>'dashboard.storeWidget', 'uses'=>'DashboardController@storeWidget']);
         Route::get('dashboard/redirectWith', ['as'=>'dashboard.redirectWith', 'uses'=>'DashboardController@redirectWith']);
+        Route::post('dashboard/removeWidget', ['as'=>'dashboard.removeWidget', 'uses'=>'DashboardController@removeWidget']);
 
     });
 
