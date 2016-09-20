@@ -16,6 +16,11 @@
 
 	<script type="text/javascript" src="{{url('wateja/js/Wateja.js')}}"></script>
 	<script type="text/javascript">
+
+		function sleep (time) {
+		  return new Promise((resolve) => setTimeout(resolve, time));
+		}
+
 		$(function(){
 
 			$('#instaSend').on('click', function(){
@@ -25,12 +30,47 @@
 				}
 			});
 
+
+
 			$('#smsSend').on('click', function(){
-				var registerForm =  $("#smsForm").validationEngine('validate');
-				if(registerForm){
-					var data =  Wateja.serializeData(smsForm);
-					console.log(data)
+
+				var foo = []; 
+				$('#tokenize :selected').each(function(i, selected){ 
+				  foo[i] = $(selected).text().split(' ')[3]; 
+				});
+
+				if(foo.length == 0){
+					alert('Please select at least one customer')
+				}else{
+
+					
+
+					var registerForm =  $("#smsForm").validationEngine('validate');
+					if(registerForm){
+						var data = {
+							body : $('#smsSMS').val(),
+							people : foo
+						}
+						Wateja.applyOpacity(smsForm);
+						 Wateja.talkToServer('{{route("sms.sendAndstore")}}', data).then(function(res){
+                
+
+			                Wateja.removeOpacity(smsForm);
+			                if(res.error){
+			                    Wateja.showFeedBack(smsForm, res.msg, res.error);
+			                }else{
+			                    Wateja.showFeedBack(smsForm, res.msg, res.error);
+			                    
+			                    sleep(2000).then(() => {
+								    // Do something after the sleep!
+								    window.location = "";  
+								});                                                                                                                                                                                                                                                                                                
+			                }
+			            });
+					}
 				}
+
+				
 			});
 
 		});
