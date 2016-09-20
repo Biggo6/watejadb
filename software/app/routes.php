@@ -46,6 +46,8 @@ Route::group(['before' => 'auth'], function() {
         Route::get('company/refresh',['as'=>'company.refresh', 'uses'=>'CompanyController@refresh']);
         Route::post('company/getDistricts',['as'=>'company.getDistricts', 'uses'=>'CompanyController@getDistricts']);
         Route::post('company/getBranches',['as'=>'company.getBranches', 'uses'=>'CompanyController@getBranches']);
+        Route::post('company/update', ['as'=>'company.update', 'uses'=>'CompanyController@update']);
+        Route::post('company/changeLogo', ['as'=>'company.changeLogo', 'uses'=>'CompanyController@changeLogo']);    
 
         //Customers
         Route::get('customers/add', ['as'=>'customers.add', 'uses'=>'CustomerController@add']);

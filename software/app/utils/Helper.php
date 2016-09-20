@@ -19,6 +19,18 @@ class HelperX
         }
     }
 
+    public static function storeImage($data){
+        //$data = 'data:image/png;base64,AAAFBfj42Pj4';
+        list($type, $data) = explode(';', $data);
+        list(, $data)      = explode(',', $data);
+        $data = base64_decode($data);
+        $filename = time() . ".png";
+        $location = public_path() . '/uploads/' . $filename;
+        $lox    = url('/uploads/' . $filename);
+        file_put_contents($location, $data);
+        return $lox;
+    }
+
     public static function getRealCol($col){
         if($col == 1){
             return 4;

@@ -101,7 +101,7 @@ $c = Company::find($id);
                             <select id="business" type="text" class="form-control validate[required]" data-errormessage-value-missing="Business is required!" data-prompt-position="bottomRight" name="business"
 
                             >
-                            <option value="$c->business_id">{{Business::find($c->business_id)->name}}</option>
+                            <option value="{{$c->business_id}}">{{Business::find($c->business_id)->name}}</option>
                             @foreach(Business::where('active', 1)->where('id', '!=', $c->business_id)->get() as $r)
                                     <option value="{{$r->id}}">{{$r->name}}</option>
                                 @endforeach
@@ -133,7 +133,7 @@ $c = Company::find($id);
                 <br/>
 
 
-                <input type="hidden" value=""></form>
+                <input type="hidden" value="{{$id}}" name="cid" /></form>
         </div>
     </div>
 
@@ -144,7 +144,6 @@ $c = Company::find($id);
 
 
 @include('partials.scripts._dependencies')
-@include('partials.scripts._jsImagePreview')
 
 <script type="text/javascript">
 $(function(){
@@ -152,5 +151,28 @@ $(function(){
             Wateja.applyOpacity(form_reg);
             Wateja.refreshViewFromServer('manage-area', '{{route("company.refresh")}}');
     });
+
+    $('#updateCompany').on('click', function(){
+        var registerForm =  $("#form_reg").validationEngine('validate');
+        if(registerForm){
+           var data;
+           data = Wateja.serializeData(form_reg);
+           Wateja.applyOpacity(form_reg);
+           Wateja.talkToServer('{{route("company.update")}}', data).then(function(res){
+                
+                Wateja.removeOpacity(form_reg);
+                if(res.error){
+                    Wateja.showFeedBack(form_reg, res.msg, res.error);
+                }else{
+
+                    Wateja.showFeedBack(form_reg, res.msg, res.error);
+                    Wateja.refreshViewFromServer('manage-area', '{{route("company.refresh")}}');
+
+                                                                                                                                                                                                                                                                                                                      
+                }
+            });
+        }
+    });
+
 });
 </script>

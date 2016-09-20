@@ -13,6 +13,86 @@ class CompanyController extends BaseController
         return View::make('companies.add');
     }
 
+    public function changeLogo(){
+        $data = Input::get('data');
+        $cid = Input::get('cid');
+
+        $url = HelperX::storeImage($data);
+
+        $c = Company::find($cid);
+        $c->company_logo = $url;
+        $c->save();
+
+
+    }
+
+    public function update(){
+
+        $cid  = Input::get('cid');
+
+        $companyname  = Input::get('companyname');
+        $tin          = Input::get('tin');
+        $address      = Input::get('address');
+        $region       = Input::get('region');
+        $district     = Input::get('district');
+        $street       = Input::get('street');
+        $telephone    = Input::get('telephone');
+        $mobile       = Input::get('mobile');
+        $email        = Input::get('email');
+        $business     = Input::get('business');
+        $website      = Input::get('website');
+
+        $check = Company::where('tin', $tin)->where('id', $cid)->count();
+
+        if($check){
+            $c                = Company::find($cid);
+            $c->name          = $companyname;
+            $c->region_id     = $region;
+            $c->district_id   = $district;
+            $c->email         = $email;
+            $c->phone         = $telephone;
+            $c->location      = $address;
+            $c->mobile        = $mobile;
+            $c->website       = $website;
+            $c->street        = $street;
+            $c->business_id   = $business;
+            $c->save();
+            return Response::json([
+                'msg'   => ' Successfully Updated! ',
+                'error' => false
+            ]);
+        }else{
+            $check2 = Company::where('tin', $tin)->where('id', '!=', $cid)->count();
+
+            if($check2){
+               return Response::json([
+                  'msg'   => 'Company already registred',
+                  'error' => true,
+              ]);
+            }else{
+                 $c                = Company::find($cid);
+                $c->name          = $companyname;
+                $c->region_id     = $region;
+                $c->district_id   = $district;
+                $c->email         = $email;
+                $c->phone         = $telephone;
+                $c->location      = $address;
+                $c->mobile        = $mobile;
+                $c->website       = $website;
+                $c->street        = $street;
+                $c->business_id   = $business;
+                $c->save();
+               return Response::json([
+                'msg'   => 'Successfully Updated!',
+                'error' => false,
+              ]);
+            }
+        }
+
+
+        
+    }
+
     public function edit(){
         $id = Input::get('id');
         return View::make('partials.files._editCompany', compact('id'));

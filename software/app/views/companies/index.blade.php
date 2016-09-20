@@ -56,13 +56,15 @@ $regions                                                            = Company::o
                                                             @foreach($regions as $r)
                                                             <tr>
                                                                 <td>{{$i}}</td>
-                                                                <td align="center" class="chLogo" c="{{$i}}">
+                                                                <td align="center" class="chLogo" id="cl{{$r->id}}" c="{{$i}}" >
                                                                     <div class="image-upload" >
                                                                         <label for="file-input">
-                                                                            <img src="{{HelperX::getCompanyLogo($r->id)}}" style="width:72px" />
+                                                                            <div id="logo{{$i}}">
+                                                                                <img  src="{{HelperX::getCompanyLogo($r->id)}}" style="width:72px" />
+                                                                            </div>
                                                                         </label>
                                                                     <div style="display: none" id="changeLogo{{$i}}">
-                                                                        <input type="file" id="logo" name="logo" style="" class=""   title="Change Logo Image" />
+                                                                        <input type="file" c="{{$i}}" cid="{{$r->id}}" class="logo" name="logo" style="" class=""   title="Change Logo Image" />
                                                                     </div>
                                                                     </div>
                                                                 </td>
@@ -99,7 +101,11 @@ $regions                                                            = Company::o
 </div>
 
 
+
+
 @stop
+
+
 
 @section('specific_js_libs')
 
@@ -126,6 +132,70 @@ $regions                                                            = Company::o
             }
             
         });
+
+        $('.logo').on('change', function(e){
+
+            var c = $(this).attr('c');
+
+            var cid   = $(this).attr('cid');
+
+            var fileDisplayArea = document.getElementById('logo' + c);
+
+            var file = $(this)[0].files[0];
+            var imageType = /image.*/;
+            if (file.type.match(imageType)) {
+                var reader = new FileReader();
+
+                  reader.onload = function(e) {
+                    fileDisplayArea.innerHTML = "";
+
+                    // Create a new image.
+                    var img = new Image();
+                    // Set the img src property using the data URL.
+                    img.width = 92;
+                    img.height = 92;
+                    img.src = reader.result;
+
+                    // Add the image to the page.
+                    $('#changeLogo' + c).hide();
+                    fileDisplayArea.appendChild(img);
+                    $(fileDisplayArea).append("<br/><hr/><p><label class='label label-primary uploadLogo' cid='"+cid+"' src='"+reader.result+"' style='cursor:pointer' id=''><i class='fa fa-upload'></i> Upload PHOTO</label><label class='label label-danger removeLogo' style='cursor:pointer' ><i class='fa fa-trash'></i> CANCEL</label></p>");
+
+                  }
+
+                  reader.readAsDataURL(file);
+            }else{
+
+                  $('#changeLogo' + c).hide();  
+                  $('#logo' + c).html('');
+                  var $el = $(this);
+                  $el.wrap('<form>').closest('form').get(0).reset();
+                  $el.unwrap();     
+                  fileDisplayArea.innerHTML = "<label style='cursor:pointer' class='label label-danger removeLogo'><i class='fa fa-warning'></i> File not supported! - Click To Here Cancel</label>";
+                  fileDisplayArea.style.borderRadius = "4px";
+                  fileDisplayArea.style.border       = "1px solid #ccc";
+                  fileDisplayArea.style.padding      = "2px";
+                  return false;
+            }
+        });
+
+        
+        $('body').on('click', '.removeLogo', function(){
+               window.location = "";
+        });
+
+        $('body').on('click', '.uploadLogo', function(){
+                var data  = $(this).attr('src');
+                var cid  = $(this).attr('cid');
+                $(this).parent().parent().css('opacity', 0.2);
+                $(this).css({'cursor' : 'wait'});
+                $(this).parent().parent().parent().css({'cursor' : 'wait'});
+                $.post('{{route("company.changeLogo")}}', {data:data, cid:cid}, function(res){
+                    
+                   window.location = "";
+                });
+        })
+
     });
     </script>
 
