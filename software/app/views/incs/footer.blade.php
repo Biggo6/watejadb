@@ -30,6 +30,40 @@
 				}
 			});
 
+			$('#smsGroup').on('click', function(){
+				var foo = []; 
+				$('#tokenize-group :selected').each(function(i, selected){ 
+				  foo[i] = $(selected).text().split(' ')[0]; 
+				});
+
+				if(foo.length == 0){
+					alert('Please select at least one group')
+				}else{
+					var registerForm =  $("#smsGroupForm").validationEngine('validate');
+					if(registerForm){
+						var data = {
+							body : $('#smsGroupBody').val(),
+							groups : foo
+						}
+						Wateja.applyOpacity(smsGroupForm);
+						 Wateja.talkToServer('{{route("smsgroup.sendAndstore")}}', data).then(function(res){
+                
+			                Wateja.removeOpacity(smsGroupForm);
+			                if(res.error){
+			                    Wateja.showFeedBack(smsGroupForm, res.msg, res.error);
+			                }else{
+			                    Wateja.showFeedBack(smsGroupForm, res.msg, res.error);
+			                    
+			                    sleep(2000).then(() => {
+								    // Do something after the sleep!
+								    window.location = "";  
+								});                                                                                                                                                                                                                                                                                                
+			                }
+			            });
+					}
+				}
+			})
+
 
 
 			$('#smsSend').on('click', function(){

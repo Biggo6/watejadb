@@ -19,6 +19,16 @@ class HelperX
         }
     }
 
+    public static function getMess(){
+        $ch = CompSMS::where('company_id', Auth::user()->company_id)->count();
+        if($ch == 0){
+            return 0;
+        }else{
+            return number_format(CompSMS::where('company_id', Auth::user()->company_id)->first()->total_sms);
+        }
+        
+    }
+
     public static function storeImage($data){
         //$data = 'data:image/png;base64,AAAFBfj42Pj4';
         list($type, $data) = explode(';', $data);

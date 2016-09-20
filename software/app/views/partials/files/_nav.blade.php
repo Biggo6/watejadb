@@ -52,7 +52,7 @@
                                 
                             </li>
                             <li class="language_bar dropdown hidden-xs">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@if(Auth::user()->role_id != 1)Messages: <i><b class="label label-info"> {{number_format(CompSMS::where('company_id', Auth::user()->company_id)->first()->total_sms)}}   @endif</b></i> </a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@if(Auth::user()->role_id != 1)Messages: <i><b class="label label-info"> {{ HelperX::getMess()  }}   @endif</b></i> </a>
                                 
                             </li>
                             

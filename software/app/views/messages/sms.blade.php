@@ -54,10 +54,11 @@
                                                             <tr>
                                                                 <th>#</th>
                                                                 <th>Receiver</th>
+                                                                <th>Group</th>
                                                                 <th>Body</th>
                                                                 <th>Status</th>
                                                                 <th>Created At</th>
-                                                                <th>Actions</th>
+                                                                <!--<th>Actions</th>-->
                                                             </tr>
                                                         </thead>
 
@@ -73,10 +74,11 @@
                                                             <tr>
                                                                 <td>{{$i}}</td>
                                                                 <td>{{$r->receiver}}</td>
+                                                                <td>{{'<label class="label label-warning">' . $r->group_name . '</label>'  }}</td>
                                                                 <td>{{$r->body}}</td>
                                                                 <td><label class="label label-primary">{{$r->status}}</label></td>
                                                                 <td>{{Carbon::parse($r->created_at)->format('Y-m-d h:i:s')}}</td>
-                                                                <td>{{HelperX::generateActions($r->id, route('business.delete'), '','business')}}</td>
+                                                                <!--<td>{{--HelperX::generateActions($r->id, route('business.delete'), '','business')--}}</td>-->
                                                             </tr>
                                                             <?php $i++; ?>
                                                             @endforeach
@@ -97,7 +99,7 @@
             <div class="md-close-btn"><a class="md-close"><i class="fa fa-times"></i></a></div>
                 <h3><strong>New</strong> Message</h3>
                 <div>
-                    <form role="form">
+                    <form role="form" id="smsGroupForm">
                         <div class="form-group">
                             <label for="">Groups</label>
                             <br/>
@@ -110,7 +112,7 @@
                         </div>
                         <div class="form-group">
                             <label>Compose SMS</label>
-                            <textarea class="summernote-small form-control" rows="6"></textarea>
+                            <textarea class="form-control validate[required]" data-errormessage-value-missing="SMS is required!" data-prompt-position="bottomRight" id="smsGroupBody" class="summernote-small form-control" rows="7"></textarea>
                         </div>
                         
                             
@@ -118,7 +120,7 @@
                             <div id="logo-placeholder-2"></div>
                             <div class="row">
                             <div class="col-xs-8">
-                                <button type="submit" class="btn btn-success btn-sm">Send SMS NOW</button>
+                                <button type="button" id="smsGroup" class="btn btn-success btn-sm">Send SMS NOW</button>
                             </div>
                             <div class="col-xs-4">
                                 

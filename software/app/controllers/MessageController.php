@@ -10,6 +10,66 @@ class MessageController  extends BaseController{
 	public function whatsapp(){
 		return View::make('messages.whatsapp');
 	}
+
+	public function sendAndstoreGroup(){
+		$company_id = Auth::user()->company_id;
+		$groups     = Input::get('groups');
+		$body       = Input::get('body');
+
+		$tot_cs = 0;
+		foreach ($groups as $g) {
+			$gp_id  = Group::where('group_name', $g)->first()->id;
+			$cg     = CG::where('group_id', $gp_id)->count();
+			$tot_cs = $tot_cs + $cg; 
+		}
+
+		$sms_count  = $tot_cs;
+
+		$total      = CompSMS::where('company_id', $company_id)->first()->total_sms;
+
+		if($sms_count > $total){
+			$cs = CompSMS::where('company_id', $company_id)->first();
+			$cs->active = 0;
+			$cs->save();
+			return Response::json([
+	                    'msg'   => 'You dont have enough messages to send ' . $sms_count . ' messages',
+	                    'error' => true
+	                ]);
+		}else{
+
+			// send to the real service here codes:
+
+			$m = new Message;
+
+			foreach ($groups as $gx) {
+				$gp_id  = Group::where('group_name', $gx)->first()->id;
+				$cg     = CG::where('group_id', $gp_id)->get();
+				foreach ($cg as $c) {
+					$cr = Customer::find($c->customer_id);
+					$mobile_no = '255' . $cr->phone;
+					$m->receiver = $mobile_no;
+					$m->sender   = Auth::user()->id;
+					$m->status   = 'Sending';
+					$m->group_name = $gx;
+					$m->body     = $body;
+					$m->save();
+				}
+				
+			}
+
+
+
+			$diff = $total - (float)$sms_count;
+			$cs = CompSMS::where('company_id', $company_id)->first();
+			$cs->total_sms = $diff;
+			$cs->save();
+			return Response::json([
+	                    'msg'   => 'Successfully send ' . number_format($diff) . ' messages',
+	                    'error' => false
+	                ]);
+		}
+	}
+
 	public function sendAndstore(){
 
 		$company_id = Auth::user()->company_id;
@@ -21,6 +81,9 @@ class MessageController  extends BaseController{
 		$total      = CompSMS::where('company_id', $company_id)->first()->total_sms;
 
 		if($sms_count > $total){
+			$cs = CompSMS::where('company_id', $company_id)->first();
+			$cs->active = 0;
+			$cs->save();
 			return Response::json([
 	                    'msg'   => 'You dont have enough messages to send ' . $sms_count . ' messages',
 	                    'error' => true
