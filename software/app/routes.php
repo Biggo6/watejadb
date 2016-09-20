@@ -128,6 +128,8 @@ Route::group(['before' => 'auth'], function() {
         Route::get('app/configuration/modules',['as'=>'app.configuration.modules', 'uses'=>'ModulesController@manage']);
         Route::get('app/configuration/branches',['as'=>'app.configuration.branches', 'uses'=>'BranchesController@manage']);
 
+        Route::get('app/configuration/sms', ['as'=>'app.configuration.sms', 'uses'=>'ConfigController@smsmanage']);
+
         Route::post('app/configuration/deleteRegion', ['as'=>'app.configuration.deleteRegion', 'uses'=>'ConfigController@deleteRegion']);
         Route::post('app/configuration/deleteDistrict', ['as'=>'app.configuration.deleteDistrict', 'uses'=>'ConfigController@deleteDistrict']);
         
@@ -159,6 +161,11 @@ Route::group(['before' => 'auth'], function() {
         Route::post('dashboard/storeWidget', ['as'=>'dashboard.storeWidget', 'uses'=>'DashboardController@storeWidget']);
         Route::get('dashboard/redirectWith', ['as'=>'dashboard.redirectWith', 'uses'=>'DashboardController@redirectWith']);
         Route::post('dashboard/removeWidget', ['as'=>'dashboard.removeWidget', 'uses'=>'DashboardController@removeWidget']);
+
+        //Companies SMS
+        Route::post('compsms/store', ['as'=>'compsms.store', 'uses'=>'CompSmsController@store']);
+        Route::get('compsms/refresh', ['as'=>'compsms.refresh', 'uses'=>'CompSmsController@refresh']);
+
 
     });
 

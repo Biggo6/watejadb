@@ -22,7 +22,7 @@ class CompanyController extends BaseController
         $id = Input::get('id');
         Company::find($id)->delete();
         return Response::json([
-                'msg'   => ' Successfully deleted!' . $id,
+                'msg'   => ' Successfully deleted!',
                 'error' => false
             ]);
     }
@@ -80,7 +80,7 @@ class CompanyController extends BaseController
         $c->added_by      = Auth::user()->id;
 
         if (Input::hasFile('logo')) {
-            $c->company_logo =  Helper::uplodFileThenReturnPath('logo');
+            $c->company_logo =  HelperX::uplodFileThenReturnPath('logo');
         } 
 
         $check = Company::where('tin', $tin)->count();

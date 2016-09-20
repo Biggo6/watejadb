@@ -371,6 +371,11 @@
                 </a>
             </li>
             <li>
+                <a href='{{route('app.configuration.sms')}}' class=' {{ HelperX::activeRoute('app.configuration.sms') }} '>
+                    <span><i class="fa fa-list"></i> SMS.x</span>
+                </a>
+            </li>
+            <li>
                 <a href='{{route('app.configuration.modules')}}' class=' {{ HelperX::activeRoute('app.configuration.modules') }} '>
                     <span><i class="fa fa-list"></i> Modules</span>
                 </a>

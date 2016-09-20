@@ -11,6 +11,10 @@ class ConfigController  extends BaseController{
 		return View::make('partials.files._editRegion', compact('id'));
 	}
 
+    public function smsmanage(){
+        return View::make('messages.manage');
+    }
+
     public function updateRegion(){
         if(!count(Input::all())){
             return;

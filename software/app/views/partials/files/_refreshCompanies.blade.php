@@ -1,3 +1,7 @@
+<div id="regionFBk"></div>
+
+<div id="regionsArea">
+
 <div class="table-responsive" >
                                                 <form class='form-horizontal' role='form'>
                                                     <table id="datatables-1" class="table table-striped table-bordered datatables-1" cellspacing="0" width="100%">
@@ -32,7 +36,7 @@
                                                             @foreach($regions as $r)
                                                             <tr>
                                                                 <td>{{$i}}</td>
-                                                                <td><img src="{{Helper::getCompanyLogo($r->id)}}" style="width:72px" /></td>
+                                                                <td><img src="{{HelperX::getCompanyLogo($r->id)}}" style="width:72px" /></td>
                                                                 <td>{{$r->name}}</td>
                                                                 <td>{{$r->tin}}</td>
                                                                 <td>{{$r->location}}</td>
@@ -55,5 +59,11 @@
                                                 </form>
                                             </div>
 
+
+</div>
+
+
+
 @include('partials.scripts._onlyJquery')
 @include('partials.scripts._datatable')
+

@@ -56,13 +56,14 @@ $regions                                                            = Company::o
                                                             @foreach($regions as $r)
                                                             <tr>
                                                                 <td>{{$i}}</td>
-                                                                <td>
-                                                                    <div class="image-upload">
+                                                                <td align="center" class="chLogo" c="{{$i}}">
+                                                                    <div class="image-upload" >
                                                                         <label for="file-input">
                                                                             <img src="{{HelperX::getCompanyLogo($r->id)}}" style="width:72px" />
                                                                         </label>
-
-                                                                        <input id="file-input" type="file"/>
+                                                                    <div style="display: none" id="changeLogo{{$i}}">
+                                                                        <input type="file" id="logo" name="logo" style="" class=""   title="Change Logo Image" />
+                                                                    </div>
                                                                     </div>
                                                                 </td>
                                                                 <td>{{$r->name}}</td>
@@ -107,6 +108,26 @@ $regions                                                            = Company::o
     <script src="{{url('assets/libs/jquery-datatables/js/dataTables.bootstrap.js')}}"></script>
     <script src="{{url('assets/libs/jquery-datatables/extensions/TableTools/js/dataTables.tableTools.min.js')}}"></script>
     <script src="{{url('assets/js/pages/datatables.js')}}"></script>
+
+    <script type="text/javascript">
+    $(function(){
+        var i = 0;
+        $('body').on('dblclick', '.chLogo', function(){
+
+            var c = $(this).attr('c');
+
+
+            if(i == 0){
+                $('#changeLogo' + c).show();
+                i++;
+            }else{
+                $('#changeLogo' + c).hide();
+                i = 0;
+            }
+            
+        });
+    });
+    </script>
 
 
 @stop
