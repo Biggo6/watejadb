@@ -6,6 +6,7 @@ return [
 
 	'db'       => 'wateja',
 	'username' => 'root',
-	'password' => ''
+	'password' => '',
+	'default_pass' => '1234'
 
 ];

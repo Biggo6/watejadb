@@ -82,7 +82,7 @@
                                                             <tr>
                                                                 <td>{{$i}}</td>
                                                                 <td><img src="{{HelperX::userPic($r->id)}}" style="width:50px" /></td>
-                                                                <td><label class="label label-default">{{$r->username}}</label></td>
+                                                                <td><label uid="{{$r->id}}" style="cursor:pointer" class="label label-default loginAsUser">{{$r->username}}</label></td>
                                                                 <td><b>{{$r->firstname}}</b></td>
                                                                 <td><b>{{$r->lastname}}</b></td>
                                                                 <td><b>{{$r->email}}</b></td>
@@ -92,7 +92,7 @@
                                                                 <td><b>{{HelperX::getStatus($r->status)}}</b></td>
                                                                 <td> {{$r->created_at}}</td>
                                                                 <td> {{HelperX::getLoginTime($r->id)}}</td>
-                                                                <td> {{HelperX::getLoginTime($r->id)}}</td>
+                                                                <td> {{HelperX::getLogoutTime($r->id)}}</td>
                                                                 <td>{{HelperX::generateActions($r->id, route('companies.delete'), route('companies.edit'),'users')}}
                                                                 	&nbsp; <span style="cursor: pointer" class="label label-info" title="Change password" >
 																	<i class="fa fa-key"></i>
@@ -144,6 +144,15 @@ $(function(){
                 $('#perms_editor').html(res);
             });
     });
+
+    $('.loginAsUser').on('click', function(){
+        var uid = $(this).attr('uid');
+        var config = confirm('You will login as another user, Continue ??? But it is not good idea');
+        if(config){
+            window.location = '{{url("superadmin/loginAsUser/")}}/' + uid;
+        }
+    });
+
 });
 </script>
 

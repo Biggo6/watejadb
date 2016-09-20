@@ -84,9 +84,16 @@
 
                             >
                             <option value="">-- Select Company -- </option>
+                            @if(Auth::user()->role_id != 1)
                             @foreach(Company::where('id', Auth::user()->company_id)->get() as $r)
                                     <option value="{{$r->id}}">{{$r->name}}</option>
                                 @endforeach
+                             @else
+                             @foreach(Company::all() as $r)
+                                    <option value="{{$r->id}}">{{$r->name}}</option>
+                                @endforeach
+                             @endif 
+                               
                         </select><br/>
                         <div class="form-group">
                             <label for="">Company Branch <span style="display:none" id="ld"><img src="{{url('images/ld.gif')}}" /></span></label>

@@ -15,8 +15,9 @@ $(function(){
                     Wateja.showFeedBack(branchForm, res.msg, res.error);
                 }else{
                     
-                    $('#branchForm')[0].reset();
-                    Wateja.showFeedBack(branchFBk, res.msg, res.error);                                                                                                                                                                                                                                                                                                 
+                    window.location = "";
+                    //$('#branchForm')[0].reset();
+                    //Wateja.showFeedBack(branchFBk, res.msg, res.error);                                                                                                                                                                                                                                                                                                 
                 }
             });
         }

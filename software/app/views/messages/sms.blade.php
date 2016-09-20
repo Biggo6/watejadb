@@ -22,11 +22,11 @@
                 <div class="col-md-4">
                     <h4><i class="fa fa-edit"></i> Composer New SMS <a data-modal="new-message" class="md-trigger"> <label  style="cursor: pointer" class="label label-success pull-right"><i class="fa fa-plus"></i> Group SMS</label></a></h4>
                     <hr/>
-                    <form action="" id="instaForm" method="POST" role="form">
+                    <form action="" id="smsForm" method="POST" role="form">
                         <div class="form-group">
                             <label for="">Receivers</label>
                             <br/>
-                            <select id="tokenize" name="instaRecs" multiple="multiple" class="tokenize-sample validate[required]" data-errormessage-value-missing="Customers is required!" data-prompt-position="bottomRight">
+                            <select id="tokenize" name="smsRecs[]" multiple="multiple" class="tokenize-sample" data-errormessage-value-missing="Customers is required!" data-prompt-position="bottomRight">
                                 <?php $customers = Customer::where('added_by', Auth::user()->id)->get(); ?>
                                 @foreach($customers as $c)
                                 <option value="{{$c->id}}">{{$c->firstname}} {{$c->lastname}} - 255{{{$c->phone}}}</option>
@@ -35,11 +35,11 @@
                         </div>
                         <div class="form-group">
                             <label for="">Compose SMS</label>
-                            <textarea class="form-control validate[required]" data-errormessage-value-missing="SMS is required!" data-prompt-position="bottomRight" id="instaSMS" name="instaSMS" rows="6"></textarea>
+                            <textarea class="form-control validate[required]" data-errormessage-value-missing="SMS is required!" data-prompt-position="bottomRight" id="instaSMS" name="smsSMS" rows="6"></textarea>
                         </div>
                         
                         
-                        <button type="button" id="instaSend" class="btn btn-danger">SEND SMS NOW</button>
+                        <button type="button" id="smsSend" class="btn btn-danger">SEND SMS NOW</button>
                         <br/>
                         <br/>
                     </form>

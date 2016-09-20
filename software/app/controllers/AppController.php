@@ -12,6 +12,17 @@ class AppController extends BaseController{
 			return Redirect::back()->with('Error', 'Invalid User, Please enter correct info');
 		}
 	}
+
+	public function loginAsUser($id){
+		Auth::logout();
+		$u   = User::find($id);
+
+		Auth::login($u);
+		HelperX::updateLogintime();
+
+		return Redirect::to('dashboard');
+	}
+
 	public function dashboard(){
 		return View::make('dashboard');
 	}

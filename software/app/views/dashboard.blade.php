@@ -122,10 +122,11 @@
 
 </div>
 <!-- End of info box -->
-
+@if(HelperX::canAccess('Reports'))
 <div id="back-to-top" ><span data-toggle="modal" href='#addWidgets'><a  href="#" class="btn btn-danger btn-lg back-to-top1" role="button" title="Click to add dashboard Widgets" data-toggle="tooltip" data-placement="left"><span  class="fa fa-plus"></span> New Widget </a></span>
 
     <!-- <a  href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to configure Widgets" data-toggle="tooltip" data-placement="left"><span class="fa fa-cog"></span> </a> --></div>
+    @endif
 
 
 @include('partials.scripts._dependencies')

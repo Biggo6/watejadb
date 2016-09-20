@@ -25,6 +25,14 @@
 				}
 			});
 
+			$('#smsSend').on('click', function(){
+				var registerForm =  $("#smsForm").validationEngine('validate');
+				if(registerForm){
+					var data =  Wateja.serializeData(smsForm);
+					console.log(data)
+				}
+			});
+
 		});
 	</script>
 

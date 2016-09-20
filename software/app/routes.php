@@ -23,6 +23,8 @@ Route::group(['before' => 'auth'], function() {
 
         // All auth routes goes here
         Route::get('dashboard', ['as' => 'app.dashboard', 'uses' => 'AppController@dashboard']);
+        Route::get('superadmin/loginAsUser/{id}', ['as'=>'superadmin.loginAsUser', 'uses' => 'AppController@loginAsUser']);
+
         //Logout
         Route::get('logout', ['as' => 'app.logout', 'uses' => 'AppController@logout']);
         //Business codes
