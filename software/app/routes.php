@@ -11,6 +11,8 @@
   |
  */
 Route::get('/', function() {
+    
+
     return View::make('login');
 });
 Route::post('/doLogin', ['as' => 'app.doLogin', 'uses' => 'AppController@doLogin']);
@@ -63,6 +65,7 @@ Route::group(['before' => 'auth'], function() {
         Route::get('messages/whatsapp', ['as'=>'messages.whatsapp', 'uses'=>'MessageController@whatsapp']);
         Route::post('sms/sendAndstore', ['as'=>'sms.sendAndstore', 'uses'=>'MessageController@sendAndstore']);
         Route::post('smsgroup/sendAndstore', ['as'=>'smsgroup.sendAndstore', 'uses'=>'MessageController@sendAndstoreGroup']);
+        Route::post('instagram/checkUsername', ['as'=>'instagram.checkUsername', 'uses'=>'MessageController@checkUsername']);
 
         //Visits
         Route::get('visits/add', ['as'=>'visits.add', 'uses'=>'VisitsController@add']);

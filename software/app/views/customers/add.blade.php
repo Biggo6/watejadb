@@ -6,6 +6,10 @@
 
 @section('content')
 
+<style type="text/css">
+
+</style>
+
 <div class="row top-summary">
 
 <div class="col-sm-12 portlets ui-sortable">
@@ -273,8 +277,10 @@
 
                             <div class="form-group">
                         
-                                <label>Instagram ID - (username)</label>
+                                <label>Instagram ID - (username) <span style="display:none" id="ld2"><img src="{{url('images/ld.gif')}}" /></span></label>
                                 <input type="text" class="form-control validate[required]" data-errormessage-value-missing="Instagram ID is required!" data-prompt-position="bottomRight"  name="instagram"  id="instagram" />
+                                <hr/>
+                                <div id="instapic" class="well"></div>
                             </div>
 
                         </div>    
@@ -382,3 +388,51 @@
 
 
 @stop
+
+
+@section('specific_js_libs')
+
+<script type="text/javascript" src="{{url('vendors/js/bootstrap3-typeahead.js')}}"></script>
+<script type="text/javascript">
+$(function(){
+
+
+
+    $('#instagram').on('blur', function(){
+        var ig_id = $(this).val();
+        $('.register').prop('disabled', true);
+        if(true){
+            $('#ld2').show();
+            $.post('{{route("instagram.checkUsername")}}', {ig:ig_id}, function(data){
+                $('#ld2').hide();
+                console.log(typeof(data))
+                var parts = data.split('#');
+                if(parts.length != 0){
+                    html = '<div class="typeahead" style="width: 450px; height:50px">';
+                    html += '<div class="media"><a class="pull-left" href="#"><img style="width:50px" src='+parts[0]+' /></a>'
+                    html += '<div class="media-body">';
+                    html += '<p class="media-heading">'+parts[1]+' <br/> (@'+parts[2]+')'+'</p>';
+                    html += '</div>';
+                    html += '</div>';
+                    $('#instapic').html(html);
+                    if(ig_id == parts[2]){
+                        $('.register').prop('disabled', false);
+                    }else{
+                        $('.register').prop('disabled', true);
+                    }
+                }
+                
+            });
+        }
+
+        
+    });
+    
+});
+</script>
+
+
+@stop
+
+
+

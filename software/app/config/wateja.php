@@ -7,6 +7,8 @@ return [
 	'db'       => 'wateja',
 	'username' => 'root',
 	'password' => '',
-	'default_pass' => '1234'
+	'default_pass' => '1234',
+	'u'   => 'thinktankkid',
+	'p'   => 'kimata142'
 
 ];

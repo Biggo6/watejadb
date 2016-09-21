@@ -9,6 +9,20 @@
 class HelperX
 {
 
+    public static function whatReg($mobile_no){
+        $username = $mobile_no;
+        $debug = true;
+        // Create a instance of Registration class.
+        $r = new Registration($username, $debug);
+        return ($r->codeRequest('sms')); // could be 'voice' too
+    }
+
+    public static function whatRegFinal($code){
+        return $r->codeRegister($code);
+    }
+
+    
+
     public static function activeRoute($route)
     {
 
@@ -17,6 +31,19 @@ class HelperX
         } else {
             return "";
         }
+    }
+
+    public static function getInstaLogin(){
+        $username = Config::get('wateja.u');
+        $password = Config::get('wateja.p');
+        $i = new \InstagramAPI\Instagram($username, $password, false, app_path() . "/insta");
+        return $i;
+    }
+
+    public static function getResults($q){
+        $i = self::getInstaLogin();
+        $i->login();
+        return $i->searchUsername($q);
     }
 
     public static function getMess(){

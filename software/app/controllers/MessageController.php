@@ -1,6 +1,9 @@
 <?php
 
 class MessageController  extends BaseController{
+
+
+
 	public function sms(){
 		return View::make('messages.sms');
 	}
@@ -68,6 +71,45 @@ class MessageController  extends BaseController{
 	                    'error' => false
 	                ]);
 		}
+	}
+
+	public function checkUsername(){
+		$ig = Input::get('ig');
+
+		try{
+
+			$data = HelperX::getResults($ig);
+
+			if(!empty($data)){
+
+				$status = $data["status"];
+
+				if($status == "ok"){
+					if(array_key_exists('user', $data)){
+						$users           = ($data["user"]);
+						$username        = $users["username"];
+						$profile_pic_url = $users["profile_pic_url"];
+						$full_name       = $users["full_name"];
+						$url = str_replace('\\', '', $profile_pic_url);
+						$arr = [];
+						$str = $url.'#' . $full_name . '#' . $username;
+						$arr[] = $str;
+						return $str;//Response::json($arr);
+					}else{
+						return [];
+					}
+					
+				}
+
+				
+			}
+
+
+		}catch(Exception $s){
+			return [];
+		}
+	
+
 	}
 
 	public function sendAndstore(){

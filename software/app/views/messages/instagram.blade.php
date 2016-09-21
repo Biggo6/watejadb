@@ -26,7 +26,7 @@
                         <div class="form-group">
                             <label for="">Receivers</label>
                             <br/>
-                            <select id="tokenize" name="instaRecs" multiple="multiple" class="tokenize-sample validate[required]" data-errormessage-value-missing="Customers is required!" data-prompt-position="bottomRight">
+                            <select id="tokenize" name="instaRecs" multiple="multiple" class="tokenize-sample" >
                             	<?php $customers = Customer::where('added_by', Auth::user()->id)->where('instagram', '!=', '')->get(); ?>
                             	@foreach($customers as $c)
 							    <option value="{{$c->id}}">{{$c->firstname}} {{$c->lastname}} @{{{$c->instagram}}}</option>

@@ -6,6 +6,14 @@
 
 $(function(){
 
+
+    $('#instagram').on('blur', function(){
+        // var ig_id = $(this).val();
+        // $.post('{{route("instagram.checkUsername")}}', {ig:ig_id}, function(res){
+        //     alert(res)
+        // });
+    });
+
     var c = 0;
 	$('#checx').click(function(){
         var chk = $(this).find('.ios-switch .ios-switch-default .ios-switch-sm').is(':checked');
@@ -13,8 +21,10 @@ $(function(){
             c = c + 1;
         }
         if(c == 1){
+            $('.register').prop('disabled', true);
             $('#socialaccounts').fadeIn();   
         }else{
+            $('.register').prop('disabled', false);
             $('#socialaccounts').fadeOut(); 
             c = 0;
         }
